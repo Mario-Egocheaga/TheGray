@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     private CapsuleCollider playerCollider;
     private bool isCrouching;
+    private bool dashUnlocked;
     private Rigidbody playerRB;
 
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
         playerRB = this.GetComponent<Rigidbody>();
         moveSpeed = 5f;
         jumpForce = 50f;
+        dashUnlocked = false;
     }
 
     // Update is called once per frame
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && dashUnlocked)
         {
             playerRB.AddForce(transform.forward * 100f, ForceMode.Impulse);
         }
@@ -62,5 +64,13 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         playerRB.MovePosition(transform.position + m_Input * Time.deltaTime * moveSpeed);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("DashUnlock"))
+        {
+            dashUnlocked = true;
+        }
     }
 }
