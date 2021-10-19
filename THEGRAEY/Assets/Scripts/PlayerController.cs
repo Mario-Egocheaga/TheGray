@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject playerCam;
     public float moveSpeed;
     public float jumpForce;
+    public float mouseSensitivity;
     private CapsuleCollider playerCollider;
     private bool isCrouching;
     private bool dashUnlocked;
@@ -18,9 +19,10 @@ public class PlayerController : MonoBehaviour
         playerCollider = this.GetComponent<CapsuleCollider>();
         isCrouching = false;
         playerRB = this.GetComponent<Rigidbody>();
-        moveSpeed = 5f;
+        moveSpeed = .1f;
         jumpForce = 50f;
         dashUnlocked = false;
+        mouseSensitivity = 5f;
     }
 
     // Update is called once per frame
@@ -43,11 +45,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = 10f;
+            moveSpeed = .2f;
         }
         else
         {
-            moveSpeed = 5f;
+            moveSpeed = .1f;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -59,11 +61,13 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(transform.forward * 100f, ForceMode.Impulse);
         }
+
+        playerRB.MoveRotation(playerRB.rotation * Quaternion.Euler(new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0)));
+        playerRB.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") * moveSpeed) + (transform.right * Input.GetAxis("Horizontal") * moveSpeed));
     }
     private void FixedUpdate()
     {
-        Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        playerRB.MovePosition(transform.position + m_Input * Time.deltaTime * moveSpeed);
+        Debug.Log(moveSpeed);
     }
 
     private void OnCollisionEnter(Collision collision)
