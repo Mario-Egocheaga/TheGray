@@ -62,8 +62,23 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        playerRB.MovePosition(transform.position + m_Input * Time.deltaTime * moveSpeed);
+        //Vector3 m_Input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        if(Input.GetKey(KeyCode.W))
+        {
+            playerRB.MovePosition(transform.forward * Time.deltaTime * moveSpeed);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            playerRB.MovePosition(transform.forward * Time.deltaTime * -moveSpeed);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            playerRB.MovePosition(transform.right * Time.deltaTime * -moveSpeed);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            playerRB.MovePosition(transform.right * Time.deltaTime * moveSpeed);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
