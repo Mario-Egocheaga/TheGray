@@ -1560,3 +1560,44 @@ Received Import Request.
 Start importing Assets/BrokenVector/LowPolyRockPack/Prefabs/Rock Type5 02.prefab using Guid(f584b275cfb132f48a2ec91fd9d1b576) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eeca8b55573ee01eb0f1ebf1434b795f') in 0.026195 seconds 
   Import took 0.031853 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 1236.557818 seconds.
+  path: Assets/Tristan's Building Blocks/Platform.prefab
+  artifactKey: Guid(d1d9fe4ae6093c34b93ed30680728071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tristan's Building Blocks/Platform.prefab using Guid(d1d9fe4ae6093c34b93ed30680728071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cc9de61dcd7f1fa7676a08eee2859f4') in 0.045545 seconds 
+  Import took 0.052331 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1570.418671 seconds.
+  path: Assets/Low Poly Space Rocks/Components
+  artifactKey: Guid(807de6ba4a002934286563c7b61db26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Low Poly Space Rocks/Components using Guid(807de6ba4a002934286563c7b61db26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f0cdbabd8fb81cfac072fb5525fd794') in 0.010890 seconds 
+  Import took 0.015873 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 916.564549 seconds.
+  path: Assets/Tristan's Building Blocks/Tall Cliff.prefab
+  artifactKey: Guid(a16833e980daff148bcbecb453b7bcc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tristan's Building Blocks/Tall Cliff.prefab using Guid(a16833e980daff148bcbecb453b7bcc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b8830ec45fdecfa1cf9a8e1930d3a2a') in 0.025745 seconds 
+  Import took 0.030592 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1139.612017 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(1ce0ce8430a0347fc8625d7621e9d1f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(1ce0ce8430a0347fc8625d7621e9d1f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2eda14529ce183dce126fc54e2e37a3') in 0.011427 seconds 
+  Import took 0.016328 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 797.309946 seconds.
+  path: Assets/Tristan's Building Blocks/Platform.prefab
+  artifactKey: Guid(d1d9fe4ae6093c34b93ed30680728071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tristan's Building Blocks/Platform.prefab using Guid(d1d9fe4ae6093c34b93ed30680728071) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99b5fa48c68b8bf5a58ba426b4febf8d') in 0.020156 seconds 
+  Import took 0.028540 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
