@@ -20896,7 +20896,7 @@ PrefabInstance:
     - target: {fileID: 4582645082741955113, guid: fa5f22a79f93e0a42891b843c16f19f5,
         type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Becky
       objectReference: {fileID: 0}
     - target: {fileID: 4582645082741955117, guid: fa5f22a79f93e0a42891b843c16f19f5,
         type: 3}
@@ -26404,7 +26404,7 @@ PrefabInstance:
     - target: {fileID: 4582645082741955113, guid: fa5f22a79f93e0a42891b843c16f19f5,
         type: 3}
       propertyPath: m_Name
-      value: Enemy (1)
+      value: Tyler
       objectReference: {fileID: 0}
     - target: {fileID: 4582645082741955117, guid: fa5f22a79f93e0a42891b843c16f19f5,
         type: 3}
@@ -61985,7 +61985,7 @@ PrefabInstance:
     - target: {fileID: 4582645082741955113, guid: fa5f22a79f93e0a42891b843c16f19f5,
         type: 3}
       propertyPath: m_Name
-      value: Enemy (2)
+      value: Tiff
       objectReference: {fileID: 0}
     - target: {fileID: 4582645082741955117, guid: fa5f22a79f93e0a42891b843c16f19f5,
         type: 3}
