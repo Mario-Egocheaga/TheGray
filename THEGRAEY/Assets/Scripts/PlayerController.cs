@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         playerCollider = this.GetComponent<CapsuleCollider>();
         playerRB = this.GetComponent<Rigidbody>();
-        moveSpeed = .1f;
+        moveSpeed = 10f;
         jumpForce = 50f;
         mouseSensitivity = 5f;
         isCrouching = false;
@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
         //Crouch Toggle
         if (Input.GetKeyDown(KeyCode.LeftControl) && !isCrouching)
         {
+            moveSpeed = 20f;
+            jumpForce = 25f;
             playerCam.transform.localPosition = new Vector3(0, 0, 0);
             playerCollider.height = 1;
             playerCollider.center = new Vector3(0, -.5f, 0);
@@ -45,6 +47,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.LeftControl) && isCrouching)
         {
+            moveSpeed = 10f;
+            jumpForce = 50f;
             playerCam.transform.localPosition = new Vector3(0, .5f, 0);
             playerCollider.height = 2;
             playerCollider.center = new Vector3(0, 0, 0);
@@ -52,13 +56,13 @@ public class PlayerController : MonoBehaviour
         }
 
         //Sprint Hold
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && !isCrouching)
         {
-            moveSpeed = .2f;
+            moveSpeed = 5f;
         }
-        else
+        else if(!isCrouching)
         {
-            moveSpeed = .1f;
+            moveSpeed = 10f;
         }
 
         //Jump
@@ -74,11 +78,11 @@ public class PlayerController : MonoBehaviour
             playerRB.AddForce(transform.forward * 100f, ForceMode.Impulse);
         }
 
-        //Player walk and camera rotation
+        //Camera rotation
         playerCam.transform.rotation = playerCam.transform.rotation * Quaternion.Euler(new Vector3(Input.GetAxis("Mouse Y") * -mouseSensitivity, 0, 0));
         playerRB.MoveRotation(playerRB.rotation * Quaternion.Euler(new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0)));
-        playerRB.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") * moveSpeed) + (transform.right * Input.GetAxis("Horizontal") * moveSpeed));
-
+        //Player walk
+        playerRB.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") / moveSpeed) + (transform.right * Input.GetAxis("Horizontal") / moveSpeed));
         Cursor.lockState = CursorLockMode.Locked; //Hide cursor
     }
     private void FixedUpdate()
