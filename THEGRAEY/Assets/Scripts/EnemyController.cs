@@ -67,7 +67,6 @@ public class EnemyController : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("SampleScene");
-            Debug.Log("Bruh");
         }
     }
 }
