@@ -9,6 +9,11 @@ public class EnemyController : MonoBehaviour
     private bool playerSpotted;
     private float moveSpeed;
     private int patrolTimer;
+    public int patrolZoneXLow;
+    public int patrolZoneXHigh;
+    public int patrolZoneZLow;
+    public int patrolZoneZHigh;
+    public int patrolHeight;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +39,7 @@ public class EnemyController : MonoBehaviour
         {
             if(patrolTimer < 0)
             { 
-                transform.LookAt(new Vector3(Random.Range(-40, 41), 10, Random.Range(-40, 41))); //Patrol a 40x40 area
+                transform.LookAt(new Vector3(Random.Range(patrolZoneXLow,patrolZoneXHigh), 10, Random.Range(patrolZoneZLow, patrolZoneZHigh))); //Patrol a 40x40 area
                 patrolTimer = 500;
             }
             else
