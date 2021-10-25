@@ -8,41 +8,42 @@ public class AudioMAnager : MonoBehaviour
     public AudioClip Welcome;
     public AudioClip Crouch;
     public AudioClip Sprint;
-    public AudioClip SPickUp;
+    public AudioClip DashPickUp;
 
     public AudioSource Player;
-    
-    
+
+    private int crouchClipsPlayed;
+    private int sprintClipsPlayed;
+    private int dashClipsPlayed;
 
     void Start()
     {
         Player.clip = Welcome;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-     
+        Player.Play();
+        crouchClipsPlayed = 0;
+        sprintClipsPlayed = 0;
+        dashClipsPlayed = 0;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Player.Play();
-
-        if(other.gameObject.name == "Pipe")
+        if (other.gameObject.name == "CrouchIntro" && crouchClipsPlayed == 0)
         {
             Player.clip = Crouch;
-
+            Player.Play();
+            crouchClipsPlayed++;
         }
-        if (other.gameObject.name == "Enemy")
+        if (other.gameObject.name == "EnemyIntro" && sprintClipsPlayed == 0)
         {
             Player.clip = Sprint;
-
+            Player.Play();
+            sprintClipsPlayed++;
         }
-        if (other.gameObject.name == "Cube (3)")
+        if (other.gameObject.name == "DashIntro" && dashClipsPlayed == 0)
         {
-            Player.clip = SPickUp;
-
+            Player.clip = DashPickUp;
+            Player.Play();
+            dashClipsPlayed++;
         }
     }
 }

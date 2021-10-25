@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         playerCollider = this.GetComponent<CapsuleCollider>();
         playerRB = this.GetComponent<Rigidbody>();
         moveSpeed = 10f;
-        jumpForce = 50f;
+        jumpForce = 80f;
         mouseSensitivity = 5f;
         isCrouching = false;
         dashUnlocked = false;
@@ -36,19 +36,19 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Crouch Toggle
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !isCrouching)
+        if (Input.GetKeyDown(KeyCode.C) && !isCrouching)
         {
             moveSpeed = 20f;
-            jumpForce = 25f;
+            jumpForce = 40f;
             playerCam.transform.localPosition = new Vector3(0, 0, 0);
             playerCollider.height = 1;
             playerCollider.center = new Vector3(0, -.5f, 0);
             isCrouching = true;
         }
-        else if (Input.GetKeyDown(KeyCode.LeftControl) && isCrouching)
+        else if (Input.GetKeyDown(KeyCode.C) && isCrouching)
         {
             moveSpeed = 10f;
-            jumpForce = 50f;
+            jumpForce = 80f;
             playerCam.transform.localPosition = new Vector3(0, .5f, 0);
             playerCollider.height = 2;
             playerCollider.center = new Vector3(0, 0, 0);

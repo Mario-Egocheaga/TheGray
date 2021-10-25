@@ -5,15 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
-    private GameObject player;
     private bool playerSpotted;
     private float moveSpeed;
     private int patrolTimer;
+    private GameObject player;
+    private Rigidbody enemyRB;
+    //private Vector3 newVec;
     public int patrolZoneXLow;
     public int patrolZoneXHigh;
     public int patrolZoneZLow;
     public int patrolZoneZHigh;
     public int patrolHeight;
+    public AudioClip detectedClip;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,8 @@ public class EnemyController : MonoBehaviour
         patrolTimer = 500;
         player = GameObject.FindGameObjectWithTag("Player");
         playerSpotted = false;
+        enemyRB = this.gameObject.GetComponent<Rigidbody>();
+        //newVec = new Vector3(Random.Range(patrolZoneXLow, patrolZoneXHigh), 10, Random.Range(patrolZoneZLow, patrolZoneZHigh));
     }
 
     // Update is called once per frame
@@ -29,7 +34,7 @@ public class EnemyController : MonoBehaviour
     {
         if(playerSpotted)
         {
-            moveSpeed = 7.5f;
+            moveSpeed = 6f;
             //Rotate to look at player
             transform.LookAt(player.transform.position);
             //Move towards player
@@ -38,14 +43,16 @@ public class EnemyController : MonoBehaviour
         else
         {
             if(patrolTimer < 0)
-            { 
+            {
+                //newVec = new Vector3(Random.Range(patrolZoneXLow, patrolZoneXHigh), 10, Random.Range(patrolZoneZLow, patrolZoneZHigh));
                 transform.LookAt(new Vector3(Random.Range(patrolZoneXLow,patrolZoneXHigh), 10, Random.Range(patrolZoneZLow, patrolZoneZHigh))); //Patrol a 40x40 area
                 patrolTimer = 500;
             }
             else
             {
                 moveSpeed = 2f;
-                transform.position += transform.forward * moveSpeed * Time.deltaTime; //Move to position
+                //enemyRB.MovePosition(newVec * Time.deltaTime * moveSpeed);
+                transform.position += transform.forward * moveSpeed * Time.deltaTime; //Move forward towards position
                 patrolTimer--;
             }
         }
@@ -56,6 +63,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerSpotted = true;
+            AudioSource.PlayClipAtPoint(detectedClip,this.transform.position);
         }
     }
 
@@ -71,7 +79,7 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Tristans Scene");
         }
     }
 }
