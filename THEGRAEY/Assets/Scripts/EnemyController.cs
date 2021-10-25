@@ -5,15 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
-    private GameObject player;
     private bool playerSpotted;
     private float moveSpeed;
     private int patrolTimer;
+    private GameObject player;
     public int patrolZoneXLow;
     public int patrolZoneXHigh;
     public int patrolZoneZLow;
     public int patrolZoneZHigh;
     public int patrolHeight;
+    public AudioClip detectedClip;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class EnemyController : MonoBehaviour
     {
         if(playerSpotted)
         {
-            moveSpeed = 7.5f;
+            moveSpeed = 6f;
             //Rotate to look at player
             transform.LookAt(player.transform.position);
             //Move towards player
@@ -56,6 +57,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerSpotted = true;
+            AudioSource.PlayClipAtPoint(detectedClip,this.transform.position);
         }
     }
 
