@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2668636156724658656}
   - component: {fileID: 2668636156724658658}
   - component: {fileID: 2668636156724658659}
+  - component: {fileID: 2774840330830438931}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -258,6 +259,23 @@ MonoBehaviour:
   Welcome: {fileID: 8300000, guid: e8838825c65159640be76ba31e67c117, type: 3}
   Crouch: {fileID: 8300000, guid: b08513685a3097749b5076445053b9ba, type: 3}
   Sprint: {fileID: 8300000, guid: 30fd1e4ce20c4b54a8a882ac236ba188, type: 3}
+  DashPickUp: {fileID: 8300000, guid: fd9c06f94bcf42d4d8d14957e3d76719, type: 3}
+  Player: {fileID: 2668636156724658658}
+--- !u!114 &2774840330830438931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2668636156724658669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958ca932f4cf73647a8474eea4f70f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Welcome: {fileID: 8300000, guid: e8838825c65159640be76ba31e67c117, type: 3}
+  Crouch: {fileID: 8300000, guid: b08513685a3097749b5076445053b9ba, type: 3}
+  Sprint: {fileID: 8300000, guid: 0e007fecc2727f8419f8fe7ab9570bd1, type: 3}
   DashPickUp: {fileID: 8300000, guid: fd9c06f94bcf42d4d8d14957e3d76719, type: 3}
   Player: {fileID: 2668636156724658658}
 --- !u!1 &2668636157465087695

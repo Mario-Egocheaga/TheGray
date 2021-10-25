@@ -26283,7 +26283,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21340
+  m_Name: pb_Mesh22784
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41455,12 +41455,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325371874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1334552656
 GameObject:
@@ -68953,7 +68953,7 @@ PrefabInstance:
     - target: {fileID: 2668636156724658650, guid: daa0770e12b8a394fa88a02224a46e12,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2668636156724658650, guid: daa0770e12b8a394fa88a02224a46e12,
         type: 3}
@@ -69010,5 +69010,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2668636156724658659, guid: daa0770e12b8a394fa88a02224a46e12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: daa0770e12b8a394fa88a02224a46e12, type: 3}
