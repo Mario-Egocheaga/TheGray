@@ -11,12 +11,18 @@ public class PlayerController : MonoBehaviour
     public GameObject playerCam;
     //private variables
     private int jumpsLeft;
+    private int jumpDashesLeft;
     private int jumpMax;
     private bool isCrouching;
-    private bool dashUnlocked;
     private bool isGrounded;
     private Rigidbody playerRB;
     private CapsuleCollider playerCollider;
+    //Unlock Bools
+    private bool dashUnlocked;
+    private bool doubleJumpUnlocked;
+    private bool jumpDashUnlocked;
+    //Cooldowns
+    private float dashCooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +34,12 @@ public class PlayerController : MonoBehaviour
         mouseSensitivity = 5f;
         isCrouching = false;
         dashUnlocked = false;
+        doubleJumpUnlocked = false;
+        jumpDashUnlocked = false;
         jumpsLeft = 1;
+        jumpDashesLeft = 2;
         jumpMax = 1;
+        dashCooldown = 0f;
     }
 
     // Update is called once per frame
@@ -70,12 +80,27 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             jumpsLeft--;
+            jumpDashesLeft--;
         }
 
+        //Double Jump
+        if(doubleJumpUnlocked)
+        {
+            jumpMax = 2;
+        }
+
+        //Jump Dash
+        if (Input.GetKeyDown(KeyCode.Q) && jumpDashUnlocked && !isGrounded && jumpDashesLeft > 0)
+        {
+            playerRB.AddForce(playerCam.transform.forward * 100f, ForceMode.Impulse);
+            jumpDashesLeft--;
+        }
+    
         //Dash
-        if (Input.GetKeyDown(KeyCode.Q) && dashUnlocked && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Q) && dashUnlocked && isGrounded && dashCooldown == 0f)
         {
             playerRB.AddForce(transform.forward * 100f, ForceMode.Impulse);
+            dashCooldown = 5f;
         }
 
         //Camera rotation
@@ -84,6 +109,17 @@ public class PlayerController : MonoBehaviour
         //Player walk
         playerRB.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") / moveSpeed) + (transform.right * Input.GetAxis("Horizontal") / moveSpeed));
         Cursor.lockState = CursorLockMode.Locked; //Hide cursor
+
+        //Cooldown Timers
+        if(dashCooldown > 0f)
+        {
+            dashCooldown -= Time.deltaTime;
+        }
+        else if((dashCooldown > 0f && dashCooldown < .5f) || dashCooldown < 0f)
+        {
+            dashCooldown = 0f;
+        }
+        Debug.Log(dashCooldown);
     }
     private void FixedUpdate()
     {
@@ -92,21 +128,41 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Dash Unlock Pickup
         if (collision.gameObject.CompareTag("DashUnlock"))
         {
             dashUnlocked = true;
+            collision.gameObject.SetActive(false);
+        }
+
+        //Double Jump Unlock Pickup
+        if (collision.gameObject.CompareTag("DoubleJumpUnlock"))
+        {
+            doubleJumpUnlocked = true;
+            collision.gameObject.SetActive(false);
+        }
+
+        //Jump Dash Unlock Pickup
+        if (collision.gameObject.CompareTag("JumpDashUnlock"))
+        {
+            jumpDashUnlocked = true;
             collision.gameObject.SetActive(false);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        isGrounded = true;
         jumpsLeft = jumpMax;
+        jumpDashesLeft = 2;
     }
 
     private void OnTriggerExit(Collider other)
     {
         isGrounded = false;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        isGrounded = true;
     }
 }

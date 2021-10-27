@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - DashUnlock
+  - DoubleJumpUnlock
+  - JumpDashUnlock
   layers:
   - Default
   - TransparentFX
