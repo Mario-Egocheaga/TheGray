@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private int jumpMax;
     private bool isCrouching;
     private bool isGrounded;
+    private bool isTouchingWall;
     private Rigidbody playerRB;
     private CapsuleCollider playerCollider;
     //Unlock Bools
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private bool jumpDashUnlocked;
     //Cooldowns
     private float dashCooldown;
+    //References to other Scripts and Game Objects
+    public WallRunner wallRunner;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class PlayerController : MonoBehaviour
         jumpForce = 80f;
         mouseSensitivity = 5f;
         isCrouching = false;
+        isTouchingWall = false;
         dashUnlocked = false;
         doubleJumpUnlocked = false;
         jumpDashUnlocked = false;
@@ -119,7 +123,19 @@ public class PlayerController : MonoBehaviour
         {
             dashCooldown = 0f;
         }
-        Debug.Log(dashCooldown);
+
+        //Wall Run
+        isTouchingWall = wallRunner.getWallStatus();
+        if(isTouchingWall && Input.GetKeyDown(KeyCode.E))
+        {
+            playerRB.constraints = RigidbodyConstraints.FreezePositionY;
+        }
+        else if(!isTouchingWall)
+        {
+            playerRB.constraints = RigidbodyConstraints.None;
+            playerRB.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+        Debug.Log(isTouchingWall);
     }
     private void FixedUpdate()
     {

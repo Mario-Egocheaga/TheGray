@@ -7,6 +7,7 @@ TagManager:
   - DashUnlock
   - DoubleJumpUnlock
   - JumpDashUnlock
+  - WallRunable
   layers:
   - Default
   - TransparentFX
