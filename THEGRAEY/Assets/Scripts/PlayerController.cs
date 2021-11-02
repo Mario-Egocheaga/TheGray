@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.constraints = RigidbodyConstraints.FreezePositionY;
             playerRB.constraints = RigidbodyConstraints.FreezeRotation;
+            jumpsLeft = 1;
         }
         else if(!isTouchingWall)
         {
@@ -168,17 +169,38 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        jumpsLeft = jumpMax;
-        jumpDashesLeft = 2;
+        if (other.gameObject.CompareTag("WallRunable"))
+        {
+
+        }
+        else
+        {
+            jumpsLeft = jumpMax;
+            jumpDashesLeft = 2;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        isGrounded = false;
+        if (other.gameObject.CompareTag("WallRunable"))
+        {
+
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        isGrounded = true;
+        if (other.gameObject.CompareTag("WallRunable"))
+        {
+
+        }
+        else
+        {
+            isGrounded = true;
+        }
     }
 }
