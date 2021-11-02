@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class EnemyController : MonoBehaviour
 {
     private bool playerSpotted;
-    private float moveSpeed;
     private int patrolTimer;
     private GameObject player;
     private Rigidbody enemyRB;
     //private Vector3 newVec;
+    public float moveSpeed;
     public int patrolZoneXLow;
     public int patrolZoneXHigh;
     public int patrolZoneZLow;

@@ -126,16 +126,16 @@ public class PlayerController : MonoBehaviour
 
         //Wall Run
         isTouchingWall = wallRunner.getWallStatus();
-        if(isTouchingWall && Input.GetKeyDown(KeyCode.E))
+        if(isTouchingWall && Input.GetKey(KeyCode.E))
         {
             playerRB.constraints = RigidbodyConstraints.FreezePositionY;
+            playerRB.constraints = RigidbodyConstraints.FreezeRotation;
         }
         else if(!isTouchingWall)
         {
             playerRB.constraints = RigidbodyConstraints.None;
             playerRB.constraints = RigidbodyConstraints.FreezeRotation;
         }
-        Debug.Log(isTouchingWall);
     }
     private void FixedUpdate()
     {
