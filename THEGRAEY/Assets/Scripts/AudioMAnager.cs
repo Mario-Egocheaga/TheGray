@@ -59,25 +59,25 @@ public class AudioMAnager : MonoBehaviour
         }
         if (other.gameObject.name == "DoubleJumpIntro" && doubleJumpClipsPlayed == 0)
         {
-            Player.clip = DashIntro;
+            Player.clip = DoubleJumpIntro;
             Player.Play();
             dashClipsPlayed++;
         }
         if (other.gameObject.name == "WallRunIntro" && wallRunClipsPlayed == 0)
         {
-            Player.clip = DashIntro;
+            Player.clip = WallRunIntro;
             Player.Play();
             dashClipsPlayed++;
         }
         if (other.gameObject.name == "JumpDashIntro" && jumpDashClipsPlayed == 0)
         {
-            Player.clip = DashIntro;
+            Player.clip = JumpDashIntro;
             Player.Play();
             dashClipsPlayed++;
         }
         if (other.gameObject.name == "ExtendedDashIntro" && extendedDashClipsPlayed == 0)
         {
-            Player.clip = DashIntro;
+            Player.clip = ExtendedDashIntro;
             Player.Play();
             dashClipsPlayed++;
         }
