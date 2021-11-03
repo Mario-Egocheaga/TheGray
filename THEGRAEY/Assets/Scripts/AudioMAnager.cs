@@ -6,15 +6,23 @@ public class AudioMAnager : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioClip Welcome;
-    public AudioClip Crouch;
-    public AudioClip Sprint;
-    public AudioClip DashPickUp;
+    public AudioClip CrouchIntro;
+    public AudioClip SprintIntro;
+    public AudioClip DashIntro;
+    public AudioClip DoubleJumpIntro;
+    public AudioClip WallRunIntro;
+    public AudioClip JumpDashIntro;
+    public AudioClip ExtendedDashIntro;
 
     public AudioSource Player;
 
     private int crouchClipsPlayed;
     private int sprintClipsPlayed;
     private int dashClipsPlayed;
+    private int doubleJumpClipsPlayed;
+    private int wallRunClipsPlayed;
+    private int jumpDashClipsPlayed;
+    private int extendedDashClipsPlayed;
 
     void Start()
     {
@@ -23,25 +31,53 @@ public class AudioMAnager : MonoBehaviour
         crouchClipsPlayed = 0;
         sprintClipsPlayed = 0;
         dashClipsPlayed = 0;
+        doubleJumpClipsPlayed = 0;
+        wallRunClipsPlayed = 0;
+        jumpDashClipsPlayed = 0;
+        extendedDashClipsPlayed = 0;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "CrouchIntro" && crouchClipsPlayed == 0)
         {
-            Player.clip = Crouch;
+            Player.clip = CrouchIntro;
             Player.Play();
             crouchClipsPlayed++;
         }
         if (other.gameObject.name == "EnemyIntro" && sprintClipsPlayed == 0)
         {
-            Player.clip = Sprint;
+            Player.clip = SprintIntro;
             Player.Play();
             sprintClipsPlayed++;
         }
         if (other.gameObject.name == "DashIntro" && dashClipsPlayed == 0)
         {
-            Player.clip = DashPickUp;
+            Player.clip = DashIntro;
+            Player.Play();
+            dashClipsPlayed++;
+        }
+        if (other.gameObject.name == "DoubleJumpIntro" && doubleJumpClipsPlayed == 0)
+        {
+            Player.clip = DashIntro;
+            Player.Play();
+            dashClipsPlayed++;
+        }
+        if (other.gameObject.name == "WallRunIntro" && wallRunClipsPlayed == 0)
+        {
+            Player.clip = DashIntro;
+            Player.Play();
+            dashClipsPlayed++;
+        }
+        if (other.gameObject.name == "JumpDashIntro" && jumpDashClipsPlayed == 0)
+        {
+            Player.clip = DashIntro;
+            Player.Play();
+            dashClipsPlayed++;
+        }
+        if (other.gameObject.name == "ExtendedDashIntro" && extendedDashClipsPlayed == 0)
+        {
+            Player.clip = DashIntro;
             Player.Play();
             dashClipsPlayed++;
         }

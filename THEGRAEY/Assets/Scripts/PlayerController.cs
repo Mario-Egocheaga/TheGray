@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class PlayerController : MonoBehaviour
     //Cooldowns
     private float dashCooldown;
     private float jumpDashCooldown;
+    //UI Shit
+    public Text dashText;
+    public Text jumpDashText;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +54,8 @@ public class PlayerController : MonoBehaviour
         dashCooldown = 0f;
         jumpDashCooldown = 0f;
         dashForce = 75f;
+        dashText.text = "Dash: Unavailable";
+        jumpDashText.text = "Jump Dash: Unavailable";
     }
 
     // Update is called once per frame
@@ -116,6 +122,7 @@ public class PlayerController : MonoBehaviour
             playerRB.AddForce(playerCam.transform.forward * 75f, ForceMode.Impulse);
             //jumpDashesLeft--;
             jumpDashCooldown = 5f;
+            jumpDashText.text = "Jump Dash: Cooling Down";
         }
 
         //Dash Force
@@ -133,6 +140,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(transform.forward * dashForce, ForceMode.Impulse);
             dashCooldown = 5f;
+            dashText.text = "Dash: Cooling Down";
         }
 
         //Camera rotation
@@ -151,6 +159,7 @@ public class PlayerController : MonoBehaviour
         else if((dashCooldown > 0f && dashCooldown < .5f) || dashCooldown < 0f)
         {
             dashCooldown = 0f;
+            dashText.text = "Dash: Ready";
         }
 
         //JumpDashCooldown
@@ -161,6 +170,7 @@ public class PlayerController : MonoBehaviour
         else if ((jumpDashCooldown > 0f && jumpDashCooldown < .5f) || jumpDashCooldown < 0f)
         {
             jumpDashCooldown = 0f;
+            jumpDashText.text = "Jump Dash: Ready";
         }
 
         //Wall Run
@@ -188,6 +198,7 @@ public class PlayerController : MonoBehaviour
         {
             dashUnlocked = true;
             collision.gameObject.SetActive(false);
+            dashText.text = "Dash: Ready";
         }
 
         //Double Jump Unlock Pickup
@@ -202,6 +213,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpDashUnlocked = true;
             collision.gameObject.SetActive(false);
+            jumpDashText.text = "Jump Dash: Ready";
         }
 
         //Wall Run Unlock Pickup
