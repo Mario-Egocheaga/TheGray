@@ -53,6 +53,7 @@ public class AudioMAnager : MonoBehaviour
         }
         if (other.gameObject.name == "DashIntro" && dashClipsPlayed == 0)
         {
+            Debug.Log("Dash noise");
             Player.clip = DashIntro;
             Player.Play();
             dashClipsPlayed++;
