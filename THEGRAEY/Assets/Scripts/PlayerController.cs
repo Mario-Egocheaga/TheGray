@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
     public GameObject playerCam;
     //private variables
     private int jumpsLeft;
-    private int jumpDashesLeft;
+    //private int jumpDashesLeft;
     private int jumpMax;
+    private float dashForce;
     private bool isCrouching;
     private bool isGrounded;
     private bool isTouchingWall;
@@ -20,12 +21,13 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider playerCollider;
     //Unlock Bools
     private bool dashUnlocked;
+    private bool extendedDashUnlocked;
     private bool doubleJumpUnlocked;
     private bool jumpDashUnlocked;
+    private bool wallRunUnlocked;
     //Cooldowns
     private float dashCooldown;
-    //References to other Scripts and Game Objects
-    public WallRunner wallRunner;
+    private float jumpDashCooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -33,17 +35,21 @@ public class PlayerController : MonoBehaviour
         playerCollider = this.GetComponent<CapsuleCollider>();
         playerRB = this.GetComponent<Rigidbody>();
         moveSpeed = 10f;
-        jumpForce = 80f;
+        jumpForce = 70f;
         mouseSensitivity = 5f;
         isCrouching = false;
         isTouchingWall = false;
         dashUnlocked = false;
+        extendedDashUnlocked = false;
         doubleJumpUnlocked = false;
         jumpDashUnlocked = false;
+        wallRunUnlocked = false;
         jumpsLeft = 1;
-        jumpDashesLeft = 2;
+        //jumpDashesLeft = 2;
         jumpMax = 1;
         dashCooldown = 0f;
+        jumpDashCooldown = 0f;
+        dashForce = 75f;
     }
 
     // Update is called once per frame
@@ -53,7 +59,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C) && !isCrouching)
         {
             moveSpeed = 20f;
-            jumpForce = 40f;
+            jumpForce = 25f;
             playerCam.transform.localPosition = new Vector3(0, 0, 0);
             playerCollider.height = 1;
             playerCollider.center = new Vector3(0, -.5f, 0);
@@ -62,7 +68,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.C) && isCrouching)
         {
             moveSpeed = 10f;
-            jumpForce = 80f;
+            jumpForce = 60f;
             playerCam.transform.localPosition = new Vector3(0, .5f, 0);
             playerCollider.height = 2;
             playerCollider.center = new Vector3(0, 0, 0);
@@ -79,12 +85,23 @@ public class PlayerController : MonoBehaviour
             moveSpeed = 10f;
         }
 
+        //JumpForce Controller
+        if(jumpsLeft == jumpMax && !isCrouching)
+        {
+            jumpForce = 60f;
+        }
+        else if(jumpsLeft == 1 && !isCrouching)
+        {
+            jumpForce = 40f;
+        }
+        Debug.Log(jumpForce);
+
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0)
         {
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             jumpsLeft--;
-            jumpDashesLeft--;
+            //jumpDashesLeft--;
         }
 
         //Double Jump
@@ -94,16 +111,27 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jump Dash
-        if (Input.GetKeyDown(KeyCode.Q) && jumpDashUnlocked && !isGrounded && jumpDashesLeft > 0)
+        if (Input.GetKeyDown(KeyCode.Q) && jumpDashUnlocked && !isGrounded /*&& jumpDashesLeft > 0 */&& jumpDashCooldown == 0f)
         {
-            playerRB.AddForce(playerCam.transform.forward * 100f, ForceMode.Impulse);
-            jumpDashesLeft--;
+            playerRB.AddForce(playerCam.transform.forward * 75f, ForceMode.Impulse);
+            //jumpDashesLeft--;
+            jumpDashCooldown = 5f;
         }
-    
+
+        //Dash Force
+        if (extendedDashUnlocked)
+        {
+            dashForce = 125f;
+        }
+        else
+        {
+            dashForce = 75f;
+        }
+
         //Dash
         if (Input.GetKeyDown(KeyCode.Q) && dashUnlocked && isGrounded && dashCooldown == 0f)
         {
-            playerRB.AddForce(transform.forward * 100f, ForceMode.Impulse);
+            playerRB.AddForce(transform.forward * dashForce, ForceMode.Impulse);
             dashCooldown = 5f;
         }
 
@@ -115,6 +143,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; //Hide cursor
 
         //Cooldown Timers
+        //Dash Cooldown
         if(dashCooldown > 0f)
         {
             dashCooldown -= Time.deltaTime;
@@ -124,9 +153,18 @@ public class PlayerController : MonoBehaviour
             dashCooldown = 0f;
         }
 
+        //JumpDashCooldown
+        if (jumpDashCooldown > 0f)
+        {
+            jumpDashCooldown -= Time.deltaTime;
+        }
+        else if ((jumpDashCooldown > 0f && jumpDashCooldown < .5f) || jumpDashCooldown < 0f)
+        {
+            jumpDashCooldown = 0f;
+        }
+
         //Wall Run
-        isTouchingWall = wallRunner.getWallStatus();
-        if(isTouchingWall && Input.GetKey(KeyCode.E))
+        if (isTouchingWall && Input.GetKey(KeyCode.E) && wallRunUnlocked)
         {
             playerRB.constraints = RigidbodyConstraints.FreezePositionY;
             playerRB.constraints = RigidbodyConstraints.FreezeRotation;
@@ -165,42 +203,51 @@ public class PlayerController : MonoBehaviour
             jumpDashUnlocked = true;
             collision.gameObject.SetActive(false);
         }
+
+        //Wall Run Unlock Pickup
+        if (collision.gameObject.CompareTag("WallRunUnlock"))
+        {
+            wallRunUnlocked = true;
+            collision.gameObject.SetActive(false);
+        }
+
+        //Extended Dash Unlock Pickup
+        if (collision.gameObject.CompareTag("ExtendedDashUnlock"))
+        {
+            extendedDashUnlocked = true;
+            collision.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("WallRunable"))
+        {
+            isTouchingWall = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("WallRunable"))
+        {
+            isTouchingWall = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("WallRunable"))
-        {
-
-        }
-        else
-        {
-            jumpsLeft = jumpMax;
-            jumpDashesLeft = 2;
-        }
+        jumpsLeft = jumpMax;
+        //jumpDashesLeft = 2;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("WallRunable"))
-        {
-
-        }
-        else
-        {
-            isGrounded = false;
-        }
+        isGrounded = false;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("WallRunable"))
-        {
-
-        }
-        else
-        {
-            isGrounded = true;
-        }
+        isGrounded = true;
     }
 }
