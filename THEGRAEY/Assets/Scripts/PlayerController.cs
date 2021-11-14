@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public GameObject playerCam;
     //private variables
     private int jumpsLeft;
-    private float xRotation;
     //private int jumpDashesLeft;
     private int jumpMax;
     private float dashForce;
@@ -42,7 +41,6 @@ public class PlayerController : MonoBehaviour
         moveSpeed = 10f;
         jumpForce = 70f;
         mouseSensitivity = 100f;
-        xRotation = 0f;
         isCrouching = false;
         isWallRunning = false;
         dashUnlocked = false;
@@ -51,7 +49,6 @@ public class PlayerController : MonoBehaviour
         jumpDashUnlocked = false;
         wallRunUnlocked = false;
         jumpsLeft = 1;
-        //jumpDashesLeft = 2;
         jumpMax = 1;
         dashCooldown = 0f;
         jumpDashCooldown = 0f;
@@ -108,7 +105,6 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             jumpsLeft--;
-            //jumpDashesLeft--;
         }
 
         //Double Jump
@@ -118,10 +114,9 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jump Dash
-        if (Input.GetKeyDown(KeyCode.Q) && jumpDashUnlocked && !isGrounded /*&& jumpDashesLeft > 0 */&& jumpDashCooldown == 0f)
+        if (Input.GetKeyDown(KeyCode.Q) && jumpDashUnlocked && !isGrounded && jumpDashCooldown == 0f)
         {
             playerRB.AddForce(playerCam.transform.forward * 75f, ForceMode.Impulse);
-            //jumpDashesLeft--;
             jumpDashCooldown = 5f;
             jumpDashText.text = "Jump Dash: Cooling Down";
         }
@@ -146,7 +141,6 @@ public class PlayerController : MonoBehaviour
 
         //Player walk
         playerRB.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") / moveSpeed) + (transform.right * Input.GetAxis("Horizontal") / moveSpeed));
-        //Cursor.lockState = CursorLockMode.Locked; //Hide cursor
 
         //Cooldown Timers
         //Dash Cooldown
@@ -171,62 +165,7 @@ public class PlayerController : MonoBehaviour
             jumpDashText.text = "Jump Dash: Ready";
         }
 
-        //Wall Run
-        /*
-        if(isWallRunning && isGrounded)
-        {
-            isWallRunning = false;
-        }
-        if(isWallRunning && playerRB.velocity.magnitude <= 30)
-        {
-            playerRB.velocity += transform.forward * 100 * Time.deltaTime + transform.up * -0.1f;
-        }
-
-        //Wall Jump
-        if(isWallRunning)
-        {
-            if (Physics.Raycast(transform.position, transform.right, 1f))
-            {
-                playerRB.velocity = new Vector3(0, jumpForce/2, 0) + transform.right * -40;
-            }
-            if (Physics.Raycast(transform.position, -transform.right, 1f))
-            {
-                playerRB.velocity = new Vector3(0, jumpForce/2, 0) + transform.right * 40;
-            }
-            if (Physics.Raycast(transform.position, transform.forward, 1f))
-            {
-                playerRB.velocity = new Vector3(0, jumpForce/2, 0) + transform.forward * -40;
-            }
-        }
-
-        if (isWallRunning)
-        {
-            playerCam.GetComponent<Camera>().fieldOfView = 96;
-            if (Physics.Raycast(transform.position, transform.right, 1f))
-            {
-                playerRB.velocity += transform.right * 0.1f;
-                if (playerCam.transform.localEulerAngles.z < 15f || playerCam.transform.localEulerAngles.z > 345f)
-                {
-                    playerCam.transform.localEulerAngles += new Vector3(0, 0, 100f * Time.deltaTime);
-                }
-            }
-            if (Physics.Raycast(transform.position, -transform.right, 1f))
-            {
-                if (playerCam.transform.localEulerAngles.z > 345f)
-                {
-                    playerCam.transform.localEulerAngles += new Vector3(0, 0, -100f * Time.deltaTime);
-                }
-                playerCam.transform.localEulerAngles += new Vector3(0, 0, -10f * Time.deltaTime);
-                playerRB.velocity += transform.right * -0.1f;
-            }
-        }
-        else
-        {
-            playerCam.GetComponent<Camera>().fieldOfView = 90;
-        }
-        */
-
-        /*if (isWallRunning && Input.GetKey(KeyCode.E) && wallRunUnlocked)
+        if (isWallRunning && Input.GetKey(KeyCode.E) && wallRunUnlocked)
         {
             playerRB.constraints = RigidbodyConstraints.FreezePositionY;
             playerRB.constraints = RigidbodyConstraints.FreezeRotation;
@@ -236,7 +175,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.constraints = RigidbodyConstraints.None;
             playerRB.constraints = RigidbodyConstraints.FreezeRotation;
-        }*/
+        }
     }
     private void FixedUpdate()
     {
@@ -281,27 +220,16 @@ public class PlayerController : MonoBehaviour
             extendedDashUnlocked = true;
             collision.gameObject.SetActive(false);
         }
-
-        //Wall Run
-        if (Mathf.Abs(Vector3.Dot(collision.GetContact(0).normal, Vector3.up)) < 0.1f && wallRunUnlocked)
-        {
-            playerRB.transform.rotation = collision.transform.rotation;
-            playerRB.velocity = new Vector3(0, 20, 0) + transform.forward * 10;
-            isWallRunning = true;
-        }
-
     }
 
     private void OnCollisionExit(Collision collision)
     {
         isWallRunning = false;
-        //StartCoroutine(WallRunCooldown());
     }
 
     private void OnTriggerEnter(Collider other)
     {
         jumpsLeft = jumpMax;
-        //jumpDashesLeft = 2;
     }
 
     private void OnTriggerExit(Collider other)
@@ -313,12 +241,4 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = true;
     }
-
-    /*
-    private IEnumerator WallRunCooldown()
-    {
-        wallRunUnlocked = false;
-        yield return new WaitForSeconds(0.3f);
-        wallRunUnlocked = true;
-    }*/
 }
