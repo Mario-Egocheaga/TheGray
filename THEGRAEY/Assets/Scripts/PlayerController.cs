@@ -283,10 +283,10 @@ public class PlayerController : MonoBehaviour
         }
 
         //Wall Run
-
         if (Mathf.Abs(Vector3.Dot(collision.GetContact(0).normal, Vector3.up)) < 0.1f && wallRunUnlocked)
         {
-            playerRB.velocity = new Vector3(0, 20, 0) + transform.forward * 50;
+            playerRB.transform.rotation = collision.transform.rotation;
+            playerRB.velocity = new Vector3(0, 20, 0) + transform.forward * 10;
             isWallRunning = true;
         }
 
