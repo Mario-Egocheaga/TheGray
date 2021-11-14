@@ -12,12 +12,13 @@ public class PlayerController : MonoBehaviour
     public GameObject playerCam;
     //private variables
     private int jumpsLeft;
+    private float xRotation;
     //private int jumpDashesLeft;
     private int jumpMax;
     private float dashForce;
     private bool isCrouching;
     private bool isGrounded;
-    private bool isTouchingWall;
+    private bool isWallRunning;
     private Rigidbody playerRB;
     private CapsuleCollider playerCollider;
     //Unlock Bools
@@ -40,9 +41,10 @@ public class PlayerController : MonoBehaviour
         playerRB = this.GetComponent<Rigidbody>();
         moveSpeed = 10f;
         jumpForce = 70f;
-        mouseSensitivity = 5f;
+        mouseSensitivity = 100f;
+        xRotation = 0f;
         isCrouching = false;
-        isTouchingWall = false;
+        isWallRunning = false;
         dashUnlocked = false;
         extendedDashUnlocked = false;
         doubleJumpUnlocked = false;
@@ -86,21 +88,20 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = 5f;
         }
-        else if(!isCrouching)
+        else if (!isCrouching)
         {
             moveSpeed = 10f;
         }
 
         //JumpForce Controller
-        if(jumpsLeft == jumpMax && !isCrouching)
+        if (jumpsLeft == jumpMax && !isCrouching)
         {
             jumpForce = 60f;
         }
-        else if(jumpsLeft == 1 && !isCrouching)
+        else if (jumpsLeft == 1 && !isCrouching)
         {
             jumpForce = 40f;
         }
-        Debug.Log(jumpForce);
 
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0)
@@ -111,7 +112,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Double Jump
-        if(doubleJumpUnlocked)
+        if (doubleJumpUnlocked)
         {
             jumpMax = 2;
         }
@@ -143,20 +144,17 @@ public class PlayerController : MonoBehaviour
             dashText.text = "Dash: Cooling Down";
         }
 
-        //Camera rotation
-        playerCam.transform.rotation = playerCam.transform.rotation * Quaternion.Euler(new Vector3(Input.GetAxis("Mouse Y") * -mouseSensitivity, 0, 0));
-        playerRB.MoveRotation(playerRB.rotation * Quaternion.Euler(new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0)));
         //Player walk
         playerRB.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") / moveSpeed) + (transform.right * Input.GetAxis("Horizontal") / moveSpeed));
-        Cursor.lockState = CursorLockMode.Locked; //Hide cursor
+        //Cursor.lockState = CursorLockMode.Locked; //Hide cursor
 
         //Cooldown Timers
         //Dash Cooldown
-        if(dashCooldown > 0f)
+        if (dashCooldown > 0f)
         {
             dashCooldown -= Time.deltaTime;
         }
-        else if((dashCooldown > 0f && dashCooldown < .5f) || dashCooldown < 0f)
+        else if ((dashCooldown > 0f && dashCooldown < .5f) || dashCooldown < 0f)
         {
             dashCooldown = 0f;
             dashText.text = "Dash: Ready";
@@ -174,17 +172,71 @@ public class PlayerController : MonoBehaviour
         }
 
         //Wall Run
-        if (isTouchingWall && Input.GetKey(KeyCode.E) && wallRunUnlocked)
+        /*
+        if(isWallRunning && isGrounded)
+        {
+            isWallRunning = false;
+        }
+        if(isWallRunning && playerRB.velocity.magnitude <= 30)
+        {
+            playerRB.velocity += transform.forward * 100 * Time.deltaTime + transform.up * -0.1f;
+        }
+
+        //Wall Jump
+        if(isWallRunning)
+        {
+            if (Physics.Raycast(transform.position, transform.right, 1f))
+            {
+                playerRB.velocity = new Vector3(0, jumpForce/2, 0) + transform.right * -40;
+            }
+            if (Physics.Raycast(transform.position, -transform.right, 1f))
+            {
+                playerRB.velocity = new Vector3(0, jumpForce/2, 0) + transform.right * 40;
+            }
+            if (Physics.Raycast(transform.position, transform.forward, 1f))
+            {
+                playerRB.velocity = new Vector3(0, jumpForce/2, 0) + transform.forward * -40;
+            }
+        }
+
+        if (isWallRunning)
+        {
+            playerCam.GetComponent<Camera>().fieldOfView = 96;
+            if (Physics.Raycast(transform.position, transform.right, 1f))
+            {
+                playerRB.velocity += transform.right * 0.1f;
+                if (playerCam.transform.localEulerAngles.z < 15f || playerCam.transform.localEulerAngles.z > 345f)
+                {
+                    playerCam.transform.localEulerAngles += new Vector3(0, 0, 100f * Time.deltaTime);
+                }
+            }
+            if (Physics.Raycast(transform.position, -transform.right, 1f))
+            {
+                if (playerCam.transform.localEulerAngles.z > 345f)
+                {
+                    playerCam.transform.localEulerAngles += new Vector3(0, 0, -100f * Time.deltaTime);
+                }
+                playerCam.transform.localEulerAngles += new Vector3(0, 0, -10f * Time.deltaTime);
+                playerRB.velocity += transform.right * -0.1f;
+            }
+        }
+        else
+        {
+            playerCam.GetComponent<Camera>().fieldOfView = 90;
+        }
+        */
+
+        /*if (isWallRunning && Input.GetKey(KeyCode.E) && wallRunUnlocked)
         {
             playerRB.constraints = RigidbodyConstraints.FreezePositionY;
             playerRB.constraints = RigidbodyConstraints.FreezeRotation;
             jumpsLeft = 1;
         }
-        else if(!isTouchingWall)
+        else if(!isWallRunning)
         {
             playerRB.constraints = RigidbodyConstraints.None;
             playerRB.constraints = RigidbodyConstraints.FreezeRotation;
-        }
+        }*/
     }
     private void FixedUpdate()
     {
@@ -229,22 +281,21 @@ public class PlayerController : MonoBehaviour
             extendedDashUnlocked = true;
             collision.gameObject.SetActive(false);
         }
-    }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("WallRunable"))
+        //Wall Run
+
+        if (Mathf.Abs(Vector3.Dot(collision.GetContact(0).normal, Vector3.up)) < 0.1f && wallRunUnlocked)
         {
-            isTouchingWall = true;
+            playerRB.velocity = new Vector3(0, 20, 0) + transform.forward * 50;
+            isWallRunning = true;
         }
+
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if(collision.gameObject.CompareTag("WallRunable"))
-        {
-            isTouchingWall = false;
-        }
+        isWallRunning = false;
+        //StartCoroutine(WallRunCooldown());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -262,4 +313,12 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = true;
     }
+
+    /*
+    private IEnumerator WallRunCooldown()
+    {
+        wallRunUnlocked = false;
+        yield return new WaitForSeconds(0.3f);
+        wallRunUnlocked = true;
+    }*/
 }
