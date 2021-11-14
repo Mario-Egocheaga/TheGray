@@ -220,3 +220,4 @@ Received Import Request.
 Start importing Assets/Tristan's Building Blocks/Enemy Models/playerCharacter.fbx using Guid(3c72109135fa7d34fac780cdee3adf47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56d023ae2a0adc4ea1720e381bb15e3a') in 0.133267 seconds 
   Import took 0.136349 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
