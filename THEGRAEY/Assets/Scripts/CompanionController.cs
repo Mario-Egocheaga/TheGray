@@ -36,7 +36,7 @@ public class CompanionController : MonoBehaviour
     private IEnumerator moveToNewSpot(Vector3 pos)
     {
         isDipping = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         isDipping = false;
         transform.position = pos;
     }
