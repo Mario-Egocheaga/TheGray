@@ -1037,3 +1037,231 @@ Received Import Request.
 Start importing Assets/Population Assets/Road.mat using Guid(04e96371a117142f889b7fa7c2915a89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eca0cbb7a3385ce655966ad956e761b8') in 0.154941 seconds 
   Import took 0.163155 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 383.112854 seconds.
+  path: Assets/Population Assets/grey-concrete-texture.jpg
+  artifactKey: Guid(a203279b483c3496ca9587017f8fb9e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Population Assets/grey-concrete-texture.jpg using Guid(a203279b483c3496ca9587017f8fb9e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17f8f909e6ffaf63013135c758e12e18') in 0.136595 seconds 
+  Import took 0.209385 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.606344 seconds.
+  path: Assets/Population Assets/StreetLamp.obj
+  artifactKey: Guid(f57e4fc1be34747f094a58b29c2d3e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Population Assets/StreetLamp.obj using Guid(f57e4fc1be34747f094a58b29c2d3e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b873af3d1557b7ffefd61324f8a2eaa') in 0.193165 seconds 
+  Import took 0.201312 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007191 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.65 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.110 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4112ms)
+		BeginReloadAssembly (449ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (14ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (1ms)
+			CreateAndSetChildDomain (295ms)
+		EndReloadAssembly (3537ms)
+			LoadAssemblies (259ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (688ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (232ms)
+			SetupLoadedEditorAssemblies (1848ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (29ms)
+				SetLoadedEditorAssemblies (4ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (633ms)
+				ProcessInitializeOnLoadAttributes (1171ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (15ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.85 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1804 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 226.6 MB.
+System memory in use after: 226.6 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2374.
+Total: 4.057968 ms (FindLiveObjects: 0.261277 ms CreateObjectMapping: 0.074679 ms MarkObjects: 3.602148 ms  DeleteObjects: 0.118546 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: b23960f63f64bdc6ff669e2cdcee2391 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2726.215858 seconds.
+  path: Assets/Residential Buildings Set 2/Unity
+  artifactKey: Guid(b679f705d405d49df8314ea8e2f74206) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set 2/Unity using Guid(b679f705d405d49df8314ea8e2f74206) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da5075ff89ad79f7f513ea56aa8ba84a') in 0.100763 seconds 
+  Import took 0.161958 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.113928 seconds.
+  path: Assets/Residential Buildings Set 2/Unity/Residential Buildings Set.unitypackage
+  artifactKey: Guid(16c7e9040553845fe82e4f73f524704d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set 2/Unity/Residential Buildings Set.unitypackage using Guid(16c7e9040553845fe82e4f73f524704d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a184afc8a8ec2bf7d45a39bf1b4ce306') in 0.113468 seconds 
+  Import took 0.125769 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.245752 seconds.
+  path: Assets/Residential Buildings Set/Residential Buildings 001.fbx
+  artifactKey: Guid(3e571dcf5f331d14681a362abbed1409) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set/Residential Buildings 001.fbx using Guid(3e571dcf5f331d14681a362abbed1409) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26c8b3db0401101540ac4c4b78e4e5e2') in 1.122272 seconds 
+  Import took 1.130438 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000600 seconds.
+  path: Assets/Residential Buildings Set/Residential Buildings 008.fbx
+  artifactKey: Guid(448ba86153bab2e4e8bb21f4e2de94d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set/Residential Buildings 008.fbx using Guid(448ba86153bab2e4e8bb21f4e2de94d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b2c16deab2f8996cac87af4244a3043') in 0.087733 seconds 
+  Import took 0.093665 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000479 seconds.
+  path: Assets/Residential Buildings Set/Residential Buildings 005.fbx
+  artifactKey: Guid(075b365bb022f6d45af80bb037eb569e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set/Residential Buildings 005.fbx using Guid(075b365bb022f6d45af80bb037eb569e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9782e94242ad30ad56475b4c8a8be495') in 0.084152 seconds 
+  Import took 0.090921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000324 seconds.
+  path: Assets/Residential Buildings Set/Residential Buildings 004.fbx
+  artifactKey: Guid(debb145ece23b324a94fdfaa24449b8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set/Residential Buildings 004.fbx using Guid(debb145ece23b324a94fdfaa24449b8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e293697433bd7ff85e5d6eb57ece4b01') in 0.061813 seconds 
+  Import took 0.069187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000354 seconds.
+  path: Assets/Residential Buildings Set/Residential Buildings 006.fbx
+  artifactKey: Guid(d025e6ccc8eab1e4aa01e2982a6c2c45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set/Residential Buildings 006.fbx using Guid(d025e6ccc8eab1e4aa01e2982a6c2c45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd99128dcc12a27d866939434d3455d0d') in 0.057705 seconds 
+  Import took 0.063629 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000453 seconds.
+  path: Assets/Residential Buildings Set/Residential Buildings 007.fbx
+  artifactKey: Guid(e3f10f5f252d5d544b7c4d8c4a2e4aa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set/Residential Buildings 007.fbx using Guid(e3f10f5f252d5d544b7c4d8c4a2e4aa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78fe1b8f9f4d2b2711a85bb4340f6eb0') in 0.072705 seconds 
+  Import took 0.077848 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000364 seconds.
+  path: Assets/Residential Buildings Set/Residential Buildings 003.fbx
+  artifactKey: Guid(2bcda4b9ec7f2144ca69699d6e982133) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set/Residential Buildings 003.fbx using Guid(2bcda4b9ec7f2144ca69699d6e982133) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b375b7f8c4fed048f54602ab653bfe09') in 0.058864 seconds 
+  Import took 0.068735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000336 seconds.
+  path: Assets/Residential Buildings Set/Residential Buildings 002.fbx
+  artifactKey: Guid(1292a8aea1516364fbc20dfcfd43c90b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set/Residential Buildings 002.fbx using Guid(1292a8aea1516364fbc20dfcfd43c90b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a77f634a984786d80ae074b3ce52249') in 0.099916 seconds 
+  Import took 0.109894 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000774 seconds.
+  path: Assets/Residential Buildings Set/Residential Buildings 009.fbx
+  artifactKey: Guid(6a40c536e4975ff45976537a8535a0b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set/Residential Buildings 009.fbx using Guid(6a40c536e4975ff45976537a8535a0b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec9484bd38fc4042bce3d9638ac73d9c') in 0.061795 seconds 
+  Import took 0.073221 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000348 seconds.
+  path: Assets/Residential Buildings Set/Residential Buildings 010.fbx
+  artifactKey: Guid(c793ecd53cc5d0a4780a6fc8cff2caf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Residential Buildings Set/Residential Buildings 010.fbx using Guid(c793ecd53cc5d0a4780a6fc8cff2caf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6e7490a595c4c716419f6782a6a6d24') in 0.081583 seconds 
+  Import took 0.094999 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005990 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.713 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4718ms)
+		BeginReloadAssembly (608ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (21ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (1ms)
+			CreateAndSetChildDomain (328ms)
+		EndReloadAssembly (3797ms)
+			LoadAssemblies (1437ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1327ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (89ms)
+			SetupLoadedEditorAssemblies (763ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (265ms)
+				ProcessInitializeOnLoadAttributes (469ms)
+				ProcessInitializeOnLoadMethodAttributes (11ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1804 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.9 MB.
+System memory in use after: 227.9 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2378.
+Total: 4.057125 ms (FindLiveObjects: 0.338722 ms CreateObjectMapping: 0.076833 ms MarkObjects: 3.505672 ms  DeleteObjects: 0.134417 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: b23960f63f64bdc6ff669e2cdcee2391 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
