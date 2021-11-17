@@ -90,12 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9a82a54ee195e489172bf7c32894ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  patrolZoneXLow: 0
-  patrolZoneXHigh: 0
-  patrolZoneZLow: 0
-  patrolZoneZHigh: 0
-  patrolHeight: 0
+  moveSpeed: 5
+  huntingMoveSpeed: 10
+  point1: {x: 0, y: 50, z: -100}
+  point2: {x: -100, y: 50, z: -100}
+  point3: {x: -50, y: 50, z: -50}
   detectedClip: {fileID: 8300000, guid: d2864a2ceaa16bf47b22d2febdeeb48f, type: 3}
 --- !u!1001 &3300765287038845179
 PrefabInstance:
