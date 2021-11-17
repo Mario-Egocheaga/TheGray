@@ -7,32 +7,30 @@ public class EnemyController : MonoBehaviour
 {
     private bool playerSpotted;
     private int patrolTimer;
+    private int point;
     private GameObject player;
     private Rigidbody enemyRB;
+    private Vector3[] patrolPoints;
     //private Vector3 newVec;
     public float moveSpeed;
-    public int patrolZoneXLow;
-    public int patrolZoneXHigh;
-    public int patrolZoneZLow;
-    public int patrolZoneZHigh;
-    public int patrolHeight;
+    public Vector3 point1;
+    public Vector3 point2;
+    public Vector3 point3;
     public AudioClip detectedClip;
 
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = 2f;
-        patrolTimer = 500;
+        point = 1;
         player = GameObject.FindGameObjectWithTag("Player");
         playerSpotted = false;
         enemyRB = this.gameObject.GetComponent<Rigidbody>();
-        //newVec = new Vector3(Random.Range(patrolZoneXLow, patrolZoneXHigh), 10, Random.Range(patrolZoneZLow, patrolZoneZHigh));
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(playerSpotted)
+        if (playerSpotted)
         {
             moveSpeed = 6f;
             //Rotate to look at player
@@ -42,11 +40,9 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            if(patrolTimer < 0)
+            if (patrolTimer < 0)
             {
-                //newVec = new Vector3(Random.Range(patrolZoneXLow, patrolZoneXHigh), 10, Random.Range(patrolZoneZLow, patrolZoneZHigh));
-                transform.LookAt(new Vector3(Random.Range(patrolZoneXLow,patrolZoneXHigh), 10, Random.Range(patrolZoneZLow, patrolZoneZHigh))); //Patrol a 40x40 area
-                patrolTimer = 500;
+                transform.LookAt(patrolPoints[point]); //Patrol a 40x40 area
             }
             else
             {
@@ -63,13 +59,13 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerSpotted = true;
-            AudioSource.PlayClipAtPoint(detectedClip,this.transform.position);
+            AudioSource.PlayClipAtPoint(detectedClip, this.transform.position);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             playerSpotted = false;
         }
@@ -77,7 +73,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("Tristans Scene");
         }
