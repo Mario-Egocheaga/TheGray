@@ -17,6 +17,8 @@ public class CompanionController : MonoBehaviour
     public Vector3 location5;
     public float rotation5;
     public GameObject interactionText;
+    public AudioSource companionAudioSource;
+
 
     private bool canInteract;
     private bool isDipping;
