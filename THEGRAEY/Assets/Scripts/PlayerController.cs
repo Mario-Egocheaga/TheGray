@@ -26,9 +26,11 @@ public class PlayerController : MonoBehaviour
     private bool doubleJumpUnlocked;
     private bool jumpDashUnlocked;
     private bool wallRunUnlocked;
+    private bool slamUnlocked;
     //Cooldowns
     private float dashCooldown;
     private float jumpDashCooldown;
+    private float slamCooldown;
     //UI Shit
     public Text dashText;
     public Text jumpDashText;
@@ -48,10 +50,12 @@ public class PlayerController : MonoBehaviour
         doubleJumpUnlocked = false;
         jumpDashUnlocked = false;
         wallRunUnlocked = false;
+        slamUnlocked = false;
         jumpsLeft = 1;
         jumpMax = 1;
         dashCooldown = 0f;
         jumpDashCooldown = 0f;
+        slamCooldown = 0f;
         dashForce = 75f;
         dashText.text = "Dash: Unavailable";
         jumpDashText.text = "Jump Dash: Unavailable";
@@ -105,6 +109,14 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             jumpsLeft--;
+        }
+
+        //Slam
+        if (Input.GetKeyDown(KeyCode.X) && slamUnlocked && !isGrounded && slamCooldown == 0f)
+        {
+            playerRB.velocity = new Vector3(0,0,0);
+            playerRB.AddForce(-transform.up * jumpForce*2, ForceMode.Impulse);
+            slamCooldown = 5f;
         }
 
         //Double Jump
@@ -165,6 +177,16 @@ public class PlayerController : MonoBehaviour
             jumpDashText.text = "Jump Dash: Ready";
         }
 
+        //SlamCooldown
+        if (slamCooldown > 0f)
+        {
+            slamCooldown -= Time.deltaTime;
+        }
+        else if ((slamCooldown > 0f && slamCooldown < .5f) || slamCooldown < 0f)
+        {
+            slamCooldown = 0f;
+        }
+
         if (isWallRunning && Input.GetKey(KeyCode.E) && wallRunUnlocked)
         {
             playerRB.constraints = RigidbodyConstraints.FreezePositionY;
@@ -219,6 +241,13 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("ExtendedDashUnlock"))
         {
             extendedDashUnlocked = true;
+            collision.gameObject.SetActive(false);
+        }
+
+        //Slam Unlock Pickup
+        if (collision.gameObject.CompareTag("SlamUnlock"))
+        {
+            slamUnlocked = true;
             collision.gameObject.SetActive(false);
         }
     }

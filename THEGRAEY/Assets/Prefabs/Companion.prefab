@@ -630,7 +630,7 @@ MonoBehaviour:
   location1: {x: 30, y: 44.5, z: -10}
   rotation1: 90
   location2: {x: 30, y: 44.5, z: -10}
-  rotation2: -90
+  rotation2: 90
   location3: {x: 0, y: 0, z: 0}
   rotation3: 0
   location4: {x: 0, y: 0, z: 0}
