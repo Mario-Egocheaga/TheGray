@@ -16,7 +16,9 @@ public class CompanionController : MonoBehaviour
     public float rotation4;
     public Vector3 location5;
     public float rotation5;
+    public GameObject interactionText;
 
+    private bool canInteract;
     private bool isDipping;
     private Vector3[] locations;
     private float[] rotations;
@@ -25,7 +27,9 @@ public class CompanionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canInteract = false;
         isDipping = false;
+        interactionText.SetActive(false);
         locationNumber = 1;
         locations = new Vector3[6];
         rotations = new float[6];
@@ -54,20 +58,37 @@ public class CompanionController : MonoBehaviour
             transform.Rotate(0, 1, 0);
         }
 
-        if(Input.GetKeyDown(KeyCode.G))
+        if(Input.GetKeyDown(KeyCode.F) && canInteract)
         {
-            StartCoroutine(moveToNewSpot(locations[locationNumber], rotations[locationNumber]));
+            StartCoroutine(moveToNewSpot(locations[locationNumber]));
         }
     }
 
-    private IEnumerator moveToNewSpot(Vector3 pos, float rot)
+    private IEnumerator moveToNewSpot(Vector3 pos)
     {
         isDipping = true;
         yield return new WaitForSeconds(10);
         isDipping = false;
         transform.position = pos;
-        transform.rotation.Set(0, rot, 0, 0);
+        transform.eulerAngles = new Vector3(0, rotations[locationNumber], 0);
         locationNumber++;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canInteract = true;
+            interactionText.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canInteract = false;
+            interactionText.SetActive(false);
+        }
     }
 }
 

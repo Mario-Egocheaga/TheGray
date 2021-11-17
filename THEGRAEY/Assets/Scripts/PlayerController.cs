@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("DoubleJumpUnlock"))
         {
             doubleJumpUnlocked = true;
+            jumpsLeft = 2;
             collision.gameObject.SetActive(false);
         }
 
