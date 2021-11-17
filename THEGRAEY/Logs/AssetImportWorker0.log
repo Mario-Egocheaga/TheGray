@@ -3307,3 +3307,101 @@ Received Import Request.
 Start importing Assets/Scenes/Cal's-PlayPen.unity using Guid(bcbf0919e6aff2e418e78eb3e169fa35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0c7a772840da5d09a3c25ab6e61968e') in 0.045062 seconds 
   Import took 0.048166 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003059 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.913 seconds
+Domain Reload Profiling:
+	ReloadAssembly (914ms)
+		BeginReloadAssembly (125ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (729ms)
+			LoadAssemblies (87ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (252ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (256ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (72ms)
+				ProcessInitializeOnLoadAttributes (167ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.60 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1806 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 87.0 MB.
+System memory in use after: 87.1 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2418.
+Total: 3.101000 ms (FindLiveObjects: 0.209900 ms CreateObjectMapping: 0.046700 ms MarkObjects: 2.768000 ms  DeleteObjects: 0.075300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 115.782555 seconds.
+  path: Assets/SettingsScene.cs
+  artifactKey: Guid(1e1849cc3b43a3c43bde251aa07eebd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SettingsScene.cs using Guid(1e1849cc3b43a3c43bde251aa07eebd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84b13cd8b66986c84c45859a3e304bb6') in 0.009138 seconds 
+  Import took 0.012161 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.987679 seconds.
+  path: Assets/Scenes/Tristans Scene.unity
+  artifactKey: Guid(4ccff9e8367bc32429ae836ad9f63146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Tristans Scene.unity using Guid(4ccff9e8367bc32429ae836ad9f63146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fe145530af1bdf3e04139d90c9570a8') in 0.013421 seconds 
+  Import took 0.016352 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.828847 seconds.
+  path: Assets/Prefabs/Big house.prefab
+  artifactKey: Guid(165cb1af60e0b8f48aae585e6f292666) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Big house.prefab using Guid(165cb1af60e0b8f48aae585e6f292666) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd695dde15dd5386fa62409d2087ed8ac') in 0.028073 seconds 
+  Import took 0.031919 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Prefabs/Small house.prefab
+  artifactKey: Guid(57e21b0b5152c664d8218ffa94a91fdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Small house.prefab using Guid(57e21b0b5152c664d8218ffa94a91fdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a62aff25d0818bffab9c719cf6ed07ff') in 0.009203 seconds 
+  Import took 0.011861 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.702064 seconds.
+  path: Assets/Prefabs/Companion.prefab
+  artifactKey: Guid(01538c8792cc8914898893d5ccda2c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Companion.prefab using Guid(01538c8792cc8914898893d5ccda2c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dd88f33a3d53430e1b95f055cb89bb3') in 0.053326 seconds 
+  Import took 0.056575 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
