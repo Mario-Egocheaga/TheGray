@@ -24,11 +24,27 @@ public class skillTreeScript : MonoBehaviour
     public Text skillName;
     public Text skillDescript;
 
+    //buttons
+    public Button DashBut_1;
+    public Button DashBut_2;
+    public Button DashBut_3;
+    public Button JumpBut_1;
+    public Button JumpBut_2;
+    public Button JumpBut_3;
+    public Button JumpBut_4;
+    public Button SlideBut_1;
+    public Button SlideBut_2;
+    public Button CrouchBut_1;
+    public Button CrouchBut_2;
+    public Button WallBut_1;
+    public Button WallBut_2;
+   
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -38,7 +54,8 @@ public class skillTreeScript : MonoBehaviour
         moveInput.y = Input.mousePosition.y - (Screen.height / 2f);
         moveInput.Normalize();
 
-        
+        //Button selection
+       
 
         //Radial MenuSelection
         if (moveInput != Vector2.zero)
@@ -110,4 +127,74 @@ public class skillTreeScript : MonoBehaviour
         
         
     }
+
+    public void Dash1()
+    {
+        skillName.text = "Dash";
+        skillDescript.text = "Allows the player to be propelled forward by pressing 'Q'.";
+    }
+    public void Dash2()
+    {
+        skillName.text = "Extended Dash";
+        skillDescript.text = "Allows the player to be propelled forward 50% farther by pressing 'Q'.";
+    }
+    public void Dash3()
+    {
+        skillName.text = "Jump Dash";
+        skillDescript.text = "Allows the player to be propelled forward through the air after a single jump by pressing 'Q' while in the air.";
+    }
+    public void Jump1()
+    {
+        skillName.text = "Double Jump";
+        skillDescript.text = "Allows the player to double jump by pressing space in the air to preform a second jump.";
+    }
+    public void Jump2()
+    {
+        skillName.text = "Slam";
+        skillDescript.text = "Allows the player to double jump and slam down into the ground by pressing '#'.";
+    }
+    public void jump3()
+    {
+        skillName.text = "Dangle";
+        skillDescript.text = "Allows the player to be suspend themselves in the air for 'x' amount of seconds.";
+    }
+    public void jump4()
+    {
+        skillName.text = "Hover";
+        skillDescript.text = "Allows the player to be freeze themselves in the air for 'x' amount of seconds.";
+    }
+    public void slide1()
+    {
+        skillName.text = "Slide";
+        skillDescript.text = "Allows the player to be slide through small gaps. Press 'C' while sprinting to slide.";
+    }
+    public void slide2()
+    {
+        skillName.text = "Extended Slide";
+        skillDescript.text = "Allows the player to slide greater distances by criouching after sprinting.";
+    }
+    public void crouch1()
+    {
+        skillName.text = "Low Profile";
+        skillDescript.text = "Allows the player to be less detectable to enemies while crouching.";
+    }
+    public void crouch2()
+    {
+        skillName.text = "Plain Sight";
+        skillDescript.text = "Allows the player to go undetectable to enemies while crouching for X seconds.";
+    }
+    public void wall1()
+    {
+        skillName.text = "Wall Run";
+        skillDescript.text = "Allows the player to run along special walls by holding E when in the air near a wall.";
+    }
+    public void wall2()
+    {
+        skillName.text = "Wall Leap";
+        skillDescript.text = "Allows the player to jump off of walls while wall running by pressing 'space' while wall running";
+    }
+
+
+
+
 }
