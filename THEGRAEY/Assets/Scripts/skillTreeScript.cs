@@ -23,23 +23,7 @@ public class skillTreeScript : MonoBehaviour
     public Text skillType;
     public Text skillName;
     public Text skillDescript;
-
-    //buttons
-    public Button DashBut_1;
-    public Button DashBut_2;
-    public Button DashBut_3;
-    public Button JumpBut_1;
-    public Button JumpBut_2;
-    public Button JumpBut_3;
-    public Button JumpBut_4;
-    public Button SlideBut_1;
-    public Button SlideBut_2;
-    public Button CrouchBut_1;
-    public Button CrouchBut_2;
-    public Button WallBut_1;
-    public Button WallBut_2;
-   
-
+     
 
     // Start is called before the first frame update
     void Start()
@@ -193,8 +177,5 @@ public class skillTreeScript : MonoBehaviour
         skillName.text = "Wall Leap";
         skillDescript.text = "Allows the player to jump off of walls while wall running by pressing 'space' while wall running";
     }
-
-
-
 
 }
