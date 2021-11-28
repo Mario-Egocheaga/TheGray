@@ -1523,6 +1523,7 @@ GameObject:
   - component: {fileID: 7538889471971329788}
   - component: {fileID: 7538889471971329789}
   - component: {fileID: 7538889471971329790}
+  - component: {fileID: 5391077368653678391}
   m_Layer: 5
   m_Name: Skilltree Canvas
   m_TagString: Untagged
@@ -1645,19 +1646,19 @@ MonoBehaviour:
   skillType: {fileID: 7538889472472230019}
   skillName: {fileID: 7538889471410986633}
   skillDescript: {fileID: 7538889473117632049}
-  DashBut_1: {fileID: 0}
-  DashBut_2: {fileID: 0}
-  DashBut_3: {fileID: 0}
-  JumpBut_1: {fileID: 0}
-  JumpBut_2: {fileID: 0}
-  JumpBut_3: {fileID: 0}
-  JumpBut_4: {fileID: 0}
-  SlideBut_1: {fileID: 0}
-  SlideBut_2: {fileID: 0}
-  CrouchBut_1: {fileID: 0}
-  CrouchBut_2: {fileID: 0}
-  WallBut_1: {fileID: 0}
-  WallBut_2: {fileID: 0}
+--- !u!114 &5391077368653678391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538889471971329791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc67d4a1cd6d0e54f916645ada49b0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillTree: {fileID: 7538889471971329791}
 --- !u!1 &7538889472005563915
 GameObject:
   m_ObjectHideFlags: 0
