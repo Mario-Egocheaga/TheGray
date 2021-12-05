@@ -7,6 +7,10 @@ TagManager:
   - DashUnlock
   - DoubleJumpUnlock
   - JumpDashUnlock
+  - WallRunable
+  - WallRunUnlock
+  - ExtendedDashUnlock
+  - SlamUnlock
   layers:
   - Default
   - TransparentFX
@@ -14,10 +18,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Default and MiniMap
   - MiniMap
-  - 
-  - 
+  - Ground
+  - Player
   - 
   - 
   - 
