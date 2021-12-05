@@ -85,10 +85,23 @@ public class EnemyScript : MonoBehaviour
 
     private void ChasePlayer()
     {
-
+        agent.SetDestination(player.position);
     }
     private void AttackPlayer()
     {
+        agent.SetDestination(transform.position);
 
+        transform.LookAt(player);
+
+        if(!alreadyAttaked)
+        {
+            alreadyAttaked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+
+    private void ResetAttack()
+    {
+        alreadyAttaked = false;
     }
 }
