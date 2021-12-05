@@ -1492,3 +1492,12 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2317.011665 seconds.
+  path: Assets/Scripts/skillTreeScript.cs
+  artifactKey: Guid(2753f36dc8c0951468e88303471bc5b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/skillTreeScript.cs using Guid(2753f36dc8c0951468e88303471bc5b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29d79cb5330be241b4c9cb15c99f2de7') in 0.008841 seconds 
+  Import took 0.012311 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
