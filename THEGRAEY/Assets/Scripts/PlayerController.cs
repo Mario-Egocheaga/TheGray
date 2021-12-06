@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float mouseSensitivity;
     public GameObject playerCam;
+    public Transform orientation;
     //private variables
     private int jumpsLeft;
     //private int jumpDashesLeft;
@@ -34,6 +35,11 @@ public class PlayerController : MonoBehaviour
     //UI Shit
     public Text dashText;
     public Text jumpDashText;
+    //Wallrunning
+    public LayerMask whatIsWall;
+    public float wallrunForce, maxWallrunTime, maxWallSpeed;
+    bool isWallRight, isWallLeft;
+    public float maxWallRunCameraTilt, wallRunCameraTilt;
 
     // Start is called before the first frame update
     void Start()
@@ -151,6 +157,10 @@ public class PlayerController : MonoBehaviour
             dashText.text = "Dash: Cooling Down";
         }
 
+        //WallRun
+        CheckForWall();
+        WallRunInput();
+
         //Player walk
         playerRB.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") / moveSpeed) + (transform.right * Input.GetAxis("Horizontal") / moveSpeed));
 
@@ -202,6 +212,44 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 
+    }
+
+    private void WallRunInput()
+    {
+        //Wallrun
+        if (Input.GetKey(KeyCode.D) && isWallRight) StartWallrun();
+        if (Input.GetKey(KeyCode.A) && isWallLeft) StartWallrun();
+    }
+    private void StartWallrun()
+    {
+        playerRB.useGravity = false;
+        isWallRunning = true;
+
+        if (playerRB.velocity.magnitude <= maxWallSpeed)
+        {
+            playerRB.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
+
+            //Make sure char sticks to wall
+            if (isWallRight)
+                playerRB.AddForce(orientation.right * wallrunForce / 5 * Time.deltaTime);
+            else
+                playerRB.AddForce(-orientation.right * wallrunForce / 5 * Time.deltaTime);
+        }
+    }
+    private void StopWallRun()
+    {
+        isWallRunning = false;
+        playerRB.useGravity = true;
+    }
+    private void CheckForWall()
+    {
+        isWallRight = Physics.Raycast(transform.position, orientation.right, 2f, whatIsWall);
+        isWallLeft = Physics.Raycast(transform.position, -orientation.right, 2f, whatIsWall);
+
+        //leave wall run
+        if (!isWallLeft && !isWallRight) StopWallRun();
+        //reset double jump
+        if (isWallLeft || isWallRight) jumpsLeft = 1;
     }
 
     private void OnCollisionEnter(Collision collision)
