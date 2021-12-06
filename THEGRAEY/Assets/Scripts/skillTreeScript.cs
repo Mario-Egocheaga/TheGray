@@ -24,14 +24,76 @@ public class skillTreeScript : MonoBehaviour
     public Text skillName;
     public Text skillDescript;
 
-    public Image DashGrey;
-    public Image DashColor;
-    public GameObject DashButton;
+    public Sprite DashGrey;
+    public Sprite DashColor;
+    public Button DashButton;
+    public Sprite Dash_2_Color;
+    public Sprite Dash_2_Grey;
+    public Button Dash_2_Button;
+    public Sprite Dash_3_Color;
+    public Sprite Dash_3_Grey;
+    public Button Dash_3_Button;
+    public Sprite Dash_4_Color;
+    public Sprite Dash_4_Grey;
+    public Button Dash_4_Button;
+
+    public Sprite jumpColor;
+    public Sprite jumpGrey;
+    public Button jumpButton;
+    public Sprite jump_2_Color;
+    public Sprite jump_2_Grey;
+    public Button jump_2_Button;
+    public Sprite jump_3_Color;
+    public Sprite jump_3_Grey;
+    public Button jump_3_Button;
+    public Sprite jump_4_Color;
+    public Sprite jump_4_Grey;
+    public Button jump_4_Button;
+
+    public Sprite slideColor;
+    public Sprite slideGrey;
+    public Button slideButton;
+    public Sprite slide_2_Color;
+    public Sprite slide_2_Grey;
+    public Button slide_2_Button;
+
+    public Sprite crouchColor;
+    public Sprite crouchGrey;
+    public Button crouchButton;
+    public Sprite crouch_2_Color;
+    public Sprite crouch_2_Grey;
+    public Button crouch_2_Button;
+
+    public Sprite WallColor;
+    public Sprite WallGrey;
+    public Button WallButton;
+    public Sprite Wall_2_Color;
+    public Sprite Wall_2_Grey;
+    public Button Wall_2_Button;
 
     // Start is called before the first frame update
     void Start()
     {
+        DashButton.image.sprite = DashGrey;
+        Dash_2_Button.image.sprite = Dash_2_Grey;
+        Dash_3_Button.image.sprite = Dash_3_Grey;
+        Dash_4_Button.image.sprite = Dash_4_Grey;
+
+        jumpButton.image.sprite = jumpGrey;
+        jump_2_Button.image.sprite = jump_2_Grey;
+        jump_3_Button.image.sprite = jump_3_Grey;
+        jump_4_Button.image.sprite = jump_4_Grey;
+
+        slideButton.image.sprite = slideGrey;
+        slide_2_Button.image.sprite = slide_2_Grey;
         
+
+        crouchButton.image.sprite = crouchGrey;
+        crouch_2_Button.image.sprite = crouch_2_Grey;
+
+        WallButton.image.sprite = WallGrey;
+        Wall_2_Button.image.sprite = Wall_2_Grey;
+
     }
 
     // Update is called once per frame
@@ -65,15 +127,31 @@ public class skillTreeScript : MonoBehaviour
 
                 if(PlayerController.dashUnlocked == true)
                 {
-                    var img = DashButton.GetComponent<Image>();
-                    img = DashColor;
+                    DashButton.image.sprite = DashColor;
 
                 }
-                else
+                if (PlayerController.jumpDashUnlocked == true)
                 {
-                    var img = DashButton.GetComponent<Image>();
-                    img = DashGrey;
+                    Dash_3_Button.image.sprite = Dash_3_Color;
+
                 }
+                if (PlayerController.extendedDashUnlocked == true)
+                {
+                    Dash_2_Button.image.sprite = Dash_2_Color;
+
+                }
+                //if (PlayerController.dashRecallUnlocked == true)
+                //{
+                    //Dash_4_Button.image.sprite = Dash_4_Color;
+
+                //}
+                //else
+                //{
+                   // DashButton.image.sprite = DashGrey;
+                   // Dash_2_Button.image.sprite = Dash_2_Grey;
+                   // Dash_3_Button.image.sprite = Dash_3_Grey;
+                    //Dash_4_Button.image.sprite = Dash_4_Grey;
+               //}
 
             }
             else if (angle > 1.56 && angle < 2.5)
@@ -86,6 +164,35 @@ public class skillTreeScript : MonoBehaviour
                 Debug.Log("Top Right");
 
                 skillType.text = "Jumping";
+
+                if (PlayerController.doubleJumpUnlocked == true)
+                {
+                    jumpButton.image.sprite = jumpColor;
+
+                }
+                if (PlayerController.slamUnlocked == true)
+                {
+                    Dash_3_Button.image.sprite = jump_2_Color;
+
+                }
+                //else
+                //{
+                    jumpButton.image.sprite = jumpGrey;
+                    //jump_2_Button.image.sprite = jump_2_Grey;
+                    //jump_3_Button.image.sprite = jump_3_Grey;
+                    //jump_4_Button.image.sprite = jump_4_Grey;
+                //}
+                //if (PlayerController.# == true)
+                //{
+                //jump_3_Button.image.sprite = jump_3_Color;
+
+                //}
+                //if (PlayerController.# == true)
+                //{
+                //jump_4_Button.image.sprite = jump_4_Color;
+
+                //}
+                
             }
             else if (angle > 2.5 || angle < -2.47)
             {
@@ -97,6 +204,23 @@ public class skillTreeScript : MonoBehaviour
                 Debug.Log("right");
 
                 skillType.text = "Sliding";
+
+                //if (PlayerController.slideUnlocked == true)
+                //{
+                    //slideButton.image.sprite = slideColor;
+
+                //}
+                //if (PlayerController.# == true)
+                //{
+                   // slide_2_Button.image.sprite = slide_2_Color;
+
+                //}
+                //else
+                //{
+                    //slideButton.image.sprite = slideGrey;
+                    //slide_2_Button.image.sprite = slide_2_Grey;
+                    
+                //}
             }
             else if (angle > -2.5 && angle < -.64)
             {
@@ -109,6 +233,23 @@ public class skillTreeScript : MonoBehaviour
 
 
                 skillType.text = "Crouching";
+
+                //if (PlayerController.# == true)
+                //{
+                    //crouchButton.image.sprite = crouchColor;
+
+                //}
+                //if (PlayerController.plainSightUnlocked == true)
+                //{
+                    //crouch_2_Button.image.sprite = crouch_2_Color;
+
+                //}
+                //else
+                //{
+                    //crouchButton.image.sprite = crouchGrey;
+                    //crouch_2_Button.image.sprite = crouch_2_Grey;
+                    
+                //}
             }
             else if (angle > -.64 && angle < .63)
             {
@@ -120,6 +261,23 @@ public class skillTreeScript : MonoBehaviour
                 Debug.Log("Left");
 
                 skillType.text = "Wall-Running";
+
+                //if (PlayerController.wallGrabUnlocked == true)
+                //{
+                    //WallButton.image.sprite = WallColor;
+
+                //}
+                if (PlayerController.wallRunUnlocked == true)
+                {
+                    Wall_2_Button.image.sprite = Wall_2_Color;
+
+                }
+                //else
+                //{
+                    //WallButton.image.sprite = DashGrey;
+                    //Wall_2_Button.image.sprite = Dash_2_Grey;
+                    
+                //}
             }
             
         }
@@ -141,6 +299,11 @@ public class skillTreeScript : MonoBehaviour
     {
         skillName.text = "Jump Dash";
         skillDescript.text = "Allows the player to be propelled forward through the air after a single jump by pressing 'Q' while in the air.";
+    }
+    public void Dash4()
+    {
+        skillName.text = "Dash Recall";
+        skillDescript.text = "Allows the player to 'Recall' their dash soon after completing it and be returned to  the previous position.";
     }
     public void Jump1()
     {
@@ -184,13 +347,13 @@ public class skillTreeScript : MonoBehaviour
     }
     public void wall1()
     {
-        skillName.text = "Grab";
-        skillDescript.text = "Allows the player to Grab shit";
+        skillName.text = "Wall Grab";
+        skillDescript.text = "Allows the player to Grab on to the wall and hold their position.";
     }
     public void wall2()
     {
-        skillName.text = "Grab 2";
-        skillDescript.text = "Allows the player to do more grabbing of shit";
+        skillName.text = "Wall Run";
+        skillDescript.text = "Allows the player to jump and run along a wall while holding on to it.";
     }
 
 }

@@ -23,18 +23,18 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider playerCollider;
     //Unlock Bools
     static public bool dashUnlocked;
-    private bool extendedDashUnlocked;
-    private bool doubleJumpUnlocked;
-    private bool jumpDashUnlocked;
-    private bool wallRunUnlocked;
-    private bool slamUnlocked;
+    static public bool extendedDashUnlocked;
+    static public bool doubleJumpUnlocked;
+    static public bool jumpDashUnlocked;
+    static public bool wallRunUnlocked;
+    static public bool slamUnlocked;
     //Cooldowns
     private float dashCooldown;
     private float jumpDashCooldown;
     private float slamCooldown;
     //UI Shit
-    public Text dashText;
-    public Text jumpDashText;
+    //public Text dashText;
+    //public Text jumpDashText;
     //Wallrunning
     public LayerMask whatIsWall;
     public float wallrunForce, maxWallrunTime, maxWallSpeed;
@@ -63,8 +63,8 @@ public class PlayerController : MonoBehaviour
         jumpDashCooldown = 0f;
         slamCooldown = 0f;
         dashForce = 75f;
-        dashText.text = "Dash: Unavailable";
-        jumpDashText.text = "Jump Dash: Unavailable";
+        //dashText.text = "Dash: Unavailable";
+        //jumpDashText.text = "Jump Dash: Unavailable";
 
        
     }
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(playerCam.transform.forward * 75f, ForceMode.Impulse);
             jumpDashCooldown = 5f;
-            jumpDashText.text = "Jump Dash: Cooling Down";
+            //jumpDashText.text = "Jump Dash: Cooling Down";
         }
 
         //Dash Force
@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(transform.forward * dashForce, ForceMode.Impulse);
             dashCooldown = 5f;
-            dashText.text = "Dash: Cooling Down";
+            //dashText.text = "Dash: Cooling Down";
         }
 
         //WallRun
@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour
         else if ((dashCooldown > 0f && dashCooldown < .5f) || dashCooldown < 0f)
         {
             dashCooldown = 0f;
-            dashText.text = "Dash: Ready";
+            //dashText.text = "Dash: Ready";
         }
 
         //JumpDashCooldown
@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
         else if ((jumpDashCooldown > 0f && jumpDashCooldown < .5f) || jumpDashCooldown < 0f)
         {
             jumpDashCooldown = 0f;
-            jumpDashText.text = "Jump Dash: Ready";
+            //jumpDashText.text = "Jump Dash: Ready";
         }
 
         //SlamCooldown
@@ -261,7 +261,7 @@ public class PlayerController : MonoBehaviour
         {
             dashUnlocked = true;
             collision.gameObject.SetActive(false);
-            dashText.text = "Dash: Ready";
+            //dashText.text = "Dash: Ready";
         }
 
         //Double Jump Unlock Pickup
@@ -277,7 +277,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpDashUnlocked = true;
             collision.gameObject.SetActive(false);
-            jumpDashText.text = "Jump Dash: Ready";
+            //jumpDashText.text = "Jump Dash: Ready";
         }
 
         //Wall Run Unlock Pickup
