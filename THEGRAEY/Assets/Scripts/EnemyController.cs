@@ -60,7 +60,6 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Debug.Log(patrolPoints[point - 1]);
             transform.LookAt(patrolPoints[point - 1]);
             transform.position += transform.forward * moveSpeed * Time.deltaTime; //Move forward towards position
         }
