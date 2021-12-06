@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRB;
     private CapsuleCollider playerCollider;
     //Unlock Bools
-    private bool dashUnlocked;
+    static public bool dashUnlocked;
     private bool extendedDashUnlocked;
     private bool doubleJumpUnlocked;
     private bool jumpDashUnlocked;
@@ -65,6 +65,8 @@ public class PlayerController : MonoBehaviour
         dashForce = 75f;
         dashText.text = "Dash: Unavailable";
         jumpDashText.text = "Jump Dash: Unavailable";
+
+       
     }
 
     // Update is called once per frame

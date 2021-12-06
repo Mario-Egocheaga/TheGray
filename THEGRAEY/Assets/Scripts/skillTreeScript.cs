@@ -23,7 +23,10 @@ public class skillTreeScript : MonoBehaviour
     public Text skillType;
     public Text skillName;
     public Text skillDescript;
-     
+
+    public Image DashGrey;
+    public Image DashColor;
+    public GameObject DashButton;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +62,18 @@ public class skillTreeScript : MonoBehaviour
                 CanvasImageLeft.sprite = Empty;
 
                 skillType.text = "Dashing";
+
+                if(PlayerController.dashUnlocked == true)
+                {
+                    var img = DashButton.GetComponent<Image>();
+                    img = DashColor;
+
+                }
+                else
+                {
+                    var img = DashButton.GetComponent<Image>();
+                    img = DashGrey;
+                }
 
             }
             else if (angle > 1.56 && angle < 2.5)
@@ -169,13 +184,13 @@ public class skillTreeScript : MonoBehaviour
     }
     public void wall1()
     {
-        skillName.text = "Wall Run";
-        skillDescript.text = "Allows the player to run along special walls by holding E when in the air near a wall.";
+        skillName.text = "Grab";
+        skillDescript.text = "Allows the player to Grab shit";
     }
     public void wall2()
     {
-        skillName.text = "Wall Leap";
-        skillDescript.text = "Allows the player to jump off of walls while wall running by pressing 'space' while wall running";
+        skillName.text = "Grab 2";
+        skillDescript.text = "Allows the player to do more grabbing of shit";
     }
 
 }
