@@ -6,10 +6,16 @@ public class PauseMenuControl : MonoBehaviour
 {
     bool Paused = false;
     public GameObject PauseMenu;
+    public GameObject MapUI;
+    public GameObject SettingUI;
+    
     // Start is called before the first frame update
     void Start()
     {
         PauseMenu.SetActive(false);
+        MapUI.SetActive(false);
+        SettingUI.SetActive(false);
+
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -34,12 +40,14 @@ public class PauseMenuControl : MonoBehaviour
         if(Paused == true)
         {
             PauseMenu.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;     
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
         }
         else
         {
             PauseMenu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1f;
         }
     }
 
@@ -51,12 +59,16 @@ public class PauseMenuControl : MonoBehaviour
     
     public void Settings()
     {
-        
+        SettingUI.SetActive(true);
+        MapUI.SetActive(false);
+        PauseMenu.SetActive(false);
     }
 
     public void Map()
     {
-
+        MapUI.SetActive(true);
+        SettingUI.SetActive(false);
+        PauseMenu.SetActive(false);
     }
 
     public void Quit()
