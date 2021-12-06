@@ -203,6 +203,7 @@ Transform:
   - {fileID: 2668636157869768505}
   - {fileID: 5695993483185263283}
   - {fileID: 2259571789425319470}
+  - {fileID: 4861927051973915410}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -285,8 +286,17 @@ MonoBehaviour:
   jumpForce: 0
   mouseSensitivity: 0
   playerCam: {fileID: 2668636157869768504}
+  orientation: {fileID: 0}
   dashText: {fileID: 0}
   jumpDashText: {fileID: 0}
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 0
+  wallrunForce: 0
+  maxWallrunTime: 0
+  maxWallSpeed: 0
+  maxWallRunCameraTilt: 0
+  wallRunCameraTilt: 0
 --- !u!54 &2668636156724658657
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -552,3 +562,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 0
   playerBody: {fileID: 2668636156724658650}
+--- !u!1 &7417284934427656768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4861927051973915410}
+  m_Layer: 0
+  m_Name: Orientation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4861927051973915410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417284934427656768}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 99.18742, y: 35.55987, z: -106.80289}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2668636156724658650}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
