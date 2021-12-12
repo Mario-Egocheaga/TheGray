@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     private int point;
     private GameObject player;
     private Vector3[] patrolPoints;
+    private PlayerController playerController;
     //private Vector3 newVec;
     public float moveSpeed;
     public float huntingMoveSpeed;
@@ -28,6 +29,7 @@ public class EnemyController : MonoBehaviour
         patrolPoints[2] = point3;
         patrolPoints[3] = point4;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
         playerSpotted = false;
     }
 
@@ -51,7 +53,7 @@ public class EnemyController : MonoBehaviour
             point = 1;
         }
 
-        if (playerSpotted)
+        if (playerSpotted && (playerController.getPlainSight() == false))
         {
             //Rotate to look at player
             transform.LookAt(player.transform.position);

@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float mouseSensitivity;
     public GameObject playerCam;
+    public GameObject dashPlate;
+    public GameObject plainSightLight;
     public Transform orientation;
     //private variables
     private int jumpsLeft;
@@ -19,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private bool isCrouching;
     private bool isGrounded;
     private bool isWallRunning;
+    private bool isSprinting;
+    private bool plainSightActive;
     private Rigidbody playerRB;
     private CapsuleCollider playerCollider;
     //Unlock Bools
@@ -28,10 +32,17 @@ public class PlayerController : MonoBehaviour
     static public bool jumpDashUnlocked;
     static public bool wallRunUnlocked;
     static public bool slamUnlocked;
+    static public bool dashRecallUnlocked;
+    static public bool plainSightUnlocked;
+    static public bool hoverUnlocked;
+    static public bool wallGrabUnlocked;
     //Cooldowns
     private float dashCooldown;
     private float jumpDashCooldown;
     private float slamCooldown;
+    private float plainSightCooldown;
+    private float hoverCooldown;
+    private float dashRecallCooldown;
     //UI Shit
     //public Text dashText;
     //public Text jumpDashText;
@@ -50,6 +61,7 @@ public class PlayerController : MonoBehaviour
         jumpForce = 70f;
         mouseSensitivity = 100f;
         isCrouching = false;
+        isSprinting = false;
         isWallRunning = false;
         dashUnlocked = false;
         extendedDashUnlocked = false;
@@ -57,11 +69,20 @@ public class PlayerController : MonoBehaviour
         jumpDashUnlocked = false;
         wallRunUnlocked = false;
         slamUnlocked = false;
+        dashRecallUnlocked = false;
+        plainSightUnlocked = false;
+        hoverUnlocked = false;
+        wallGrabUnlocked = false;
+        plainSightLight.SetActive(false);
+        dashPlate.SetActive(false);
         jumpsLeft = 1;
         jumpMax = 1;
         dashCooldown = 0f;
         jumpDashCooldown = 0f;
         slamCooldown = 0f;
+        plainSightCooldown = 0f;
+        hoverCooldown = 0f;
+        dashRecallCooldown = 0f;
         dashForce = 75f;
         //dashText.text = "Dash: Unavailable";
         //jumpDashText.text = "Jump Dash: Unavailable";
@@ -92,14 +113,32 @@ public class PlayerController : MonoBehaviour
             isCrouching = false;
         }
 
-        //Sprint Hold
-        if (Input.GetKey(KeyCode.LeftShift) && !isCrouching)
+        //Sprint Toggle
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isSprinting)
+        {
+            isSprinting = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftShift) && isSprinting)
+        {
+            isSprinting = false;
+        }
+
+        //Sprint Speeds
+        if(isSprinting && !isCrouching)
         {
             moveSpeed = 5f;
         }
-        else if (!isCrouching)
+        else if(isSprinting && isCrouching)
         {
             moveSpeed = 10f;
+        }
+        else if(!isSprinting && !isCrouching)
+        {
+            moveSpeed = 10f;
+        }
+        else
+        {
+            moveSpeed = 20f;
         }
 
         //JumpForce Controller
@@ -119,6 +158,22 @@ public class PlayerController : MonoBehaviour
             jumpsLeft--;
         }
 
+        //Hover
+        if (hoverUnlocked && Input.GetKeyDown(KeyCode.LeftControl) && hoverCooldown == 0f && !isGrounded)
+        {
+            hoverCooldown = 15f;
+            playerRB.velocity += -playerRB.velocity;
+        }
+
+        if (hoverCooldown > 12f)
+        {
+            Physics.gravity = new Vector3(0f, 0f, 0f);
+        }
+        else
+        {
+            Physics.gravity = new Vector3(0f, -20f, 0f);
+        }
+
         //Slam
         if (Input.GetKeyDown(KeyCode.X) && slamUnlocked && !isGrounded && slamCooldown == 0f)
         {
@@ -134,7 +189,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jump Dash
-        if (Input.GetKeyDown(KeyCode.Q) && jumpDashUnlocked && !isGrounded && jumpDashCooldown == 0f)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && jumpDashUnlocked && !isGrounded && jumpDashCooldown == 0f)
         {
             playerRB.AddForce(playerCam.transform.forward * 75f, ForceMode.Impulse);
             jumpDashCooldown = 5f;
@@ -152,16 +207,66 @@ public class PlayerController : MonoBehaviour
         }
 
         //Dash
-        if (Input.GetKeyDown(KeyCode.Q) && dashUnlocked && isGrounded && dashCooldown == 0f)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && dashUnlocked && isGrounded && dashCooldown == 0f)
         {
             playerRB.AddForce(transform.forward * dashForce, ForceMode.Impulse);
             dashCooldown = 5f;
+            if(dashRecallUnlocked)
+            {
+                dashPlate.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
+            }
             //dashText.text = "Dash: Cooling Down";
         }
 
-        //WallRun
-        CheckForWall();
-        WallRunInput();
+        //DashRecall
+        if (dashRecallUnlocked && Input.GetKeyDown(KeyCode.R) && dashRecallCooldown == 0f)
+        {
+            transform.position = new Vector3(dashPlate.transform.position.x, dashPlate.transform.position.y + 1f, dashPlate.transform.position.z);
+            dashRecallCooldown = 60f;
+        }
+        Debug.Log(dashRecallCooldown);
+        //PlainSight
+        if (plainSightUnlocked && Input.GetKeyDown(KeyCode.Z) && plainSightCooldown == 0f)
+        {
+            plainSightCooldown = 25f;
+        }
+
+        if (plainSightCooldown > 20f)
+        {
+            plainSightActive = true;
+        }
+        else
+        {
+            plainSightActive = false;
+        }
+
+        if(plainSightActive)
+        {
+            plainSightLight.SetActive(true);
+        }
+        else
+        {
+            plainSightLight.SetActive(false);
+        }
+
+        //Wall Grab
+        if(Physics.Raycast(this.transform.position, transform.forward, 1.5f) && Input.GetKey(KeyCode.Q) && wallGrabUnlocked)
+        {
+            playerRB.velocity = new Vector3(0f, 10f, 0f);
+        }
+
+        //Wall Run Part 3, Whats goodie
+        if(Physics.Raycast(this.transform.position, transform.right, 2f) && Input.GetKey(KeyCode.Mouse1) && wallRunUnlocked)
+        {
+            Physics.gravity = new Vector3(0f, 0f, 0f);
+            playerRB.velocity = new Vector3(0f, 0f, 0f);
+        }
+
+        if (Physics.Raycast(this.transform.position, -transform.right, 2f) && Input.GetKey(KeyCode.Mouse1) && wallRunUnlocked)
+        {
+            Physics.gravity = new Vector3(0f, 0f, 0f);
+            playerRB.velocity = new Vector3(0f, 0f, 0f);
+        }
 
         //Player walk
         playerRB.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") / moveSpeed) + (transform.right * Input.GetAxis("Horizontal") / moveSpeed));
@@ -189,6 +294,26 @@ public class PlayerController : MonoBehaviour
             //jumpDashText.text = "Jump Dash: Ready";
         }
 
+        //PlainSightCooldown
+        if (plainSightCooldown > 0f)
+        {
+            plainSightCooldown -= Time.deltaTime;
+        }
+        else if ((plainSightCooldown > 0f && plainSightCooldown < .5f) || plainSightCooldown < 0f)
+        {
+            plainSightCooldown = 0f;
+        }
+
+        //HoverCooldown
+        if (hoverCooldown > 0f)
+        {
+            hoverCooldown -= Time.deltaTime;
+        }
+        else if ((hoverCooldown > 0f && hoverCooldown < .5f) || hoverCooldown < 0f)
+        {
+            hoverCooldown = 0f;
+        }
+
         //SlamCooldown
         if (slamCooldown > 0f)
         {
@@ -199,59 +324,19 @@ public class PlayerController : MonoBehaviour
             slamCooldown = 0f;
         }
 
-        if (isWallRunning && Input.GetKey(KeyCode.E) && wallRunUnlocked)
+        //DashRecallCooldown
+        if (dashRecallCooldown > 0f)
         {
-            playerRB.constraints = RigidbodyConstraints.FreezePositionY;
-            playerRB.constraints = RigidbodyConstraints.FreezeRotation;
-            jumpsLeft = 1;
+            dashRecallCooldown -= Time.deltaTime;
         }
-        else if(!isWallRunning)
+        else if ((dashRecallCooldown > 0f && dashRecallCooldown < .5f) || dashRecallCooldown < 0f)
         {
-            playerRB.constraints = RigidbodyConstraints.None;
-            playerRB.constraints = RigidbodyConstraints.FreezeRotation;
+            dashRecallCooldown = 0f;
         }
     }
     private void FixedUpdate()
     {
 
-    }
-
-    private void WallRunInput()
-    {
-        //Wallrun
-        if (Input.GetKey(KeyCode.D) && isWallRight) StartWallrun();
-        if (Input.GetKey(KeyCode.A) && isWallLeft) StartWallrun();
-    }
-    private void StartWallrun()
-    {
-        playerRB.useGravity = false;
-        isWallRunning = true;
-
-        if (playerRB.velocity.magnitude <= maxWallSpeed)
-        {
-            playerRB.AddForce(orientation.forward * wallrunForce * Time.deltaTime);
-
-            //Make sure char sticks to wall
-            if (isWallRight)
-                playerRB.AddForce(orientation.right * wallrunForce / 5 * Time.deltaTime);
-            else
-                playerRB.AddForce(-orientation.right * wallrunForce / 5 * Time.deltaTime);
-        }
-    }
-    private void StopWallRun()
-    {
-        isWallRunning = false;
-        playerRB.useGravity = true;
-    }
-    private void CheckForWall()
-    {
-        isWallRight = Physics.Raycast(transform.position, orientation.right, 2f, whatIsWall);
-        isWallLeft = Physics.Raycast(transform.position, -orientation.right, 2f, whatIsWall);
-
-        //leave wall run
-        if (!isWallLeft && !isWallRight) StopWallRun();
-        //reset double jump
-        if (isWallLeft || isWallRight) jumpsLeft = 1;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -300,6 +385,36 @@ public class PlayerController : MonoBehaviour
             slamUnlocked = true;
             collision.gameObject.SetActive(false);
         }
+
+        //DashRecall Unlock Pickup
+        if (collision.gameObject.CompareTag("DashRecallUnlock"))
+        {
+            dashRecallUnlocked = true;
+            collision.gameObject.SetActive(false);
+            dashPlate.SetActive(true);
+            dashPlate.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
+        }
+
+        //PlainSight Unlock Pickup
+        if (collision.gameObject.CompareTag("PlainSightUnlock"))
+        {
+            plainSightUnlocked = true;
+            collision.gameObject.SetActive(false);
+        }
+
+        //Hover Unlock Pickup
+        if (collision.gameObject.CompareTag("HoverUnlock"))
+        {
+            hoverUnlocked = true;
+            collision.gameObject.SetActive(false);
+        }
+
+        //Wall Grab Unlock Pickup
+        if (collision.gameObject.CompareTag("WallGrabUnlock"))
+        {
+            wallGrabUnlocked = true;
+            collision.gameObject.SetActive(false);
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -311,7 +426,7 @@ public class PlayerController : MonoBehaviour
     {
         jumpsLeft = jumpMax;
     }
-
+    
     private void OnTriggerExit(Collider other)
     {
         isGrounded = false;
@@ -320,5 +435,10 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         isGrounded = true;
+    }
+
+    public bool getPlainSight()
+    {
+        return plainSightActive;
     }
 }

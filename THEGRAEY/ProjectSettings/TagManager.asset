@@ -11,6 +11,10 @@ TagManager:
   - WallRunUnlock
   - ExtendedDashUnlock
   - SlamUnlock
+  - DashRecallUnlock
+  - PlainSightUnlock
+  - HoverUnlock
+  - WallGrabUnlock
   layers:
   - Default
   - TransparentFX

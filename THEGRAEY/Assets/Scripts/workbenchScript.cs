@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class workbenchScript : MonoBehaviour
 {
-    public GameObject hasRelic;
     public GameObject noRelic;
     public GameObject interactionText;
     private bool canInteract;
     // Start is called before the first frame update
     void Start()
     {
-        hasRelic.SetActive(false);
-        noRelic.SetActive(true);
-        interactionText.SetActive(false);
         canInteract = false;
     }
 
@@ -22,7 +18,6 @@ public class workbenchScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F) && canInteract)
         {
-            hasRelic.SetActive(true);
             noRelic.SetActive(false);
             this.gameObject.SetActive(false);
             interactionText.SetActive(false);

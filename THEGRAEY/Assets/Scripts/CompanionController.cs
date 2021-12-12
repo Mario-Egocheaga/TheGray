@@ -22,6 +22,12 @@ public class CompanionController : MonoBehaviour
     public float rotation7;
     public Vector3 location8;
     public float rotation8;
+    public Vector3 location9;
+    public float rotation9;
+    public Vector3 location10;
+    public float rotation10;
+    public Vector3 location11;
+    public float rotation11;
     public GameObject interactionText;
     public AudioSource companionAudioSource;
     public AudioClip clip1;
@@ -44,6 +50,12 @@ public class CompanionController : MonoBehaviour
     public int clip9Length;
     public AudioClip clip10;
     public int clip10Length;
+    public AudioClip clip11;
+    public int clip11Length;
+    public AudioClip clip12;
+    public int clip12Length;
+    public AudioClip clip13;
+    public int clip13Length;
 
     private bool canInteract;
     private bool isDipping;
@@ -60,10 +72,10 @@ public class CompanionController : MonoBehaviour
         isDipping = false;
         interactionText.SetActive(false);
         locationNumber = 0;
-        locations = new Vector3[9];
-        rotations = new float[9];
-        audioClips = new AudioClip[10];
-        audioClipLengths = new int[10];
+        locations = new Vector3[12];
+        rotations = new float[12];
+        audioClips = new AudioClip[13];
+        audioClipLengths = new int[13];
         audioClips[0] = clip1;
         audioClips[1] = clip2;
         audioClips[2] = clip3;
@@ -74,6 +86,9 @@ public class CompanionController : MonoBehaviour
         audioClips[7] = clip8;
         audioClips[8] = clip9;
         audioClips[9] = clip10;
+        audioClips[10] = clip11;
+        audioClips[11] = clip12;
+        audioClips[12] = clip13;
         audioClipLengths[0] = clip1Length;
         audioClipLengths[1] = clip2Length;
         audioClipLengths[2] = clip3Length;
@@ -84,6 +99,9 @@ public class CompanionController : MonoBehaviour
         audioClipLengths[7] = clip8Length;
         audioClipLengths[8] = clip9Length;
         audioClipLengths[9] = clip10Length;
+        audioClipLengths[10] = clip11Length;
+        audioClipLengths[11] = clip12Length;
+        audioClipLengths[12] = clip13Length;
         locations[0] = startLocation;
         locations[1] = location1;
         locations[2] = location2;
@@ -93,6 +111,9 @@ public class CompanionController : MonoBehaviour
         locations[6] = location6;
         locations[7] = location7;
         locations[8] = location8;
+        locations[9] = location9;
+        locations[10] = location10;
+        locations[11] = location11;
         rotations[0] = startRotation;
         rotations[1] = rotation1;
         rotations[2] = rotation2;
@@ -102,6 +123,9 @@ public class CompanionController : MonoBehaviour
         rotations[6] = rotation6;
         rotations[7] = rotation7;
         rotations[8] = rotation8;
+        rotations[9] = rotation9;
+        rotations[10] = rotation10;
+        rotations[11] = rotation11;
         transform.position = locations[0];
         transform.rotation.Set(0, rotations[0], 0, 0);
         StartCoroutine(playClip(audioClipLengths[locationNumber]));

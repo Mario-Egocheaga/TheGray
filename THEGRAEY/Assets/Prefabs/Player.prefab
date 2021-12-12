@@ -205,9 +205,9 @@ MonoBehaviour:
   jumpForce: 0
   mouseSensitivity: 0
   playerCam: {fileID: 2668636157869768504}
+  dashPlate: {fileID: 2096322051349256541, guid: ff4c2489413890940836f767f65c6650,
+    type: 3}
   orientation: {fileID: 0}
-  dashText: {fileID: 0}
-  jumpDashText: {fileID: 0}
   whatIsWall:
     serializedVersion: 2
     m_Bits: 0
@@ -505,7 +505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7417284934427656768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 99.18742, y: 35.55987, z: -106.80289}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2668636156724658650}
