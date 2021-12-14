@@ -9,14 +9,14 @@ public class skillTreeScript : MonoBehaviour
     public Vector2 moveInput;
 
     public Image CanvasImageUpLeft;
-    public Image CanvasImageLeft;
+    public Image CanvasImageDLeft;
     public Image CanvasImageUpRight;
-    public Image CanvasImageRight;
-    public Image CanvasImagebottom;
+    public Image CanvasImageDRight;
+   
     public Sprite Empty;
     public Sprite Red;
     public Sprite Yellow;
-    public Sprite Purple;
+    //public Sprite Purple;
     public Sprite Green;
     public Sprite Blue;
 
@@ -50,12 +50,12 @@ public class skillTreeScript : MonoBehaviour
     public Sprite jump_4_Grey;
     public Button jump_4_Button;
 
-    public Sprite slideColor;
-    public Sprite slideGrey;
-    public Button slideButton;
-    public Sprite slide_2_Color;
-    public Sprite slide_2_Grey;
-    public Button slide_2_Button;
+    //public Sprite slideColor;
+    //public Sprite slideGrey;
+   // public Button slideButton;
+   // public Sprite slide_2_Color;
+    //public Sprite slide_2_Grey;
+    //public Button slide_2_Button;
 
     public Sprite crouchColor;
     public Sprite crouchGrey;
@@ -81,14 +81,14 @@ public class skillTreeScript : MonoBehaviour
 
         jumpButton.image.sprite = jumpGrey;
         jump_2_Button.image.sprite = jump_2_Grey;
-        jump_3_Button.image.sprite = jump_3_Grey;
+        
         jump_4_Button.image.sprite = jump_4_Grey;
 
-        slideButton.image.sprite = slideGrey;
-        slide_2_Button.image.sprite = slide_2_Grey;
+        //slideButton.image.sprite = slideGrey;
+        //slide_2_Button.image.sprite = slide_2_Grey;
         
 
-        crouchButton.image.sprite = crouchGrey;
+       // crouchButton.image.sprite = crouchGrey;
         crouch_2_Button.image.sprite = crouch_2_Grey;
 
         WallButton.image.sprite = WallGrey;
@@ -113,15 +113,15 @@ public class skillTreeScript : MonoBehaviour
            
 
             //Location If's tracking mouse position
-            if (angle > .63 && angle < 1.56)
+            if (angle > 0 && angle < 1.5)
             {
 
                 Debug.Log("Top Left");
                 CanvasImageUpLeft.sprite = Red;
-                CanvasImagebottom.sprite = Empty;
+                
                 CanvasImageUpRight.sprite = Empty;
-                CanvasImageRight.sprite = Empty;
-                CanvasImageLeft.sprite = Empty;
+                CanvasImageDRight.sprite = Empty;
+                CanvasImageDLeft.sprite = Empty;
 
                 skillType.text = "Dashing";
 
@@ -154,13 +154,13 @@ public class skillTreeScript : MonoBehaviour
                //}
 
             }
-            else if (angle > 1.56 && angle < 2.5)
+            else if (angle > 1.5 && angle < 3)
             {
                 CanvasImageUpLeft.sprite = Empty;
-                CanvasImagebottom.sprite = Empty;
+                
                 CanvasImageUpRight.sprite = Yellow;
-                CanvasImageRight.sprite = Empty;
-                CanvasImageLeft.sprite = Empty;
+                CanvasImageDRight.sprite = Empty;
+                CanvasImageDLeft.sprite = Empty;
                 Debug.Log("Top Right");
 
                 skillType.text = "Jumping";
@@ -194,16 +194,16 @@ public class skillTreeScript : MonoBehaviour
                 //}
                 
             }
-            else if (angle > 2.5 || angle < -2.47)
+            else if (angle < -1.5 && angle > -3 )
             {
                 CanvasImageUpLeft.sprite = Empty;
-                CanvasImagebottom.sprite = Empty;
+                
                 CanvasImageUpRight.sprite = Empty;
-                CanvasImageRight.sprite = Purple;
-                CanvasImageLeft.sprite = Empty;
+                CanvasImageDRight.sprite = Blue;
+                CanvasImageDLeft.sprite = Empty;
                 Debug.Log("right");
 
-                skillType.text = "Sliding";
+                skillType.text = "Wall-Running";
 
                 //if (PlayerController.slideUnlocked == true)
                 //{
@@ -222,17 +222,17 @@ public class skillTreeScript : MonoBehaviour
                     
                 //}
             }
-            else if (angle > -2.5 && angle < -.64)
-            {
-                CanvasImageUpLeft.sprite = Empty;
-                CanvasImagebottom.sprite = Green;
-                CanvasImageUpRight.sprite = Empty;
-                CanvasImageRight.sprite = Empty;
-                CanvasImageLeft.sprite = Empty;
-                Debug.Log("bottom");
+            //else if (angle > -2.5 && angle < -.64)
+            //{
+                //CanvasImageUpLeft.sprite = Empty;
+                //CanvasImagebottom.sprite = Green;
+                //CanvasImageUpRight.sprite = Empty;
+                //CanvasImageRight.sprite = Empty;
+                //CanvasImageLeft.sprite = Empty;
+                //Debug.Log("bottom");
 
 
-                skillType.text = "Crouching";
+                //skillType.text = "Crouching";
 
                 //if (PlayerController.# == true)
                 //{
@@ -250,17 +250,17 @@ public class skillTreeScript : MonoBehaviour
                     //crouch_2_Button.image.sprite = crouch_2_Grey;
                     
                 //}
-            }
+            //}
             else if (angle > -.64 && angle < .63)
             {
                 CanvasImageUpLeft.sprite = Empty;
-                CanvasImagebottom.sprite = Empty;
+                
                 CanvasImageUpRight.sprite = Empty;
-                CanvasImageRight.sprite = Empty;
-                CanvasImageLeft.sprite = Blue;
+                CanvasImageDRight.sprite = Empty;
+                CanvasImageDLeft.sprite = Green;
                 Debug.Log("Left");
 
-                skillType.text = "Wall-Running";
+                skillType.text = "Crouch";
 
                 //if (PlayerController.wallGrabUnlocked == true)
                 //{
