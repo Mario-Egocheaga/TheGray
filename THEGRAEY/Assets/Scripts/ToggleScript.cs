@@ -48,14 +48,14 @@ public class ToggleScript : MonoBehaviour
                 skillTree.SetActive(false);
                 TogMap.SetActive(true);
 
-                if (Input.mouseScrollDelta.y == 0!)
+                if (Input.mouseScrollDelta.y > 0 || Input.mouseScrollDelta.y < 0)
                 {
                     Map = false;
                 }
             }
             else if (Map == false)
             {
-               if(Input.mouseScrollDelta.y == 0!)
+                if(Input.mouseScrollDelta.y > 0 || Input.mouseScrollDelta.y < 0)
                 {
                     Map = true;
                 }
@@ -67,7 +67,7 @@ public class ToggleScript : MonoBehaviour
         }   
         else
         {
-            
+            TogMap.SetActive(false);
             skillTree.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             HUD.SetActive(true);
