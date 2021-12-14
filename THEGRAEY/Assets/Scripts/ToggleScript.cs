@@ -9,16 +9,20 @@ public class ToggleScript : MonoBehaviour
     public GameObject HUD;
     public GameObject MiniMap;
     public GameObject Camera;
+    public GameObject Pause;
 
     private bool DisplayHUD = false;
     private bool Map = false;
+    private bool isPaused = false;
     
     // Start is called before the first frame update
     void Start()
     {
         skillTree.SetActive(false);
         TogMap.SetActive(false);
-        
+        Pause.SetActive(false);
+
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -33,6 +37,32 @@ public class ToggleScript : MonoBehaviour
             else if (DisplayHUD == false)
             {
                 DisplayHUD = true;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused == true)
+            {
+                HUD.SetActive(false);
+                MiniMap.SetActive(false);
+                Pause.SetActive(true);
+                TogMap.SetActive(false);
+                skillTree.SetActive(false);
+                Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
+
+                isPaused = false;
+            }
+            else if (isPaused == false)
+            {
+                HUD.SetActive(false);
+                MiniMap.SetActive(false);
+                Pause.SetActive(false);
+                Time.timeScale = 1;
+                Cursor.lockState = CursorLockMode.None;
+
+                isPaused = true;
             }
         }
 
