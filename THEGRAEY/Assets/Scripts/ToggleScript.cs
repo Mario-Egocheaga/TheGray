@@ -5,16 +5,19 @@ using UnityEngine;
 public class ToggleScript : MonoBehaviour
 {
     public GameObject skillTree;
+    public GameObject TogMap;
     public GameObject HUD;
     public GameObject MiniMap;
     public GameObject Camera;
 
     private bool DisplayHUD = false;
+    private bool Map = false;
     
     // Start is called before the first frame update
     void Start()
     {
         skillTree.SetActive(false);
+        TogMap.SetActive(false);
         
     }
 
@@ -35,12 +38,31 @@ public class ToggleScript : MonoBehaviour
 
         if(DisplayHUD == true)
         {
-            skillTree.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-
             HUD.SetActive(false);
             MiniMap.SetActive(false);
-           Camera.GetComponent<CameraController>().enabled = false;
+            Camera.GetComponent<CameraController>().enabled = false;
+            Cursor.lockState = CursorLockMode.None;
+
+            if(Map == true)
+            {
+                skillTree.SetActive(false);
+                TogMap.SetActive(true);
+
+                if (Input.mouseScrollDelta.y == 0!)
+                {
+                    Map = false;
+                }
+            }
+            else if (Map == false)
+            {
+               if(Input.mouseScrollDelta.y == 0!)
+                {
+                    Map = true;
+                }
+               skillTree.SetActive(true);
+               TogMap.SetActive(false); 
+            }
+            
         
         }   
         else
