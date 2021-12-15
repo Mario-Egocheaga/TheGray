@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public Transform orientation;
     //private variables
     private int jumpsLeft;
-    //private int jumpDashesLeft;
     private int jumpMax;
     private float dashForce;
     private bool isCrouching;
@@ -43,18 +42,95 @@ public class PlayerController : MonoBehaviour
     private float plainSightCooldown;
     private float hoverCooldown;
     private float dashRecallCooldown;
-    //UI Shit
-    //public Text dashText;
-    //public Text jumpDashText;
     //Wallrunning
     public LayerMask whatIsWall;
     public float wallrunForce, maxWallrunTime, maxWallSpeed;
     bool isWallRight, isWallLeft;
     public float maxWallRunCameraTilt, wallRunCameraTilt;
+    //Checkpoints
+    private int checkpointReached;
+    private bool t1;
+    private bool t2;
+    private bool t3;
 
     // Start is called before the first frame update
     void Start()
     {
+        checkpointReached = GetInt("checkpointReached");
+        if(checkpointReached == 0)
+        {
+            dashUnlocked = false;
+            doubleJumpUnlocked = false;
+            wallRunUnlocked = false;
+            extendedDashUnlocked = false;
+            jumpDashUnlocked = false;
+            slamUnlocked = false;
+            dashRecallUnlocked = false;
+            plainSightUnlocked = false;
+            hoverUnlocked = false;
+            wallGrabUnlocked = false;
+        }
+        if (checkpointReached == 1)
+        {
+            dashUnlocked = true;
+            GameObject.Find("DashIntro").SetActive(false);
+            doubleJumpUnlocked = true;
+            GameObject.Find("DoubleJumpIntro").SetActive(false);
+            wallRunUnlocked = true;
+            GameObject.Find("WallRunIntro").SetActive(false);
+            extendedDashUnlocked = false;
+            jumpDashUnlocked = false;
+            slamUnlocked = false;
+            dashRecallUnlocked = false;
+            plainSightUnlocked = false;
+            hoverUnlocked = false;
+            wallGrabUnlocked = false;
+        }
+        if (checkpointReached == 2)
+        {
+            dashUnlocked = true;
+            GameObject.Find("DashIntro").SetActive(false);
+            doubleJumpUnlocked = true;
+            GameObject.Find("DoubleJumpIntro").SetActive(false);
+            wallRunUnlocked = true;
+            GameObject.Find("WallRunIntro").SetActive(false);
+            extendedDashUnlocked = true;
+            GameObject.Find("ExtendedDashIntro").SetActive(false);
+            slamUnlocked = true;
+            GameObject.Find("SlamIntro").SetActive(false);
+            wallGrabUnlocked = true;
+            GameObject.Find("WallGrabIntro").SetActive(false);
+            jumpDashUnlocked = false;
+            dashRecallUnlocked = false;
+            plainSightUnlocked = false;
+            hoverUnlocked = false;
+        }
+        if (checkpointReached == 3)
+        {
+            dashUnlocked = true;
+            GameObject.Find("DashIntro").SetActive(false);
+            doubleJumpUnlocked = true;
+            GameObject.Find("DoubleJumpIntro").SetActive(false);
+            wallRunUnlocked = true;
+            GameObject.Find("WallRunIntro").SetActive(false);
+            extendedDashUnlocked = true;
+            GameObject.Find("ExtendedDashIntro").SetActive(false);
+            slamUnlocked = true;
+            GameObject.Find("SlamIntro").SetActive(false);
+            wallGrabUnlocked = true;
+            GameObject.Find("WallGrabIntro").SetActive(false);
+            jumpDashUnlocked = true;
+            GameObject.Find("JumpDashIntro").SetActive(false);
+            dashRecallUnlocked = true;
+            GameObject.Find("DashRecallIntro").SetActive(false);
+            plainSightUnlocked = true;
+            GameObject.Find("PlainSightIntro").SetActive(false);
+            hoverUnlocked = true;
+            GameObject.Find("HoverIntro").SetActive(false);
+        }
+        t1 = false;
+        t2 = false;
+        t3 = false;
         playerCollider = this.GetComponent<CapsuleCollider>();
         playerRB = this.GetComponent<Rigidbody>();
         moveSpeed = 10f;
@@ -63,16 +139,6 @@ public class PlayerController : MonoBehaviour
         isCrouching = false;
         isSprinting = false;
         isWallRunning = false;
-        dashUnlocked = false;
-        extendedDashUnlocked = false;
-        doubleJumpUnlocked = false;
-        jumpDashUnlocked = false;
-        wallRunUnlocked = false;
-        slamUnlocked = false;
-        dashRecallUnlocked = false;
-        plainSightUnlocked = false;
-        hoverUnlocked = false;
-        wallGrabUnlocked = false;
         plainSightLight.SetActive(false);
         dashPlate.SetActive(false);
         jumpsLeft = 1;
@@ -84,15 +150,28 @@ public class PlayerController : MonoBehaviour
         hoverCooldown = 0f;
         dashRecallCooldown = 0f;
         dashForce = 75f;
-        //dashText.text = "Dash: Unavailable";
-        //jumpDashText.text = "Jump Dash: Unavailable";
-
-       
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Checkpoint
+        if(dashUnlocked && doubleJumpUnlocked && wallRunUnlocked)
+        {
+            SetInt("checkpointReached", 1);
+            t1 = true;
+        }
+        if(t1 && extendedDashUnlocked && slamUnlocked && wallGrabUnlocked)
+        {
+            SetInt("checkpointReached", 2);
+            t2 = true;
+        }
+        if(t1 && t2 && jumpDashUnlocked && dashRecallUnlocked && plainSightUnlocked && hoverUnlocked)
+        {
+            SetInt("checkpointReached", 3);
+            t3 = true;
+        }
+
         //Crouch Toggle
         if (Input.GetKeyDown(KeyCode.C) && !isCrouching)
         {
@@ -193,7 +272,6 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.AddForce(playerCam.transform.forward * 75f, ForceMode.Impulse);
             jumpDashCooldown = 5f;
-            //jumpDashText.text = "Jump Dash: Cooling Down";
         }
 
         //Dash Force
@@ -215,7 +293,6 @@ public class PlayerController : MonoBehaviour
             {
                 dashPlate.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
             }
-            //dashText.text = "Dash: Cooling Down";
         }
 
         //DashRecall
@@ -280,7 +357,6 @@ public class PlayerController : MonoBehaviour
         else if ((dashCooldown > 0f && dashCooldown < .5f) || dashCooldown < 0f)
         {
             dashCooldown = 0f;
-            //dashText.text = "Dash: Ready";
         }
 
         //JumpDashCooldown
@@ -291,7 +367,6 @@ public class PlayerController : MonoBehaviour
         else if ((jumpDashCooldown > 0f && jumpDashCooldown < .5f) || jumpDashCooldown < 0f)
         {
             jumpDashCooldown = 0f;
-            //jumpDashText.text = "Jump Dash: Ready";
         }
 
         //PlainSightCooldown
@@ -346,7 +421,6 @@ public class PlayerController : MonoBehaviour
         {
             dashUnlocked = true;
             collision.gameObject.SetActive(false);
-            //dashText.text = "Dash: Ready";
         }
 
         //Double Jump Unlock Pickup
@@ -362,7 +436,6 @@ public class PlayerController : MonoBehaviour
         {
             jumpDashUnlocked = true;
             collision.gameObject.SetActive(false);
-            //jumpDashText.text = "Jump Dash: Ready";
         }
 
         //Wall Run Unlock Pickup
@@ -415,6 +488,17 @@ public class PlayerController : MonoBehaviour
             wallGrabUnlocked = true;
             collision.gameObject.SetActive(false);
         }
+    }
+
+    //Checkpoint stuff
+    public void SetInt(string KeyName, int Value)
+    {
+        PlayerPrefs.SetInt(KeyName, Value);
+    }
+
+    public int GetInt(string KeyName)
+    {
+        return PlayerPrefs.GetInt(KeyName);
     }
 
     private void OnCollisionExit(Collision collision)
