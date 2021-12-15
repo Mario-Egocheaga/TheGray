@@ -163,7 +163,6 @@ public class CompanionController : MonoBehaviour
 
     private IEnumerator playClip(int clipLength)
     {
-        Debug.Log(clipNumber);
         AudioSource.PlayClipAtPoint(audioClips[clipNumber], this.transform.position);
         yield return new WaitForSeconds(clipLength);
         if(clipNumber < 3)

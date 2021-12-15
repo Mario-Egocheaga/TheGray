@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject dashPlate;
     public GameObject plainSightLight;
     public Transform orientation;
+    public AudioMAnager audioManager;
     //private variables
     private int jumpsLeft;
     private int jumpMax;
@@ -408,10 +410,19 @@ public class PlayerController : MonoBehaviour
         {
             dashRecallCooldown = 0f;
         }
+
+        //WinCon
+        if(audioManager.getRelicCount() == 4 && t1 && t2 && t3)
+        {
+            SceneManager.LoadScene("Credit scene");
+        }
     }
     private void FixedUpdate()
     {
-
+        Debug.Log(audioManager.getRelicCount());
+        Debug.Log(t1);
+        Debug.Log(t2);
+        Debug.Log(t3);
     }
 
     private void OnCollisionEnter(Collision collision)

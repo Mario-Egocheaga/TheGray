@@ -22,6 +22,27 @@ public class AudioMAnager : MonoBehaviour
 
     public AudioSource Player;
 
+    public GameObject bucketIcon;
+    public GameObject flowerIcon;
+    public GameObject crystalIcon;
+    public GameObject torchIcon;
+
+    public int relicCount;
+
+    public void Start()
+    {
+        relicCount = 0;
+        bucketIcon.SetActive(false);
+        flowerIcon.SetActive(false);
+        crystalIcon.SetActive(false);
+        torchIcon.SetActive(false);
+    }
+
+    public int getRelicCount()
+    {
+        return relicCount;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "SlamIntro")
@@ -78,21 +99,33 @@ public class AudioMAnager : MonoBehaviour
         {
             Player.clip = BucketRelicIntro;
             Player.Play();
+            bucketIcon.SetActive(true);
+            other.gameObject.SetActive(false);
+            relicCount++;
         }
         if (other.gameObject.name == "TheFlower")
         {
             Player.clip = FlowerRelicIntro;
             Player.Play();
+            flowerIcon.SetActive(true);
+            other.gameObject.SetActive(false);
+            relicCount++;
         }
         if (other.gameObject.name == "TheCrystal")
         {
             Player.clip = CrystalRelicIntro;
             Player.Play();
+            crystalIcon.SetActive(true);
+            other.gameObject.SetActive(false);
+            relicCount++;
         }
         if (other.gameObject.name == "TheTorch")
         {
             Player.clip = TorchRelicIntro;
             Player.Play();
+            torchIcon.SetActive(true);
+            other.gameObject.SetActive(false);
+            relicCount++;
         }
     }
 }
