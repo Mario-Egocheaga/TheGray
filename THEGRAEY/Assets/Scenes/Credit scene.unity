@@ -286,7 +286,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Callum- \n\nDanny-\n\nDrew-\n\nTristan-"
+  m_Text: 'Callum- UI/Ux and Narrative
+
+
+    Danny- Champion Programmer
+
+
+    Drew-
+    Project lead
+
+
+    Tristan- Champion Artist'
 --- !u!222 &286424480
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -327,10 +337,10 @@ RectTransform:
   m_Father: {fileID: 956668489}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 132.799, y: 50.725}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -47}
+  m_SizeDelta: {x: 132.799, y: 50.725006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &379019449
 MonoBehaviour:
@@ -422,7 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -575,10 +585,10 @@ RectTransform:
   m_Father: {fileID: 956668489}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 960, y: 600}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1068921836
 MonoBehaviour:
@@ -736,10 +746,10 @@ RectTransform:
   m_Father: {fileID: 956668489}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 384, y: -269}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -100, y: 34}
+  m_SizeDelta: {x: 100.571, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347979815
 MonoBehaviour:
@@ -750,7 +760,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1347979813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dddecabf14eb5049a700a13dbc0dffc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a4ed90ba424e43a5a536e6da3532158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1347979816
@@ -917,7 +927,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'Back
+
+'
 --- !u!222 &1577553410
 CanvasRenderer:
   m_ObjectHideFlags: 0
