@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ToggleScript : MonoBehaviour
 {
@@ -56,17 +57,18 @@ public class ToggleScript : MonoBehaviour
             }
             else if (isPaused == false)
             {
-                HUD.SetActive(false);
-                MiniMap.SetActive(false);
+                HUD.SetActive(true);
+                MiniMap.SetActive(true);
                 Pause.SetActive(false);
                 Time.timeScale = 1;
-                Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.Locked;
 
                 isPaused = true;
             }
         }
 
-        if(DisplayHUD == true)
+
+        if (DisplayHUD == true)
         {
             HUD.SetActive(false);
             MiniMap.SetActive(false);
@@ -104,5 +106,15 @@ public class ToggleScript : MonoBehaviour
             MiniMap.SetActive(true);
             Camera.GetComponent<CameraController>().enabled = true;
         }
+    }
+
+    public void Play()
+    {
+        isPaused = false;
+    }
+
+    public void Quit()
+    {
+        SceneManager.LoadScene("Title");
     }
 }
