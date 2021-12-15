@@ -57,6 +57,7 @@ public class CompanionController : MonoBehaviour
 
     private bool canInteract;
     private bool isDipping;
+    private bool isWithinRange;
     private Vector3[] locations;
     private float[] rotations;
     private AudioClip[] audioClips;
@@ -69,6 +70,7 @@ public class CompanionController : MonoBehaviour
     {
         canInteract = false;
         isDipping = false;
+        isWithinRange = false;
         interactionText.SetActive(false);
         locationNumber = 0;
         clipNumber = 0;
@@ -138,7 +140,7 @@ public class CompanionController : MonoBehaviour
             transform.Rotate(0, 1, 0);
         }
 
-        if(Input.GetKeyDown(KeyCode.F) && canInteract)
+        if(Input.GetKeyDown(KeyCode.F) && canInteract && isWithinRange)
         {
             canInteract = false;
             StartCoroutine(playClip(audioClipLengths[clipNumber]));
@@ -235,6 +237,10 @@ public class CompanionController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            isWithinRange = true;
+        }
         if (other.gameObject.CompareTag("Player") && canInteract)
         {
             interactionText.SetActive(true);
@@ -246,6 +252,7 @@ public class CompanionController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             interactionText.SetActive(false);
+            isWithinRange = false;
         }
     }
 }
