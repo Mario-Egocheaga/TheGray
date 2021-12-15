@@ -24,10 +24,6 @@ public class CompanionController : MonoBehaviour
     public float rotation8;
     public Vector3 location9;
     public float rotation9;
-    public Vector3 location10;
-    public float rotation10;
-    public Vector3 location11;
-    public float rotation11;
     public GameObject interactionText;
     public AudioSource companionAudioSource;
     public AudioClip clip1;
@@ -56,6 +52,8 @@ public class CompanionController : MonoBehaviour
     public int clip12Length;
     public AudioClip clip13;
     public int clip13Length;
+    public AudioClip clip14;
+    public int clip14Length;
 
     private bool canInteract;
     private bool isDipping;
@@ -64,6 +62,7 @@ public class CompanionController : MonoBehaviour
     private AudioClip[] audioClips;
     private int[] audioClipLengths;
     private int locationNumber;
+    private int clipNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -72,10 +71,11 @@ public class CompanionController : MonoBehaviour
         isDipping = false;
         interactionText.SetActive(false);
         locationNumber = 0;
-        locations = new Vector3[12];
-        rotations = new float[12];
-        audioClips = new AudioClip[13];
-        audioClipLengths = new int[13];
+        clipNumber = 0;
+        locations = new Vector3[10];
+        rotations = new float[10];
+        audioClips = new AudioClip[14];
+        audioClipLengths = new int[14];
         audioClips[0] = clip1;
         audioClips[1] = clip2;
         audioClips[2] = clip3;
@@ -89,6 +89,7 @@ public class CompanionController : MonoBehaviour
         audioClips[10] = clip11;
         audioClips[11] = clip12;
         audioClips[12] = clip13;
+        audioClips[13] = clip14;
         audioClipLengths[0] = clip1Length;
         audioClipLengths[1] = clip2Length;
         audioClipLengths[2] = clip3Length;
@@ -102,6 +103,7 @@ public class CompanionController : MonoBehaviour
         audioClipLengths[10] = clip11Length;
         audioClipLengths[11] = clip12Length;
         audioClipLengths[12] = clip13Length;
+        audioClipLengths[13] = clip14Length;
         locations[0] = startLocation;
         locations[1] = location1;
         locations[2] = location2;
@@ -112,8 +114,6 @@ public class CompanionController : MonoBehaviour
         locations[7] = location7;
         locations[8] = location8;
         locations[9] = location9;
-        locations[10] = location10;
-        locations[11] = location11;
         rotations[0] = startRotation;
         rotations[1] = rotation1;
         rotations[2] = rotation2;
@@ -124,11 +124,9 @@ public class CompanionController : MonoBehaviour
         rotations[7] = rotation7;
         rotations[8] = rotation8;
         rotations[9] = rotation9;
-        rotations[10] = rotation10;
-        rotations[11] = rotation11;
         transform.position = locations[0];
         transform.rotation.Set(0, rotations[0], 0, 0);
-        StartCoroutine(playClip(audioClipLengths[locationNumber]));
+        StartCoroutine(playClip(audioClipLengths[clipNumber]));
     }
 
     // Update is called once per frame
@@ -142,7 +140,8 @@ public class CompanionController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.F) && canInteract)
         {
-            StartCoroutine(playClip(audioClipLengths[locationNumber]));
+            canInteract = false;
+            StartCoroutine(playClip(audioClipLengths[clipNumber]));
         }
 
         if (canInteract == false)
@@ -164,17 +163,74 @@ public class CompanionController : MonoBehaviour
 
     private IEnumerator playClip(int clipLength)
     {
-        AudioSource.PlayClipAtPoint(audioClips[locationNumber], this.transform.position);
-        canInteract = false;
+        Debug.Log(clipNumber);
+        AudioSource.PlayClipAtPoint(audioClips[clipNumber], this.transform.position);
         yield return new WaitForSeconds(clipLength);
-        if(locationNumber > 0)
+        if(clipNumber < 3)
         {
+            clipNumber++;
+            StartCoroutine(playClip(audioClipLengths[clipNumber]));
+        }
+        else if(clipNumber == 3)
+        {
+            canInteract = true;
+            clipNumber++;
+        }
+        else if(clipNumber == 4)
+        {
+            clipNumber++;
+            StartCoroutine(playClip(audioClipLengths[clipNumber]));
+        }
+        else if(clipNumber == 5)
+        {
+            clipNumber++;
+            locationNumber++;
             StartCoroutine(moveToNewSpot(locations[locationNumber]));
         }
-        else
+        else if(clipNumber == 6)
         {
-            locationNumber++;
-            canInteract = true;
+            clipNumber++;
+            StartCoroutine(moveToNewSpot(locations[locationNumber]));
+        }
+        else if (clipNumber == 7)
+        {
+            clipNumber++;
+            StartCoroutine(moveToNewSpot(locations[locationNumber]));
+        }
+        else if (clipNumber == 8)
+        {
+            clipNumber++;
+            StartCoroutine(moveToNewSpot(locations[locationNumber]));
+        }
+        else if (clipNumber == 9)
+        {
+            clipNumber++;
+            StartCoroutine(moveToNewSpot(locations[locationNumber]));
+        }
+        else if (clipNumber == 10)
+        {
+            clipNumber++;
+            StartCoroutine(moveToNewSpot(locations[locationNumber]));
+        }
+        else if (clipNumber == 11)
+        {
+            clipNumber++;
+            StartCoroutine(moveToNewSpot(locations[locationNumber]));
+        }
+        else if (clipNumber == 12)
+        {
+            clipNumber++;
+            StartCoroutine(moveToNewSpot(locations[locationNumber]));
+        }
+        else if (clipNumber == 13)
+        {
+            clipNumber++;
+            StartCoroutine(moveToNewSpot(locations[locationNumber]));
+        }
+        else if (clipNumber == 14)
+        {
+            clipNumber++;
+            StartCoroutine(moveToNewSpot(locations[locationNumber]));
         }
     }
 

@@ -5,82 +5,94 @@ using UnityEngine;
 public class AudioMAnager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public AudioClip Welcome;
-    public AudioClip CrouchIntro;
-    public AudioClip SprintIntro;
+    public AudioClip SlamIntro;
+    public AudioClip WallGrabIntro;
+    public AudioClip DashRecallIntro;
     public AudioClip DashIntro;
     public AudioClip DoubleJumpIntro;
     public AudioClip WallRunIntro;
     public AudioClip JumpDashIntro;
     public AudioClip ExtendedDashIntro;
+    public AudioClip PlainSightIntro;
+    public AudioClip HoverIntro;
+    public AudioClip BucketRelicIntro;
+    public AudioClip FlowerRelicIntro;
+    public AudioClip CrystalRelicIntro;
+    public AudioClip TorchRelicIntro;
 
     public AudioSource Player;
 
-    private int crouchClipsPlayed;
-    private int sprintClipsPlayed;
-    private int dashClipsPlayed;
-    private int doubleJumpClipsPlayed;
-    private int wallRunClipsPlayed;
-    private int jumpDashClipsPlayed;
-    private int extendedDashClipsPlayed;
-
-    void Start()
-    {
-        Player.clip = Welcome;
-        Player.Play();
-        crouchClipsPlayed = 0;
-        sprintClipsPlayed = 0;
-        dashClipsPlayed = 0;
-        doubleJumpClipsPlayed = 0;
-        wallRunClipsPlayed = 0;
-        jumpDashClipsPlayed = 0;
-        extendedDashClipsPlayed = 0;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "CrouchIntro" && crouchClipsPlayed == 0)
+        if (other.gameObject.name == "SlamIntro")
         {
-            Player.clip = CrouchIntro;
+            Player.clip = SlamIntro;
             Player.Play();
-            crouchClipsPlayed++;
         }
-        if (other.gameObject.name == "EnemyIntro" && sprintClipsPlayed == 0)
+        if (other.gameObject.name == "WallGrabIntro")
         {
-            Player.clip = SprintIntro;
+            Player.clip = WallGrabIntro;
             Player.Play();
-            sprintClipsPlayed++;
         }
-        if (other.gameObject.name == "DashIntro" && dashClipsPlayed == 0)
+        if (other.gameObject.name == "DashIntro")
         {
-            Debug.Log("Dash noise");
             Player.clip = DashIntro;
             Player.Play();
-            dashClipsPlayed++;
         }
-        if (other.gameObject.name == "DoubleJumpIntro" && doubleJumpClipsPlayed == 0)
+        if (other.gameObject.name == "DoubleJumpIntro")
         {
             Player.clip = DoubleJumpIntro;
             Player.Play();
-            dashClipsPlayed++;
         }
-        if (other.gameObject.name == "WallRunIntro" && wallRunClipsPlayed == 0)
+        if (other.gameObject.name == "WallRunIntro")
         {
             Player.clip = WallRunIntro;
             Player.Play();
-            dashClipsPlayed++;
         }
-        if (other.gameObject.name == "JumpDashIntro" && jumpDashClipsPlayed == 0)
+        if (other.gameObject.name == "JumpDashIntro")
         {
             Player.clip = JumpDashIntro;
             Player.Play();
-            dashClipsPlayed++;
         }
-        if (other.gameObject.name == "ExtendedDashIntro" && extendedDashClipsPlayed == 0)
+        if (other.gameObject.name == "ExtendedDashIntro")
         {
             Player.clip = ExtendedDashIntro;
             Player.Play();
-            dashClipsPlayed++;
+        }
+        if (other.gameObject.name == "DashRecallIntro")
+        {
+            Player.clip = DashRecallIntro;
+            Player.Play();
+        }
+        if (other.gameObject.name == "PlainSightIntro")
+        {
+            Player.clip = PlainSightIntro;
+            Player.Play();
+        }
+        if (other.gameObject.name == "HoverIntro")
+        {
+            Player.clip = HoverIntro;
+            Player.Play();
+        }
+        if (other.gameObject.name == "TheBucket")
+        {
+            Player.clip = BucketRelicIntro;
+            Player.Play();
+        }
+        if (other.gameObject.name == "TheFlower")
+        {
+            Player.clip = FlowerRelicIntro;
+            Player.Play();
+        }
+        if (other.gameObject.name == "TheCrystal")
+        {
+            Player.clip = CrystalRelicIntro;
+            Player.Play();
+        }
+        if (other.gameObject.name == "TheTorch")
+        {
+            Player.clip = TorchRelicIntro;
+            Player.Play();
         }
     }
 }

@@ -301,7 +301,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(dashPlate.transform.position.x, dashPlate.transform.position.y + 1f, dashPlate.transform.position.z);
             dashRecallCooldown = 60f;
         }
-        Debug.Log(dashRecallCooldown);
+
         //PlainSight
         if (plainSightUnlocked && Input.GetKeyDown(KeyCode.Z) && plainSightCooldown == 0f)
         {
