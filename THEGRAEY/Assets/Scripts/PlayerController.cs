@@ -58,6 +58,28 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerRB = this.GetComponent<Rigidbody>();
+        t1 = false;
+        t2 = false;
+        t3 = false;
+        playerCollider = this.GetComponent<CapsuleCollider>();
+        moveSpeed = 10f;
+        jumpForce = 70f;
+        mouseSensitivity = 100f;
+        isCrouching = false;
+        isSprinting = false;
+        isWallRunning = false;
+        plainSightLight.SetActive(false);
+        dashPlate.SetActive(false);
+        jumpsLeft = 1;
+        jumpMax = 1;
+        dashCooldown = 0f;
+        jumpDashCooldown = 0f;
+        slamCooldown = 0f;
+        plainSightCooldown = 0f;
+        hoverCooldown = 0f;
+        dashRecallCooldown = 0f;
+        dashForce = 75f;
         checkpointReached = GetInt("checkpointReached");
         if(checkpointReached == 0)
         {
@@ -130,28 +152,6 @@ public class PlayerController : MonoBehaviour
             hoverUnlocked = true;
             GameObject.Find("HoverIntro").SetActive(false);
         }
-        t1 = false;
-        t2 = false;
-        t3 = false;
-        playerCollider = this.GetComponent<CapsuleCollider>();
-        playerRB = this.GetComponent<Rigidbody>();
-        moveSpeed = 10f;
-        jumpForce = 70f;
-        mouseSensitivity = 100f;
-        isCrouching = false;
-        isSprinting = false;
-        isWallRunning = false;
-        plainSightLight.SetActive(false);
-        dashPlate.SetActive(false);
-        jumpsLeft = 1;
-        jumpMax = 1;
-        dashCooldown = 0f;
-        jumpDashCooldown = 0f;
-        slamCooldown = 0f;
-        plainSightCooldown = 0f;
-        hoverCooldown = 0f;
-        dashRecallCooldown = 0f;
-        dashForce = 75f;
     }
 
     // Update is called once per frame
@@ -227,7 +227,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpForce = 60f;
         }
-        else if (jumpsLeft == 1 && !isCrouching)
+        else if (jumpsLeft == 1 && !isCrouching && jumpMax != 1)
         {
             jumpForce = 40f;
         }
@@ -419,10 +419,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log(audioManager.getRelicCount());
-        Debug.Log(t1);
-        Debug.Log(t2);
-        Debug.Log(t3);
+
     }
 
     private void OnCollisionEnter(Collision collision)
