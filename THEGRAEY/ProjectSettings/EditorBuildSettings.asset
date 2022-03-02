@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MVP.unity
+    guid: c39d24fc590cce248ad5f414dd503f88
+  - enabled: 0
     path: Assets/Scenes/Title.unity
     guid: 08e7aa2b8ef5b834494c735af32017c1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Setting SCreen.unity
     guid: 724df9947a46e74469fc685f082d3520
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tristans Scene.unity
     guid: 7bcc1c16fe4138a4c8d3273668ef15f1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Credit scene.unity
     guid: 8da42e06502520442956a41c25f3041c
   m_configObjects: {}

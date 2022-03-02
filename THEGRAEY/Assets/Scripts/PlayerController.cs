@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     //public variables
     public float moveSpeed;
     public float jumpForce;
-    public float mouseSensitivity;
+    //public float mouseSensitivity;
     public GameObject playerCam;
     public GameObject dashPlate;
     public GameObject plainSightLight;
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
         playerCollider = this.GetComponent<CapsuleCollider>();
         moveSpeed = 10f;
         jumpForce = 70f;
-        mouseSensitivity = 100f;
+        //mouseSensitivity = 100f;
         isCrouching = false;
         isSprinting = false;
         isWallRunning = false;
