@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
         hoverCooldown = 0f;
         dashRecallCooldown = 0f;
         dashForce = 75f;
-        batteryLife = 1000f;
+        batteryLife = 1500f;
         batterySlider.value = batteryLife;
         checkpointReached = GetInt("checkpointReached");
         if(checkpointReached == 0)
@@ -434,6 +434,10 @@ public class PlayerController : MonoBehaviour
                 batteryLife -= Time.deltaTime * 2;
                 batterySlider.value = batteryLife;
             }
+        }
+        else
+        {
+            batteryLife -= Time.deltaTime;
         }
 
         //WinCon
