@@ -54,6 +54,9 @@ public class PlayerController : MonoBehaviour
     private bool t1;
     private bool t2;
     private bool t3;
+    //Battery
+    private float batteryLife;
+    public Slider batterySlider;
 
     // Start is called before the first frame update
     void Start()
@@ -80,6 +83,8 @@ public class PlayerController : MonoBehaviour
         hoverCooldown = 0f;
         dashRecallCooldown = 0f;
         dashForce = 75f;
+        batteryLife = 1500f;
+        batterySlider.value = batteryLife;
         checkpointReached = GetInt("checkpointReached");
         if(checkpointReached == 0)
         {
@@ -235,8 +240,10 @@ public class PlayerController : MonoBehaviour
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0)
         {
+            playerRB.velocity.Set(playerRB.velocity.x, 0, playerRB.velocity.z);
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             jumpsLeft--;
+            batteryLife -= 5;
         }
 
         //Hover
@@ -272,6 +279,7 @@ public class PlayerController : MonoBehaviour
         //Jump Dash
         if (Input.GetKeyDown(KeyCode.Mouse0) && jumpDashUnlocked && !isGrounded && jumpDashCooldown == 0f)
         {
+            batteryLife -= 25;
             playerRB.AddForce(playerCam.transform.forward * 75f, ForceMode.Impulse);
             jumpDashCooldown = 5f;
         }
@@ -289,6 +297,7 @@ public class PlayerController : MonoBehaviour
         //Dash
         if (Input.GetKeyDown(KeyCode.Mouse0) && dashUnlocked && isGrounded && dashCooldown == 0f)
         {
+            batteryLife -= 10;
             playerRB.AddForce(transform.forward * dashForce, ForceMode.Impulse);
             dashCooldown = 5f;
             if(dashRecallUnlocked)
@@ -409,6 +418,26 @@ public class PlayerController : MonoBehaviour
         else if ((dashRecallCooldown > 0f && dashRecallCooldown < .5f) || dashRecallCooldown < 0f)
         {
             dashRecallCooldown = 0f;
+        }
+
+        //Battery
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            if(isSprinting)
+            {
+                batteryLife -= Time.deltaTime * 4;
+                batterySlider.value = batteryLife;
+
+            }
+            else
+            {
+                batteryLife -= Time.deltaTime * 2;
+                batterySlider.value = batteryLife;
+            }
+        }
+        else
+        {
+            batteryLife -= Time.deltaTime;
         }
 
         //WinCon
