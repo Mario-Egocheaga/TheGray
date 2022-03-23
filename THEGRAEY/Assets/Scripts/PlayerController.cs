@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool isWallRunning;
     private bool isSprinting;
     private bool plainSightActive;
+    private bool isCharging;
     private Rigidbody playerRB;
     private CapsuleCollider playerCollider;
     //Unlock Bools
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
     //Battery
     private float batteryLife;
     public Slider batterySlider;
+    public Image batteryChargeImage;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
         isCrouching = false;
         isSprinting = false;
         isWallRunning = false;
+        isCharging = false;
         plainSightLight.SetActive(false);
         dashPlate.SetActive(false);
         jumpsLeft = 1;
@@ -243,7 +246,7 @@ public class PlayerController : MonoBehaviour
             playerRB.velocity.Set(playerRB.velocity.x, 0, playerRB.velocity.z);
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             jumpsLeft--;
-            batteryLife -= 5;
+            batteryLife -= 20;
         }
 
         //Hover
@@ -421,23 +424,53 @@ public class PlayerController : MonoBehaviour
         }
 
         //Battery
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if(isCharging)
+        {
+            if(batteryLife > 1449f)
+            {
+                batteryLife = 1500f;
+            }
+            else
+            {
+                batteryLife += Time.deltaTime * 50;
+                batterySlider.value = batteryLife;
+            }
+        }
+        else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             if(isSprinting)
             {
-                batteryLife -= Time.deltaTime * 4;
+                batteryLife -= Time.deltaTime * 15;
                 batterySlider.value = batteryLife;
 
             }
             else
             {
-                batteryLife -= Time.deltaTime * 2;
+                batteryLife -= Time.deltaTime * 5;
                 batterySlider.value = batteryLife;
             }
         }
         else
         {
             batteryLife -= Time.deltaTime;
+        }
+
+        if(batteryLife <= 300)
+        {
+            batteryChargeImage.color = new Color(0.6431373f, 0.09019608f, 0.1098039f, 1f);
+        }
+        else if(batteryLife <= 750)
+        {
+            batteryChargeImage.color = new Color(0.764151f, 0.7445666f, 0.1766198f, 1f);
+        }
+        else
+        {
+            batteryChargeImage.color = new Color(0.09411765f, 0.5960785f, 0.07058824f, 1f);
+        }
+
+        if(batteryLife < 0)
+        {
+            batteryLife = 0;
         }
 
         //WinCon
@@ -551,11 +584,19 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isGrounded = false;
+        if(other.CompareTag("ChargeStation"))
+        {
+            isCharging = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         isGrounded = true;
+        if(other.CompareTag("ChargeStation"))
+        {
+            isCharging = true;
+        }
     }
 
     public bool getPlainSight()

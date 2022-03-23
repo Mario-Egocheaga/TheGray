@@ -15,6 +15,7 @@ TagManager:
   - PlainSightUnlock
   - HoverUnlock
   - WallGrabUnlock
+  - ChargeStation
   layers:
   - Default
   - TransparentFX
