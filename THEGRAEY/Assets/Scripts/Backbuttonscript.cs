@@ -9,4 +9,9 @@ public class Backbuttonscript : MonoBehaviour
     {
         SceneManager.LoadScene("Title");
     }
+
+    public void Respawn()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
 }

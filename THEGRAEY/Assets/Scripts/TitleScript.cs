@@ -20,7 +20,7 @@ public class TitleScript : MonoBehaviour
     public void Play()
     {
         PlayerPrefs.SetInt("checkpointReached", 0);
-        SceneManager.LoadScene("Tristans Scene");
+        SceneManager.LoadScene("SampleScene");
     }
     public void Settings()
     {

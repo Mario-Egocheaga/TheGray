@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject playerCam;
     public GameObject dashPlate;
     public GameObject plainSightLight;
+    public GameObject flashlight;
     public Transform orientation;
     public AudioMAnager audioManager;
     //private variables
@@ -24,7 +25,6 @@ public class PlayerController : MonoBehaviour
     private bool isWallRunning;
     private bool isSprinting;
     private bool plainSightActive;
-    private bool isCharging;
     private Rigidbody playerRB;
     private CapsuleCollider playerCollider;
     //Unlock Bools
@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     static public bool plainSightUnlocked;
     static public bool hoverUnlocked;
     static public bool wallGrabUnlocked;
+    static public bool flashlightOn;
     //Cooldowns
     private float dashCooldown;
     private float jumpDashCooldown;
@@ -56,9 +57,11 @@ public class PlayerController : MonoBehaviour
     private bool t2;
     private bool t3;
     //Battery
+    private bool isCharging;
     private float batteryLife;
     public Slider batterySlider;
     public Image batteryChargeImage;
+    public Text batteryText;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +80,8 @@ public class PlayerController : MonoBehaviour
         isCharging = false;
         plainSightLight.SetActive(false);
         dashPlate.SetActive(false);
+        flashlight.SetActive(false);
+        flashlightOn = false;
         jumpsLeft = 1;
         jumpMax = 1;
         dashCooldown = 0f;
@@ -86,7 +91,7 @@ public class PlayerController : MonoBehaviour
         hoverCooldown = 0f;
         dashRecallCooldown = 0f;
         dashForce = 75f;
-        batteryLife = 1500f;
+        batteryLife = 1000f;
         batterySlider.value = batteryLife;
         checkpointReached = GetInt("checkpointReached");
         if(checkpointReached == 0)
@@ -237,16 +242,16 @@ public class PlayerController : MonoBehaviour
         }
         else if (jumpsLeft == 1 && !isCrouching && jumpMax != 1)
         {
-            jumpForce = 40f;
+            jumpForce = 60f;
         }
 
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0)
         {
-            playerRB.velocity.Set(playerRB.velocity.x, 0, playerRB.velocity.z);
+            playerRB.velocity = new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z);
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             jumpsLeft--;
-            batteryLife -= 20;
+            batteryLife -= 10;
         }
 
         //Hover
@@ -282,7 +287,7 @@ public class PlayerController : MonoBehaviour
         //Jump Dash
         if (Input.GetKeyDown(KeyCode.Mouse0) && jumpDashUnlocked && !isGrounded && jumpDashCooldown == 0f)
         {
-            batteryLife -= 25;
+            batteryLife -= 15;
             playerRB.AddForce(playerCam.transform.forward * 75f, ForceMode.Impulse);
             jumpDashCooldown = 5f;
         }
@@ -300,7 +305,7 @@ public class PlayerController : MonoBehaviour
         //Dash
         if (Input.GetKeyDown(KeyCode.Mouse0) && dashUnlocked && isGrounded && dashCooldown == 0f)
         {
-            batteryLife -= 10;
+            batteryLife -= 5;
             playerRB.AddForce(transform.forward * dashForce, ForceMode.Impulse);
             dashCooldown = 5f;
             if(dashRecallUnlocked)
@@ -423,12 +428,29 @@ public class PlayerController : MonoBehaviour
             dashRecallCooldown = 0f;
         }
 
+        //Flashlight
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            if(flashlightOn)
+            {
+                flashlight.SetActive(false);
+                flashlightOn = false;
+            }
+            else
+            {
+                flashlight.SetActive(true);
+                flashlightOn = true;
+            }
+        }
+
+
         //Battery
         if(isCharging)
         {
-            if(batteryLife > 1449f)
+            if(batteryLife > 999f)
             {
-                batteryLife = 1500f;
+                batteryLife = 1000f;
+                batterySlider.value = batteryLife;
             }
             else
             {
@@ -440,13 +462,13 @@ public class PlayerController : MonoBehaviour
         {
             if(isSprinting)
             {
-                batteryLife -= Time.deltaTime * 15;
+                batteryLife -= Time.deltaTime * 7;
                 batterySlider.value = batteryLife;
 
             }
             else
             {
-                batteryLife -= Time.deltaTime * 5;
+                batteryLife -= Time.deltaTime * 3;
                 batterySlider.value = batteryLife;
             }
         }
@@ -455,23 +477,30 @@ public class PlayerController : MonoBehaviour
             batteryLife -= Time.deltaTime;
         }
 
-        if(batteryLife <= 300)
+        if(batteryLife <= 200)
         {
             batteryChargeImage.color = new Color(0.6431373f, 0.09019608f, 0.1098039f, 1f);
+            batteryText.color = Color.white;
         }
-        else if(batteryLife <= 750)
+        else if(batteryLife <= 500)
         {
             batteryChargeImage.color = new Color(0.764151f, 0.7445666f, 0.1766198f, 1f);
+            batteryText.color = Color.black;
         }
         else
         {
             batteryChargeImage.color = new Color(0.09411765f, 0.5960785f, 0.07058824f, 1f);
+            batteryText.color = Color.white;
         }
 
-        if(batteryLife < 0)
+        if(batteryLife <= 0)
         {
-            batteryLife = 0;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Death");
         }
+
+        //BatteryText
+        batteryText.text = (Mathf.Round((batteryLife/1000f) * 100f) + "%");
 
         //WinCon
         if(audioManager.getRelicCount() == 4 && t1 && t2 && t3)
@@ -602,5 +631,15 @@ public class PlayerController : MonoBehaviour
     public bool getPlainSight()
     {
         return plainSightActive;
+    }
+
+    public bool getChargingStatus()
+    {
+        return isCharging;
+    }
+
+    public float getBatteryLife()
+    {
+        return batteryLife;
     }
 }

@@ -21,6 +21,7 @@ public class DroneCannonScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Rigidbody cannonTarget = other.GetComponent<Rigidbody>();
+        cannonTarget.velocity = new Vector3(0, 0, 0);
         cannonTarget.AddForce(direction * cannonStrength, ForceMode.Impulse);
     }
 }
