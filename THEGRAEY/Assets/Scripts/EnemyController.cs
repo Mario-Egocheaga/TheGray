@@ -7,10 +7,9 @@ public class EnemyController : MonoBehaviour
 {
     private bool playerSpotted;
     private int point;
-    private GameObject player;
+    private GameObject player; //player object to interact with and orbit around
     private Vector3[] patrolPoints;
     private PlayerController playerController;
-    //private Vector3 newVec;
     public float moveSpeed;
     public float huntingMoveSpeed;
     public Vector3 point1;
@@ -18,6 +17,7 @@ public class EnemyController : MonoBehaviour
     public Vector3 point3;
     public Vector3 point4;
     public AudioClip detectedClip;
+    private Rigidbody enemyRB;
 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +31,18 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         playerSpotted = false;
+        enemyRB = this.GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        // add orbitAround to orbit/attack case
+        orbitAround();
     }
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    {/*
         if((transform.position.x > point1.x - 2 && transform.position.x < point1.x + 2) && (transform.position.y > point1.y - 2 && transform.position.y < point1.y + 2) && (transform.position.z > point1.z - 2 && transform.position.z < point1.z + 2))
         {
             point = 2;
@@ -64,7 +71,7 @@ public class EnemyController : MonoBehaviour
         {
             transform.LookAt(patrolPoints[point - 1]);
             transform.position += transform.forward * moveSpeed * Time.deltaTime; //Move forward towards position
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -90,5 +97,11 @@ public class EnemyController : MonoBehaviour
         {
             SceneManager.LoadScene("Tristans Scene");
         }
+    }
+
+    void orbitAround()
+    {
+        transform.RotateAround(player.transform.position, Vector3.up, moveSpeed * Time.deltaTime);
+        enemyRB.MovePosition(player.transform.position * moveSpeed * Time.deltaTime);
     }
 }
