@@ -10681,6 +10681,26 @@ PrefabInstance:
       propertyPath: m_WholeNumbers
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 818313697, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 818313697, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 818313697, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 818313697, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 818313697, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 885682029650234602, guid: 410d768d50ce0e04e80f9af553d9d0a8,
         type: 3}
       propertyPath: m_IsActive
@@ -26608,6 +26628,7 @@ GameObject:
   - component: {fileID: 1721205748}
   - component: {fileID: 1721205747}
   - component: {fileID: 1721205746}
+  - component: {fileID: 1721205752}
   - component: {fileID: 1721205751}
   m_Layer: 0
   m_Name: Enemy
@@ -26628,8 +26649,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9a82a54ee195e489172bf7c32894ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  huntingMoveSpeed: 10
+  moveSpeed: 5
+  huntingMoveSpeed: 7
+  orbitSpeed: 20
+  orbitRange: 5
+  chaseRange: 30
+  drainRange: 10
   point1: {x: 0, y: 0, z: 0}
   point2: {x: 0, y: 0, z: 0}
   point3: {x: 0, y: 0, z: 0}
@@ -26705,7 +26730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721205745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9887199, y: 45.71085, z: 714.59}
+  m_LocalPosition: {x: 35.41, y: 49.18, z: 677.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -26725,8 +26750,21 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &1721205752
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721205745}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1724469642
 PrefabInstance:
   m_ObjectHideFlags: 0

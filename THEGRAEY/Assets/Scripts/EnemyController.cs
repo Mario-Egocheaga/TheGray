@@ -12,6 +12,10 @@ public class EnemyController : MonoBehaviour
     private PlayerController playerController;
     public float moveSpeed;
     public float huntingMoveSpeed;
+    public float orbitSpeed;
+    public int orbitRange;
+    public int chaseRange;
+    public int drainRange;
     public Vector3 point1;
     public Vector3 point2;
     public Vector3 point3;
@@ -37,7 +41,19 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         // add orbitAround to orbit/attack case
-        orbitAround();
+        if (Vector3.Distance(player.transform.position, transform.position) < orbitRange)
+        {
+            orbitAround();
+        }
+        if(Vector3.Distance(player.transform.position, transform.position) > orbitRange && Vector3.Distance(player.transform.position, transform.position) < chaseRange)
+        {
+            chase();
+        }
+        else
+        {
+            /*transform.LookAt(patrolPoints[point - 1]);
+            transform.position += transform.forward * moveSpeed * Time.deltaTime; //Move forward towards position*/
+        }
     }
 
     // Update is called once per frame
@@ -78,8 +94,10 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("skeet");
             playerSpotted = true;
-            AudioSource.PlayClipAtPoint(detectedClip, this.transform.position);
+            //AudioSource.PlayClipAtPoint(detectedClip, this.transform.position);
+            playerController.addEnemyDraining();
         }
     }
 
@@ -88,20 +106,23 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerSpotted = false;
+            playerController.subtractEnemyDraining();
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            SceneManager.LoadScene("Tristans Scene");
-        }
+        //possibly add ability for player to run/jump up and punch an enemy dead
     }
 
     void orbitAround()
     {
-        transform.RotateAround(player.transform.position, Vector3.up, moveSpeed * Time.deltaTime);
-        enemyRB.MovePosition(player.transform.position * moveSpeed * Time.deltaTime);
+        transform.RotateAround(player.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
+    }
+
+    void chase()
+    {
+        transform.LookAt(player.transform);
+        transform.position += transform.forward * Time.deltaTime * huntingMoveSpeed;
     }
 }

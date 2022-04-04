@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
     public Slider batterySlider;
     public Image batteryChargeImage;
     public Text batteryText;
+    //Enemy
+    private int enemiesDraining;
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
         dashForce = 75f;
         batteryLife = 1000f;
         batterySlider.value = batteryLife;
+        enemiesDraining = 0;
         checkpointReached = GetInt("checkpointReached");
         if(checkpointReached == 0)
         {
@@ -499,6 +502,13 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Death");
         }
 
+        //Enemy Drain
+        Debug.Log(enemiesDraining);
+        if(enemiesDraining > 0)
+        {
+            batteryLife -= Time.deltaTime * (enemiesDraining * 10);
+        }
+
         //BatteryText
         batteryText.text = (Mathf.Round((batteryLife/1000f) * 100f) + "%");
 
@@ -641,5 +651,15 @@ public class PlayerController : MonoBehaviour
     public float getBatteryLife()
     {
         return batteryLife;
+    }
+
+    public void addEnemyDraining()
+    {
+        enemiesDraining++;
+    }
+
+    public void subtractEnemyDraining()
+    {
+        enemiesDraining--;
     }
 }
