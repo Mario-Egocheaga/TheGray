@@ -10651,11 +10651,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 142034995, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 142034995, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 142034996, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
       propertyPath: m_Color.b
@@ -10746,6 +10746,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaygroundPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 3190362492356794126, guid: 410d768d50ce0e04e80f9af553d9d0a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3190362492356794169, guid: 410d768d50ce0e04e80f9af553d9d0a8,
         type: 3}
       propertyPath: m_RootOrder
@@ -10835,6 +10840,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862990270216277500, guid: 410d768d50ce0e04e80f9af553d9d0a8,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
@@ -32657,11 +32667,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 142034995, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 142034995, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 142034996, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
       propertyPath: m_Color.b
@@ -32735,7 +32745,7 @@ PrefabInstance:
     - target: {fileID: 3190362492356794126, guid: 410d768d50ce0e04e80f9af553d9d0a8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3190362492356794169, guid: 410d768d50ce0e04e80f9af553d9d0a8,
         type: 3}
@@ -32826,6 +32836,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862990270216277500, guid: 410d768d50ce0e04e80f9af553d9d0a8,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 410d768d50ce0e04e80f9af553d9d0a8, type: 3}
