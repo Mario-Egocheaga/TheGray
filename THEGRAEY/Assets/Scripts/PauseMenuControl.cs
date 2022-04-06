@@ -16,7 +16,7 @@ public class PauseMenuControl : MonoBehaviour
         MapUI.SetActive(false);
         SettingUI.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
