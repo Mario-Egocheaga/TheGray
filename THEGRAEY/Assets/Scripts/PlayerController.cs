@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject dashPlate;
     public GameObject plainSightLight;
     public GameObject flashlight;
+    public GameObject lightning;
     public Transform orientation;
     public AudioMAnager audioManager;
     //private variables
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
         plainSightLight.SetActive(false);
         dashPlate.SetActive(false);
         flashlight.SetActive(false);
+        lightning.SetActive(false);
         flashlightOn = false;
         jumpsLeft = 1;
         jumpMax = 1;
@@ -288,7 +290,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jump Dash
-        if (Input.GetKeyDown(KeyCode.Mouse0) && jumpDashUnlocked && !isGrounded && jumpDashCooldown == 0f)
+        if (Input.GetKeyDown(KeyCode.E) && jumpDashUnlocked && !isGrounded && jumpDashCooldown == 0f)
         {
             batteryLife -= 15;
             playerRB.AddForce(playerCam.transform.forward * 75f, ForceMode.Impulse);
@@ -306,7 +308,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Dash
-        if (Input.GetKeyDown(KeyCode.Mouse0) && dashUnlocked && isGrounded && dashCooldown == 0f)
+        if (Input.GetKeyDown(KeyCode.E) && dashUnlocked && isGrounded && dashCooldown == 0f)
         {
             batteryLife -= 5;
             playerRB.AddForce(transform.forward * dashForce, ForceMode.Impulse);
@@ -500,6 +502,17 @@ public class PlayerController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("Death");
+        }
+
+        //Lightning
+        if(Input.GetKey(KeyCode.Mouse0))
+        {
+            lightning.SetActive(true);
+            batteryLife -= Time.deltaTime * 20;
+        }
+        else
+        {
+            lightning.SetActive(false);
         }
 
         //Enemy Drain
