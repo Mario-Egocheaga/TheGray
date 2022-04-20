@@ -51,7 +51,7 @@ public class ToggleScript : MonoBehaviour
                 TogMap.SetActive(false);
                 skillTree.SetActive(false);
                 Time.timeScale = 0;
-                Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.Confined;
 
                 isPaused = false;
             }

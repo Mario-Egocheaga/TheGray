@@ -19,7 +19,8 @@ public class TitleScript : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Tristans Scene");
+        PlayerPrefs.SetInt("checkpointReached", 0);
+        SceneManager.LoadScene("SampleScene");
     }
     public void Settings()
     {

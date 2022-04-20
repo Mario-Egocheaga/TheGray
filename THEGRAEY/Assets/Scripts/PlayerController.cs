@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     //public variables
     public float moveSpeed;
     public float jumpForce;
-    public float mouseSensitivity;
+    //public float mouseSensitivity;
     public GameObject playerCam;
     public GameObject dashPlate;
     public GameObject plainSightLight;
+    public GameObject flashlight;
+    public GameObject lightning;
     public Transform orientation;
+    public AudioMAnager audioManager;
     //private variables
     private int jumpsLeft;
-    //private int jumpDashesLeft;
     private int jumpMax;
     private float dashForce;
     private bool isCrouching;
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
     static public bool plainSightUnlocked;
     static public bool hoverUnlocked;
     static public bool wallGrabUnlocked;
+    static public bool flashlightOn;
     //Cooldowns
     private float dashCooldown;
     private float jumpDashCooldown;
@@ -43,38 +47,45 @@ public class PlayerController : MonoBehaviour
     private float plainSightCooldown;
     private float hoverCooldown;
     private float dashRecallCooldown;
-    //UI Shit
-    //public Text dashText;
-    //public Text jumpDashText;
     //Wallrunning
     public LayerMask whatIsWall;
     public float wallrunForce, maxWallrunTime, maxWallSpeed;
     bool isWallRight, isWallLeft;
     public float maxWallRunCameraTilt, wallRunCameraTilt;
+    //Checkpoints
+    private int checkpointReached;
+    private bool t1;
+    private bool t2;
+    private bool t3;
+    //Battery
+    private bool isCharging;
+    private float batteryLife;
+    public Slider batterySlider;
+    public Image batteryChargeImage;
+    public Text batteryText;
+    //Enemy
+    private int enemiesDraining;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerCollider = this.GetComponent<CapsuleCollider>();
         playerRB = this.GetComponent<Rigidbody>();
+        t1 = false;
+        t2 = false;
+        t3 = false;
+        playerCollider = this.GetComponent<CapsuleCollider>();
         moveSpeed = 10f;
         jumpForce = 70f;
-        mouseSensitivity = 100f;
+        //mouseSensitivity = 100f;
         isCrouching = false;
         isSprinting = false;
         isWallRunning = false;
-        dashUnlocked = false;
-        extendedDashUnlocked = false;
-        doubleJumpUnlocked = false;
-        jumpDashUnlocked = false;
-        wallRunUnlocked = false;
-        slamUnlocked = false;
-        dashRecallUnlocked = false;
-        plainSightUnlocked = false;
-        hoverUnlocked = false;
-        wallGrabUnlocked = false;
+        isCharging = false;
         plainSightLight.SetActive(false);
         dashPlate.SetActive(false);
+        flashlight.SetActive(false);
+        lightning.SetActive(false);
+        flashlightOn = false;
         jumpsLeft = 1;
         jumpMax = 1;
         dashCooldown = 0f;
@@ -84,15 +95,103 @@ public class PlayerController : MonoBehaviour
         hoverCooldown = 0f;
         dashRecallCooldown = 0f;
         dashForce = 75f;
-        //dashText.text = "Dash: Unavailable";
-        //jumpDashText.text = "Jump Dash: Unavailable";
-
-       
+        batteryLife = 1000f;
+        batterySlider.value = batteryLife;
+        enemiesDraining = 0;
+        checkpointReached = GetInt("checkpointReached");
+        if(checkpointReached == 0)
+        {
+            dashUnlocked = false;
+            doubleJumpUnlocked = false;
+            wallRunUnlocked = false;
+            extendedDashUnlocked = false;
+            jumpDashUnlocked = false;
+            slamUnlocked = false;
+            dashRecallUnlocked = false;
+            plainSightUnlocked = false;
+            hoverUnlocked = false;
+            wallGrabUnlocked = false;
+        }
+        if (checkpointReached == 1)
+        {
+            dashUnlocked = true;
+            GameObject.Find("DashIntro").SetActive(false);
+            doubleJumpUnlocked = true;
+            GameObject.Find("DoubleJumpIntro").SetActive(false);
+            wallRunUnlocked = true;
+            GameObject.Find("WallRunIntro").SetActive(false);
+            extendedDashUnlocked = false;
+            jumpDashUnlocked = false;
+            slamUnlocked = false;
+            dashRecallUnlocked = false;
+            plainSightUnlocked = false;
+            hoverUnlocked = false;
+            wallGrabUnlocked = false;
+        }
+        if (checkpointReached == 2)
+        {
+            dashUnlocked = true;
+            GameObject.Find("DashIntro").SetActive(false);
+            doubleJumpUnlocked = true;
+            GameObject.Find("DoubleJumpIntro").SetActive(false);
+            wallRunUnlocked = true;
+            GameObject.Find("WallRunIntro").SetActive(false);
+            extendedDashUnlocked = true;
+            GameObject.Find("ExtendedDashIntro").SetActive(false);
+            slamUnlocked = true;
+            GameObject.Find("SlamIntro").SetActive(false);
+            wallGrabUnlocked = true;
+            GameObject.Find("WallGrabIntro").SetActive(false);
+            jumpDashUnlocked = false;
+            dashRecallUnlocked = false;
+            plainSightUnlocked = false;
+            hoverUnlocked = false;
+        }
+        if (checkpointReached == 3)
+        {
+            dashUnlocked = true;
+            GameObject.Find("DashIntro").SetActive(false);
+            doubleJumpUnlocked = true;
+            GameObject.Find("DoubleJumpIntro").SetActive(false);
+            wallRunUnlocked = true;
+            GameObject.Find("WallRunIntro").SetActive(false);
+            extendedDashUnlocked = true;
+            GameObject.Find("ExtendedDashIntro").SetActive(false);
+            slamUnlocked = true;
+            GameObject.Find("SlamIntro").SetActive(false);
+            wallGrabUnlocked = true;
+            GameObject.Find("WallGrabIntro").SetActive(false);
+            jumpDashUnlocked = true;
+            GameObject.Find("JumpDashIntro").SetActive(false);
+            dashRecallUnlocked = true;
+            GameObject.Find("DashRecallIntro").SetActive(false);
+            plainSightUnlocked = true;
+            GameObject.Find("PlainSightIntro").SetActive(false);
+            hoverUnlocked = true;
+            GameObject.Find("HoverIntro").SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Checkpoint
+        if(dashUnlocked && doubleJumpUnlocked && wallRunUnlocked)
+        {
+            SetInt("checkpointReached", 1);
+            t1 = true;
+        }
+        if(t1 && extendedDashUnlocked && slamUnlocked && wallGrabUnlocked)
+        {
+            SetInt("checkpointReached", 2);
+            t2 = true;
+        }
+        if(t1 && t2 && jumpDashUnlocked && dashRecallUnlocked && plainSightUnlocked && hoverUnlocked)
+        {
+            SetInt("checkpointReached", 3);
+            t3 = true;
+        }
+
         //Crouch Toggle
         if (Input.GetKeyDown(KeyCode.C) && !isCrouching)
         {
@@ -146,16 +245,18 @@ public class PlayerController : MonoBehaviour
         {
             jumpForce = 60f;
         }
-        else if (jumpsLeft == 1 && !isCrouching)
+        else if (jumpsLeft == 1 && !isCrouching && jumpMax != 1)
         {
-            jumpForce = 40f;
+            jumpForce = 60f;
         }
 
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0)
         {
+            playerRB.velocity = new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z);
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             jumpsLeft--;
+            batteryLife -= 10;
         }
 
         //Hover
@@ -189,11 +290,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //Jump Dash
-        if (Input.GetKeyDown(KeyCode.Mouse0) && jumpDashUnlocked && !isGrounded && jumpDashCooldown == 0f)
+        if (Input.GetKeyDown(KeyCode.E) && jumpDashUnlocked && !isGrounded && jumpDashCooldown == 0f)
         {
+            batteryLife -= 15;
             playerRB.AddForce(playerCam.transform.forward * 75f, ForceMode.Impulse);
             jumpDashCooldown = 5f;
-            //jumpDashText.text = "Jump Dash: Cooling Down";
         }
 
         //Dash Force
@@ -207,15 +308,15 @@ public class PlayerController : MonoBehaviour
         }
 
         //Dash
-        if (Input.GetKeyDown(KeyCode.Mouse0) && dashUnlocked && isGrounded && dashCooldown == 0f)
+        if (Input.GetKeyDown(KeyCode.E) && dashUnlocked && isGrounded && dashCooldown == 0f)
         {
+            batteryLife -= 5;
             playerRB.AddForce(transform.forward * dashForce, ForceMode.Impulse);
             dashCooldown = 5f;
             if(dashRecallUnlocked)
             {
                 dashPlate.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
             }
-            //dashText.text = "Dash: Cooling Down";
         }
 
         //DashRecall
@@ -224,7 +325,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(dashPlate.transform.position.x, dashPlate.transform.position.y + 1f, dashPlate.transform.position.z);
             dashRecallCooldown = 60f;
         }
-        Debug.Log(dashRecallCooldown);
+
         //PlainSight
         if (plainSightUnlocked && Input.GetKeyDown(KeyCode.Z) && plainSightCooldown == 0f)
         {
@@ -280,7 +381,6 @@ public class PlayerController : MonoBehaviour
         else if ((dashCooldown > 0f && dashCooldown < .5f) || dashCooldown < 0f)
         {
             dashCooldown = 0f;
-            //dashText.text = "Dash: Ready";
         }
 
         //JumpDashCooldown
@@ -291,7 +391,6 @@ public class PlayerController : MonoBehaviour
         else if ((jumpDashCooldown > 0f && jumpDashCooldown < .5f) || jumpDashCooldown < 0f)
         {
             jumpDashCooldown = 0f;
-            //jumpDashText.text = "Jump Dash: Ready";
         }
 
         //PlainSightCooldown
@@ -333,6 +432,104 @@ public class PlayerController : MonoBehaviour
         {
             dashRecallCooldown = 0f;
         }
+
+        //Flashlight
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            if(flashlightOn)
+            {
+                flashlight.SetActive(false);
+                flashlightOn = false;
+            }
+            else
+            {
+                flashlight.SetActive(true);
+                flashlightOn = true;
+            }
+        }
+
+
+        //Battery
+        if(isCharging)
+        {
+            if(batteryLife > 999f)
+            {
+                batteryLife = 1000f;
+                batterySlider.value = batteryLife;
+            }
+            else
+            {
+                batteryLife += Time.deltaTime * 50;
+                batterySlider.value = batteryLife;
+            }
+        }
+        else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            if(isSprinting)
+            {
+                batteryLife -= Time.deltaTime * 7;
+                batterySlider.value = batteryLife;
+
+            }
+            else
+            {
+                batteryLife -= Time.deltaTime * 3;
+                batterySlider.value = batteryLife;
+            }
+        }
+        else
+        {
+            batteryLife -= Time.deltaTime;
+        }
+
+        if(batteryLife <= 200)
+        {
+            batteryChargeImage.color = new Color(0.6431373f, 0.09019608f, 0.1098039f, 1f);
+            batteryText.color = Color.white;
+        }
+        else if(batteryLife <= 500)
+        {
+            batteryChargeImage.color = new Color(0.764151f, 0.7445666f, 0.1766198f, 1f);
+            batteryText.color = Color.black;
+        }
+        else
+        {
+            batteryChargeImage.color = new Color(0.09411765f, 0.5960785f, 0.07058824f, 1f);
+            batteryText.color = Color.white;
+        }
+
+        if(batteryLife <= 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Death");
+        }
+
+        //Lightning
+        if(Input.GetKey(KeyCode.Mouse0))
+        {
+            lightning.SetActive(true);
+            batteryLife -= Time.deltaTime * 20;
+        }
+        else
+        {
+            lightning.SetActive(false);
+        }
+
+        //Enemy Drain
+        Debug.Log(enemiesDraining);
+        if(enemiesDraining > 0)
+        {
+            batteryLife -= Time.deltaTime * (enemiesDraining * 10);
+        }
+
+        //BatteryText
+        batteryText.text = (Mathf.Round((batteryLife/1000f) * 100f) + "%");
+
+        //WinCon
+        if(audioManager.getRelicCount() == 4 && t1 && t2 && t3)
+        {
+            SceneManager.LoadScene("Credit scene");
+        }
     }
     private void FixedUpdate()
     {
@@ -346,7 +543,6 @@ public class PlayerController : MonoBehaviour
         {
             dashUnlocked = true;
             collision.gameObject.SetActive(false);
-            //dashText.text = "Dash: Ready";
         }
 
         //Double Jump Unlock Pickup
@@ -362,7 +558,6 @@ public class PlayerController : MonoBehaviour
         {
             jumpDashUnlocked = true;
             collision.gameObject.SetActive(false);
-            //jumpDashText.text = "Jump Dash: Ready";
         }
 
         //Wall Run Unlock Pickup
@@ -417,6 +612,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Checkpoint stuff
+    public void SetInt(string KeyName, int Value)
+    {
+        PlayerPrefs.SetInt(KeyName, Value);
+    }
+
+    public int GetInt(string KeyName)
+    {
+        return PlayerPrefs.GetInt(KeyName);
+    }
+
     private void OnCollisionExit(Collision collision)
     {
         isWallRunning = false;
@@ -430,15 +636,43 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isGrounded = false;
+        if(other.CompareTag("ChargeStation"))
+        {
+            isCharging = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         isGrounded = true;
+        if(other.CompareTag("ChargeStation"))
+        {
+            isCharging = true;
+        }
     }
 
     public bool getPlainSight()
     {
         return plainSightActive;
+    }
+
+    public bool getChargingStatus()
+    {
+        return isCharging;
+    }
+
+    public float getBatteryLife()
+    {
+        return batteryLife;
+    }
+
+    public void addEnemyDraining()
+    {
+        enemiesDraining++;
+    }
+
+    public void subtractEnemyDraining()
+    {
+        enemiesDraining--;
     }
 }
