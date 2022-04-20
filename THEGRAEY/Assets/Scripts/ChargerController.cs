@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChargerController : MonoBehaviour
 {
-    public PlayerController playerCon;
+    private PlayerController playerCon;
     public Light chargeLight;
     public GameObject chargingAudio;
     private bool dimming;
@@ -14,6 +14,7 @@ public class ChargerController : MonoBehaviour
         chargeLight.intensity = 35;
         dimming = true;
         chargingAudio.SetActive(false);
+        playerCon = FindObjectOfType<PlayerController>();
     }
     private void Update()
     {
