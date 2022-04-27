@@ -29,6 +29,9 @@ public class AudioMAnager : MonoBehaviour
 
     public int relicCount;
 
+    // Player SFX - Mario
+    public AudioClip[] audioClips;
+
     public void Start()
     {
         relicCount = 0;
@@ -41,6 +44,19 @@ public class AudioMAnager : MonoBehaviour
     public int getRelicCount()
     {
         return relicCount;
+    }
+
+    // Calls SFX Name
+    public void PlaySFX(string audioName)
+    {
+        foreach (AudioClip clip in audioClips)
+        {
+            if (clip.name == audioName)
+            {
+                Player.volume = 0.24f;
+                Player.PlayOneShot(clip);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)

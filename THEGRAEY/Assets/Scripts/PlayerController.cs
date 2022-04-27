@@ -66,6 +66,10 @@ public class PlayerController : MonoBehaviour
     //Enemy
     private int enemiesDraining;
 
+    //SFX
+    
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -255,6 +259,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.velocity = new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z);
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            audioManager.PlaySFX("Double Jump");
             jumpsLeft--;
             batteryLife -= 10;
         }
@@ -505,7 +510,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Lightning
-        if(Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             lightning.SetActive(true);
             batteryLife -= Time.deltaTime * 20;
@@ -631,6 +636,17 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         jumpsLeft = jumpMax;
+
+
+        //SFX
+        if (other.gameObject.CompareTag("ManCanon"))
+        {
+            audioManager.PlaySFX("Speed Boost");
+        }
+        if (other.gameObject.CompareTag("JumpPad"))
+        {
+            audioManager.PlaySFX("Jump Pad");
+        }
     }
     
     private void OnTriggerExit(Collider other)
