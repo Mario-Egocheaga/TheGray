@@ -16,6 +16,8 @@ TagManager:
   - HoverUnlock
   - WallGrabUnlock
   - ChargeStation
+  - ManCanon
+  - JumpPad
   layers:
   - Default
   - TransparentFX
