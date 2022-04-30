@@ -509,19 +509,47 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Death");
         }
 
+        //Raycast Test
+        Debug.DrawRay(transform.position, playerCam.transform.TransformDirection(Vector3.forward) * 14, Color.blue);
+
         //Lightning
         if (Input.GetKey(KeyCode.Mouse0))
         {
             lightning.SetActive(true);
             batteryLife -= Time.deltaTime * 20;
+
+            int layerMask = LayerMask.GetMask("Player");
+            layerMask = ~layerMask;
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, playerCam.transform.TransformDirection(Vector3.forward), out hit, 10f, layerMask))
+            {
+                if(hit.collider.gameObject.CompareTag("Enemy"))
+                {
+                    GameObject enemyObject = hit.collider.gameObject;
+                    EnemyController enemyCon = enemyObject.GetComponent<EnemyController>();
+                    Debug.Log("EnemyHit");
+                    if(enemyCon.getStunned())
+                    {
+                        StopAllCoroutines();
+                        addEnemyDraining();
+                        StartCoroutine(enemyCon.Stunned());
+                    }
+                    else
+                    {
+                        StartCoroutine(enemyCon.Stunned());
+                    }
+                }
+            }
         }
         else
         {
             lightning.SetActive(false);
         }
 
-        //Enemy Drain
         Debug.Log(enemiesDraining);
+
+        //Enemy Drain
         if(enemiesDraining > 0)
         {
             batteryLife -= Time.deltaTime * (enemiesDraining * 10);

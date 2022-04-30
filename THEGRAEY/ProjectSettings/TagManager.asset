@@ -18,6 +18,7 @@ TagManager:
   - ChargeStation
   - ManCanon
   - JumpPad
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Ground
   - Player
   - Wall
-  - 
+  - Enemy
   - 
   - 
   - 
