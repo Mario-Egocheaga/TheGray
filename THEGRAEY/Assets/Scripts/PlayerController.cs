@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     //public float mouseSensitivity;
     public GameObject playerCam;
-    public GameObject dashPlate;
+    public GameObject recallPlate;
     public GameObject plainSightLight;
     public GameObject flashlight;
     public GameObject lightning;
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private bool isWallRunning;
     private bool isSprinting;
     private bool plainSightActive;
+    private bool recallPlateHeld;
     private Rigidbody playerRB;
     private CapsuleCollider playerCollider;
     //Unlock Bools
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
     static public bool jumpDashUnlocked;
     static public bool wallRunUnlocked;
     static public bool slamUnlocked;
-    static public bool dashRecallUnlocked;
+    static public bool RecallUnlocked;
     static public bool plainSightUnlocked;
     static public bool hoverUnlocked;
     static public bool wallGrabUnlocked;
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private float slamCooldown;
     private float plainSightCooldown;
     private float hoverCooldown;
-    private float dashRecallCooldown;
+    private float RecallCooldown;
     //Wallrunning
     public LayerMask whatIsWall;
     public float wallrunForce, maxWallrunTime, maxWallSpeed;
@@ -66,6 +67,10 @@ public class PlayerController : MonoBehaviour
     //Enemy
     private int enemiesDraining;
 
+    //SFX
+    
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,8 +86,9 @@ public class PlayerController : MonoBehaviour
         isSprinting = false;
         isWallRunning = false;
         isCharging = false;
+        recallPlateHeld = false;
         plainSightLight.SetActive(false);
-        dashPlate.SetActive(false);
+        recallPlate.SetActive(false);
         flashlight.SetActive(false);
         lightning.SetActive(false);
         flashlightOn = false;
@@ -93,7 +99,7 @@ public class PlayerController : MonoBehaviour
         slamCooldown = 0f;
         plainSightCooldown = 0f;
         hoverCooldown = 0f;
-        dashRecallCooldown = 0f;
+        RecallCooldown = 0f;
         dashForce = 75f;
         batteryLife = 1000f;
         batterySlider.value = batteryLife;
@@ -107,7 +113,7 @@ public class PlayerController : MonoBehaviour
             extendedDashUnlocked = false;
             jumpDashUnlocked = false;
             slamUnlocked = false;
-            dashRecallUnlocked = false;
+            RecallUnlocked = false;
             plainSightUnlocked = false;
             hoverUnlocked = false;
             wallGrabUnlocked = false;
@@ -123,7 +129,7 @@ public class PlayerController : MonoBehaviour
             extendedDashUnlocked = false;
             jumpDashUnlocked = false;
             slamUnlocked = false;
-            dashRecallUnlocked = false;
+            RecallUnlocked = false;
             plainSightUnlocked = false;
             hoverUnlocked = false;
             wallGrabUnlocked = false;
@@ -143,7 +149,7 @@ public class PlayerController : MonoBehaviour
             wallGrabUnlocked = true;
             GameObject.Find("WallGrabIntro").SetActive(false);
             jumpDashUnlocked = false;
-            dashRecallUnlocked = false;
+            RecallUnlocked = false;
             plainSightUnlocked = false;
             hoverUnlocked = false;
         }
@@ -163,8 +169,8 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("WallGrabIntro").SetActive(false);
             jumpDashUnlocked = true;
             GameObject.Find("JumpDashIntro").SetActive(false);
-            dashRecallUnlocked = true;
-            GameObject.Find("DashRecallIntro").SetActive(false);
+            RecallUnlocked = true;
+            GameObject.Find("RecallIntro").SetActive(false);
             plainSightUnlocked = true;
             GameObject.Find("PlainSightIntro").SetActive(false);
             hoverUnlocked = true;
@@ -186,7 +192,7 @@ public class PlayerController : MonoBehaviour
             SetInt("checkpointReached", 2);
             t2 = true;
         }
-        if(t1 && t2 && jumpDashUnlocked && dashRecallUnlocked && plainSightUnlocked && hoverUnlocked)
+        if(t1 && t2 && jumpDashUnlocked && RecallUnlocked && plainSightUnlocked && hoverUnlocked)
         {
             SetInt("checkpointReached", 3);
             t3 = true;
@@ -255,6 +261,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRB.velocity = new Vector3(playerRB.velocity.x, 0, playerRB.velocity.z);
             playerRB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            audioManager.PlaySFX("Double Jump");
             jumpsLeft--;
             batteryLife -= 10;
         }
@@ -313,17 +320,33 @@ public class PlayerController : MonoBehaviour
             batteryLife -= 5;
             playerRB.AddForce(transform.forward * dashForce, ForceMode.Impulse);
             dashCooldown = 5f;
-            if(dashRecallUnlocked)
+        }
+
+        //Place Recall Plate
+        RaycastHit plateHit;
+        if (RecallUnlocked && Input.GetKeyDown(KeyCode.T) && recallPlateHeld)
+        {
+            recallPlate.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
+            recallPlateHeld = false;
+            recallPlate.SetActive(true);
+        }
+
+        //Pickup Plate
+        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out plateHit, 3f) && Input.GetKey(KeyCode.T))
+        {
+            Debug.Log(plateHit.collider.gameObject.name);
+            if(plateHit.collider.gameObject.name == "RecallPlate")
             {
-                dashPlate.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
+                recallPlateHeld = true;
+                recallPlate.SetActive(false);
             }
         }
 
-        //DashRecall
-        if (dashRecallUnlocked && Input.GetKeyDown(KeyCode.R) && dashRecallCooldown == 0f)
+        //Recall
+        if (RecallUnlocked && Input.GetKeyDown(KeyCode.R) && RecallCooldown == 0f && !recallPlateHeld)
         {
-            transform.position = new Vector3(dashPlate.transform.position.x, dashPlate.transform.position.y + 1f, dashPlate.transform.position.z);
-            dashRecallCooldown = 60f;
+            transform.position = new Vector3(recallPlate.transform.position.x, recallPlate.transform.position.y + 1f, recallPlate.transform.position.z);
+            RecallCooldown = 60f;
         }
 
         //PlainSight
@@ -423,14 +446,14 @@ public class PlayerController : MonoBehaviour
             slamCooldown = 0f;
         }
 
-        //DashRecallCooldown
-        if (dashRecallCooldown > 0f)
+        //RecallCooldown
+        if (RecallCooldown > 0f)
         {
-            dashRecallCooldown -= Time.deltaTime;
+            RecallCooldown -= Time.deltaTime;
         }
-        else if ((dashRecallCooldown > 0f && dashRecallCooldown < .5f) || dashRecallCooldown < 0f)
+        else if ((RecallCooldown > 0f && RecallCooldown < .5f) || RecallCooldown < 0f)
         {
-            dashRecallCooldown = 0f;
+            RecallCooldown = 0f;
         }
 
         //Flashlight
@@ -504,19 +527,47 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Death");
         }
 
+        //Raycast Test
+        Debug.DrawRay(transform.position, playerCam.transform.TransformDirection(Vector3.forward) * 13, Color.blue);
+
         //Lightning
-        if(Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             lightning.SetActive(true);
             batteryLife -= Time.deltaTime * 20;
+
+            int layerMask = LayerMask.GetMask("Player");
+            layerMask = ~layerMask;
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, playerCam.transform.TransformDirection(Vector3.forward), out hit, 10f, layerMask))
+            {
+                if(hit.collider.gameObject.CompareTag("Enemy"))
+                {
+                    GameObject enemyObject = hit.collider.gameObject;
+                    EnemyController enemyCon = enemyObject.GetComponent<EnemyController>();
+                    Debug.Log("EnemyHit");
+                    if(enemyCon.getStunned())
+                    {
+                        StopAllCoroutines();
+                        addEnemyDraining();
+                        StartCoroutine(enemyCon.Stunned());
+                    }
+                    else
+                    {
+                        StartCoroutine(enemyCon.Stunned());
+                    }
+                }
+            }
         }
         else
         {
             lightning.SetActive(false);
         }
 
-        //Enemy Drain
         Debug.Log(enemiesDraining);
+
+        //Enemy Drain
         if(enemiesDraining > 0)
         {
             batteryLife -= Time.deltaTime * (enemiesDraining * 10);
@@ -526,10 +577,6 @@ public class PlayerController : MonoBehaviour
         batteryText.text = (Mathf.Round((batteryLife/1000f) * 100f) + "%");
 
         //WinCon
-        if(audioManager.getRelicCount() == 4 && t1 && t2 && t3)
-        {
-            SceneManager.LoadScene("Credit scene");
-        }
     }
     private void FixedUpdate()
     {
@@ -581,13 +628,13 @@ public class PlayerController : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
 
-        //DashRecall Unlock Pickup
-        if (collision.gameObject.CompareTag("DashRecallUnlock"))
+        //Recall Unlock Pickup
+        if (collision.gameObject.CompareTag("RecallUnlock"))
         {
-            dashRecallUnlocked = true;
+            RecallUnlocked = true;
             collision.gameObject.SetActive(false);
-            dashPlate.SetActive(true);
-            dashPlate.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
+            recallPlate.SetActive(true);
+            recallPlate.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1f, this.transform.position.z);
         }
 
         //PlainSight Unlock Pickup
@@ -631,6 +678,17 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         jumpsLeft = jumpMax;
+
+
+        //SFX
+        if (other.gameObject.CompareTag("ManCanon"))
+        {
+            audioManager.PlaySFX("Speed Boost");
+        }
+        if (other.gameObject.CompareTag("JumpPad"))
+        {
+            audioManager.PlaySFX("Jump Pad");
+        }
     }
     
     private void OnTriggerExit(Collider other)

@@ -16,22 +16,13 @@ public class EnemyController : MonoBehaviour
     public int orbitRange;
     public int chaseRange;
     public int drainRange;
-    public Vector3 point1;
-    public Vector3 point2;
-    public Vector3 point3;
-    public Vector3 point4;
     public AudioClip detectedClip;
     private Rigidbody enemyRB;
+    private bool isStunned;
 
     // Start is called before the first frame update
     void Start()
     {
-        point = 1;
-        patrolPoints = new Vector3[4];
-        patrolPoints[0] = point1;
-        patrolPoints[1] = point2;
-        patrolPoints[2] = point3;
-        patrolPoints[3] = point4;
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         playerSpotted = false;
@@ -40,12 +31,37 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        int layerMask = LayerMask.GetMask("Enemy", "Player");
+        layerMask = ~layerMask;
+
+        Debug.DrawLine(this.transform.position, player.transform.position, Color.red);
+        if(Physics.Linecast(this.transform.position, player.transform.position, layerMask))
+        {
+            Debug.Log("No LOS");
+        }
+        else
+        {
+            Debug.Log("LOS");
+        }
+
+        /*RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            Debug.Log("Did Hit");
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+            Debug.Log("Did not Hit");
+        }*/
+
         // add orbitAround to orbit/attack case
-        if (Vector3.Distance(player.transform.position, transform.position) < orbitRange)
+        if (!isStunned && Vector3.Distance(player.transform.position, transform.position) < orbitRange)
         {
             orbitAround();
         }
-        if(Vector3.Distance(player.transform.position, transform.position) > orbitRange && Vector3.Distance(player.transform.position, transform.position) < chaseRange)
+        if (!isStunned && Vector3.Distance(player.transform.position, transform.position) > orbitRange && Vector3.Distance(player.transform.position, transform.position) < chaseRange)
         {
             chase();
         }
@@ -58,52 +74,23 @@ public class EnemyController : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {/*
-        if((transform.position.x > point1.x - 2 && transform.position.x < point1.x + 2) && (transform.position.y > point1.y - 2 && transform.position.y < point1.y + 2) && (transform.position.z > point1.z - 2 && transform.position.z < point1.z + 2))
-        {
-            point = 2;
-        }
-        if((transform.position.x > point2.x - 2 && transform.position.x < point2.x + 2) && (transform.position.y > point2.y - 2 && transform.position.y < point2.y + 2) && (transform.position.z > point2.z - 2 && transform.position.z < point2.z + 2))
-        {
-            point = 3;
-        }
-        if((transform.position.x > point3.x - 2 && transform.position.x < point3.x + 2) && (transform.position.y > point3.y - 2 && transform.position.y < point3.y + 2) && (transform.position.z > point3.z - 2 && transform.position.z < point3.z + 2))
-        {
-            point = 4;
-        }
-        if ((transform.position.x > point4.x - 2 && transform.position.x < point4.x + 2) && (transform.position.y > point4.y - 2 && transform.position.y < point4.y + 2) && (transform.position.z > point4.z - 2 && transform.position.z < point4.z + 2))
-        {
-            point = 1;
-        }
+    {
 
-        if (playerSpotted && (playerController.getPlainSight() == false))
-        {
-            //Rotate to look at player
-            transform.LookAt(player.transform.position);
-            //Move towards player
-            transform.position += transform.forward * huntingMoveSpeed * Time.deltaTime;
-        }
-        else
-        {
-            transform.LookAt(patrolPoints[point - 1]);
-            transform.position += transform.forward * moveSpeed * Time.deltaTime; //Move forward towards position
-        }*/
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !other.isTrigger)
         {
-            Debug.Log("skeet");
+            Debug.Log(other.gameObject);
             playerSpotted = true;
-            //AudioSource.PlayClipAtPoint(detectedClip, this.transform.position);
             playerController.addEnemyDraining();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !other.isTrigger)
         {
             playerSpotted = false;
             playerController.subtractEnemyDraining();
@@ -124,5 +111,22 @@ public class EnemyController : MonoBehaviour
     {
         transform.LookAt(player.transform);
         transform.position += transform.forward * Time.deltaTime * huntingMoveSpeed;
+    }
+
+    public bool getStunned()
+    {
+        return isStunned;
+    }
+
+    public IEnumerator Stunned()
+    {
+        enemyRB.velocity = new Vector3(0,0,0);
+        enemyRB.useGravity = true;
+        isStunned = true;
+        playerController.subtractEnemyDraining();
+        yield return new WaitForSeconds(3);
+        playerController.addEnemyDraining();
+        enemyRB.useGravity = false;
+        isStunned = false;
     }
 }
