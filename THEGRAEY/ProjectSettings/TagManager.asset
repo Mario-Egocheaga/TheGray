@@ -11,7 +11,6 @@ TagManager:
   - WallRunUnlock
   - ExtendedDashUnlock
   - SlamUnlock
-  - DashRecallUnlock
   - PlainSightUnlock
   - HoverUnlock
   - WallGrabUnlock
@@ -19,6 +18,7 @@ TagManager:
   - ManCanon
   - JumpPad
   - Enemy
+  - RecallUnlock
   layers:
   - Default
   - TransparentFX
