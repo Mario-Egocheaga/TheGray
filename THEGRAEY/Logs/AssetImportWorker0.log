@@ -770,3 +770,754 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 240.231435 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c66d06fa628413777f8dde1e8bbc7b8') in 0.075566 seconds 
+  Import took 0.079453 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.295727 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '781b8cb4cb56371a76fdf570bf28d420') in 0.010888 seconds 
+  Import took 0.014426 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 49.276291 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1aa9746fbb4d7375720906e766ea0032') in 0.013640 seconds 
+  Import took 0.017772 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.321896 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c052de624e2ee76639ed3a1b28024188') in 0.012976 seconds 
+  Import took 0.016612 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.286454 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce75878604a883e4b437b26eee5d63b5') in 0.013041 seconds 
+  Import took 0.016880 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.100968 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b221ab78e5ed31c55d98c1713c1ade73') in 0.013457 seconds 
+  Import took 0.017478 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.228379 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5448dd33cd685c2629b3e7c0e3fd89f') in 0.014415 seconds 
+  Import took 0.018489 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.626396 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6014d5e581e1c47f79c08df99f20cedc') in 0.012934 seconds 
+  Import took 0.016649 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.818976 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da374c4423768f9cb49df301b2768182') in 0.011870 seconds 
+  Import took 0.015482 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.242898 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca355989217a7ad0a36b2a52e055af4f') in 0.013166 seconds 
+  Import took 0.016818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.765644 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cd33b2e484b48fa5a6f5f0e2c030805') in 0.012637 seconds 
+  Import took 0.016482 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.782499 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90a2d66b450008e594effeb14d753d2f') in 0.013391 seconds 
+  Import took 0.017723 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.506609 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99f4f185f64b992c759ead52e56b6272') in 0.013439 seconds 
+  Import took 0.017593 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.678441 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '953bf3fee93a47e9af7cee7bc129f655') in 0.011897 seconds 
+  Import took 0.015996 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.336520 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0548598ee545588491234f8a0496db62') in 0.013796 seconds 
+  Import took 0.017645 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.438321 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea6f463b110de6c5b0548b34aa2eaeb1') in 0.013000 seconds 
+  Import took 0.016761 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.046084 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c2ec27e8c8e87f6e99dc44e93aa5a96') in 0.015226 seconds 
+  Import took 0.019480 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.869154 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56e64912a67bca55a5f2ca5b31e34f76') in 0.012941 seconds 
+  Import took 0.016799 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.833435 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae2c0766fb6a38bea994bff5e643c03f') in 0.013511 seconds 
+  Import took 0.017470 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.804646 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f68e4709326acb24a151ecc8ac710c55') in 0.013241 seconds 
+  Import took 0.016914 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.925236 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9347efaa4553f87812af96dab156907') in 0.012286 seconds 
+  Import took 0.016425 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.263900 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dba360074bbef2b7407045ba38cd667') in 0.013893 seconds 
+  Import took 0.017943 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.478058 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17e598fa2a4dc2cfd605da662e8af8a6') in 0.012382 seconds 
+  Import took 0.016113 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.683864 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f23fd9950b0f5d3c099c2bc59b07ae87') in 0.011636 seconds 
+  Import took 0.015303 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.815632 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3dce1b664192955740804563806d033') in 0.013535 seconds 
+  Import took 0.017362 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.828566 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53eb0fb42fe36dcfaa3078067134feee') in 0.013745 seconds 
+  Import took 0.017510 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.808488 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ad30d38289e882662edab165796e688') in 0.013057 seconds 
+  Import took 0.017141 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.066859 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6e402454e17154d81acd73651f05b12') in 0.013940 seconds 
+  Import took 0.018307 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.716788 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55089104aeeca8d3c9207c53266ac4a9') in 0.012894 seconds 
+  Import took 0.016875 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.888455 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daaf7daf51ceecea296a926ac3004811') in 0.013118 seconds 
+  Import took 0.016915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.232814 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1dc86c900c612cbe259e474f579333e') in 0.012848 seconds 
+  Import took 0.016703 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.865205 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48bfd61318f13e1bafbcd447b0dea69f') in 0.014590 seconds 
+  Import took 0.018192 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.008088 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '885d5e6e590ff2ba107aaa64b7b0b6f3') in 0.011104 seconds 
+  Import took 0.014787 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.664283 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdfb8f72196437ee1b6f17fe16a4af8d') in 0.013110 seconds 
+  Import took 0.016780 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.262141 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cf4f79b01f8a5ce22ba1a7747448a5a') in 0.013529 seconds 
+  Import took 0.017589 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.116570 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '637c3122f1e2d9bb81888852dc8e961e') in 0.014065 seconds 
+  Import took 0.017906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.218939 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c3813fd94b7344e8fa2021133d9213c') in 0.013287 seconds 
+  Import took 0.017078 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.827876 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fe03356c0a7d9a581e9222c51ea264f') in 0.014980 seconds 
+  Import took 0.019256 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.462946 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aee4d34afcd20d81546888557dfc2033') in 0.011434 seconds 
+  Import took 0.015099 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.061699 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d52eaa7cc86c60867b201789a756e75') in 0.013066 seconds 
+  Import took 0.016944 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.077218 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '635190325c6d222b6f76ec4e636c2b5c') in 0.012945 seconds 
+  Import took 0.016561 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.642607 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '204577630d26e1eabff8f665a0255b96') in 0.013432 seconds 
+  Import took 0.017493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.607078 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a82d4c29e57cd89ecaac2f8abec79fc3') in 0.012757 seconds 
+  Import took 0.016935 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.851111 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b637df3beb05412e03dace6f6615d9e8') in 0.011553 seconds 
+  Import took 0.015456 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.841565 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3a8d9973a3da79f2781d419fa2e6f01') in 0.014596 seconds 
+  Import took 0.018764 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.627205 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ab027074b4782f35e46eae33559fb5c') in 0.012431 seconds 
+  Import took 0.016598 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.042927 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bae5610d8024f6d357a49269ed775f14') in 0.011527 seconds 
+  Import took 0.015434 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 53.466237 seconds.
+  path: Assets/UI Elements/b12 (1).png
+  artifactKey: Guid(dc3e07b8e5435cb408521c8507e56fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b12 (1).png using Guid(dc3e07b8e5435cb408521c8507e56fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52b96c535bbabb4c53c5a0a7329b3640') in 0.015498 seconds 
+  Import took 0.019084 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.759558 seconds.
+  path: Assets/UI Elements/b8.png
+  artifactKey: Guid(29419f7b3c24b454f95d7021f36936b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b8.png using Guid(29419f7b3c24b454f95d7021f36936b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a637f3dfef94b4f740ee9b6e75528a18') in 0.009808 seconds 
+  Import took 0.013660 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/UI Elements/b10.png
+  artifactKey: Guid(088ae637e410f87489283c8529682fdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b10.png using Guid(088ae637e410f87489283c8529682fdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49f8d451251896d8b267fd70785e7e29') in 0.009375 seconds 
+  Import took 0.012586 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000148 seconds.
+  path: Assets/UI Elements/b9.png
+  artifactKey: Guid(0e5b1db496be3504b9c1a8c379f81792) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b9.png using Guid(0e5b1db496be3504b9c1a8c379f81792) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35c1663c279aa1708b2da6541c5bd10f') in 0.011377 seconds 
+  Import took 0.014160 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.011127 seconds.
+  path: Assets/UI Elements/b8.png
+  artifactKey: Guid(29419f7b3c24b454f95d7021f36936b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b8.png using Guid(29419f7b3c24b454f95d7021f36936b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49e47b5c295d13b58663786b703ac44b') in 0.022706 seconds 
+  Import took 0.026343 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/UI Elements/b10.png
+  artifactKey: Guid(088ae637e410f87489283c8529682fdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b10.png using Guid(088ae637e410f87489283c8529682fdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0596976bef5ae5af075bd142c643cd5e') in 0.011758 seconds 
+  Import took 0.015106 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000161 seconds.
+  path: Assets/UI Elements/b12 (1).png
+  artifactKey: Guid(dc3e07b8e5435cb408521c8507e56fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b12 (1).png using Guid(dc3e07b8e5435cb408521c8507e56fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1c21564d7ca10d08e13f8bc1a7cb9a0') in 0.013148 seconds 
+  Import took 0.016977 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/UI Elements/b9.png
+  artifactKey: Guid(0e5b1db496be3504b9c1a8c379f81792) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b9.png using Guid(0e5b1db496be3504b9c1a8c379f81792) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '280ed7660da2adc6fe8bedf247762799') in 0.011896 seconds 
+  Import took 0.014999 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 256.284337 seconds.
+  path: Assets/UI Elements/b1.png
+  artifactKey: Guid(a39d609d33f601244a6bf3d8a48c7408) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b1.png using Guid(a39d609d33f601244a6bf3d8a48c7408) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1b1279c5f4ba7b05cf818a7628b191a') in 0.009372 seconds 
+  Import took 0.012935 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/UI Elements/b2.png
+  artifactKey: Guid(2ace3f8b6f6b357458b0b557f5f13270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b2.png using Guid(2ace3f8b6f6b357458b0b557f5f13270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b812c668b5694b840ebc80fc2f209a47') in 0.008440 seconds 
+  Import took 0.011310 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Assets/UI Elements/b11.png
+  artifactKey: Guid(34d0b8db9cae24b4592f1a520af9d6ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b11.png using Guid(34d0b8db9cae24b4592f1a520af9d6ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d36b9d22485f0b45e8947b234b07d3c') in 0.009825 seconds 
+  Import took 0.012956 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/UI Elements/b7.png
+  artifactKey: Guid(2df3d1bcb496c6241862a61b35ce6aa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b7.png using Guid(2df3d1bcb496c6241862a61b35ce6aa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a7cfa875cb205cdd4035e82ab114f93') in 0.008440 seconds 
+  Import took 0.011332 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/UI Elements/b4_deez.png
+  artifactKey: Guid(4a5d15eb3736e89488d92c2a86eb632d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b4_deez.png using Guid(4a5d15eb3736e89488d92c2a86eb632d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3b66148513ce5e27c3499cf53e5f1db') in 0.007972 seconds 
+  Import took 0.011021 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/UI Elements/b5.png
+  artifactKey: Guid(b8e7f79f49db4f0498f3307ddc5db1e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b5.png using Guid(b8e7f79f49db4f0498f3307ddc5db1e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bac092b8fd9a2da8af5d86b95555358') in 0.009022 seconds 
+  Import took 0.011805 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.205993 seconds.
+  path: Assets/UI Elements/b1.png
+  artifactKey: Guid(a39d609d33f601244a6bf3d8a48c7408) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b1.png using Guid(a39d609d33f601244a6bf3d8a48c7408) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e4846c3d3472077740a73d6ca4d7dc1') in 0.017928 seconds 
+  Import took 0.021545 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/UI Elements/b2.png
+  artifactKey: Guid(2ace3f8b6f6b357458b0b557f5f13270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b2.png using Guid(2ace3f8b6f6b357458b0b557f5f13270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d4182b58d751e69c821c21fee9ff136') in 0.011966 seconds 
+  Import took 0.014815 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/UI Elements/b7.png
+  artifactKey: Guid(2df3d1bcb496c6241862a61b35ce6aa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b7.png using Guid(2df3d1bcb496c6241862a61b35ce6aa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea87b4a00f43718d7579ab4e3c7c6c06') in 0.011504 seconds 
+  Import took 0.014554 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/UI Elements/b4_deez.png
+  artifactKey: Guid(4a5d15eb3736e89488d92c2a86eb632d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b4_deez.png using Guid(4a5d15eb3736e89488d92c2a86eb632d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99f43b5c00317e97048b21d96be4e181') in 0.012469 seconds 
+  Import took 0.015177 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000257 seconds.
+  path: Assets/UI Elements/b5.png
+  artifactKey: Guid(b8e7f79f49db4f0498f3307ddc5db1e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b5.png using Guid(b8e7f79f49db4f0498f3307ddc5db1e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '147c733fc5d6fe32eeb40f0e2f61b204') in 0.014837 seconds 
+  Import took 0.018775 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.455739 seconds.
+  path: Assets/UI Elements/b11.png
+  artifactKey: Guid(34d0b8db9cae24b4592f1a520af9d6ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI Elements/b11.png using Guid(34d0b8db9cae24b4592f1a520af9d6ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '157d3f1b1bf277f79ee239a8959495cc') in 0.010941 seconds 
+  Import took 0.014169 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002232 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.17 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.855 seconds
+Domain Reload Profiling:
+	ReloadAssembly (856ms)
+		BeginReloadAssembly (101ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (702ms)
+			LoadAssemblies (69ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (234ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (45ms)
+			SetupLoadedEditorAssemblies (257ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (162ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1854 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.8 MB.
+System memory in use after: 98.9 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2410.
+Total: 2.668700 ms (FindLiveObjects: 0.201500 ms CreateObjectMapping: 0.039900 ms MarkObjects: 2.407800 ms  DeleteObjects: 0.018600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 817.555103 seconds.
+  path: Assets/Prefabs/Player 1.prefab
+  artifactKey: Guid(739199eb86b88a948af7908c9eef20d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player 1.prefab using Guid(739199eb86b88a948af7908c9eef20d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4764532b733f4847b98a5eb6c199651c') in 0.219531 seconds 
+  Import took 0.224751 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/Prefabs/Player Variant.prefab
+  artifactKey: Guid(a5d489d3a13efd44c90d9df0448a8872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Variant.prefab using Guid(a5d489d3a13efd44c90d9df0448a8872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bd5c6ca9112be59f18744d638f4d48c') in 0.026971 seconds 
+  Import took 0.030993 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Prefabs/Player 2.prefab
+  artifactKey: Guid(4f5ec216592eab94ab9122aace3eee45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player 2.prefab using Guid(4f5ec216592eab94ab9122aace3eee45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54701e406016c33761bbd7f796a40c45') in 0.027394 seconds 
+  Import took 0.032085 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/Prefabs/Skilltree Canvas.prefab
+  artifactKey: Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Skilltree Canvas.prefab using Guid(0d07f430d79b6da42b5f0f1bcd3e3c39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afe3afa60d23fa97927695f8837e920c') in 0.024490 seconds 
+  Import took 0.028332 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/Prefabs/Player&Batt.prefab
+  artifactKey: Guid(410d768d50ce0e04e80f9af553d9d0a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player&Batt.prefab using Guid(410d768d50ce0e04e80f9af553d9d0a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c6c48bf6574eba9b4d9417bfa88aba4') in 0.023447 seconds 
+  Import took 0.027538 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001930 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.960 seconds
+Domain Reload Profiling:
+	ReloadAssembly (960ms)
+		BeginReloadAssembly (97ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (810ms)
+			LoadAssemblies (66ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (280ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (352ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (76ms)
+				ProcessInitializeOnLoadAttributes (261ms)
+				ProcessInitializeOnLoadMethodAttributes (2ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1854 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.9 MB.
+System memory in use after: 99.0 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 2413.
+Total: 3.018800 ms (FindLiveObjects: 0.220700 ms CreateObjectMapping: 0.041100 ms MarkObjects: 2.691600 ms  DeleteObjects: 0.064400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001922 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.827 seconds
+Domain Reload Profiling:
+	ReloadAssembly (827ms)
+		BeginReloadAssembly (101ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (668ms)
+			LoadAssemblies (70ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (237ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (250ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (73ms)
+				ProcessInitializeOnLoadAttributes (162ms)
+				ProcessInitializeOnLoadMethodAttributes (3ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1854 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.9 MB.
+System memory in use after: 99.0 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 2415.
+Total: 2.775600 ms (FindLiveObjects: 0.233300 ms CreateObjectMapping: 0.043500 ms MarkObjects: 2.484300 ms  DeleteObjects: 0.013500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
