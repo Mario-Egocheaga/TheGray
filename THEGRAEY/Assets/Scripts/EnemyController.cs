@@ -42,6 +42,10 @@ public class EnemyController : MonoBehaviour
         else
         {
             Debug.Log("LOS");
+            if(!isStunned && Vector3.Distance(player.transform.position, transform.position) < drainRange)
+            {
+                playerController.drainBatteryPerSecond(25);
+            }
         }
 
         /*RaycastHit hit;
@@ -78,25 +82,6 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && !other.isTrigger)
-        {
-            Debug.Log(other.gameObject);
-            playerSpotted = true;
-            playerController.addEnemyDraining();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && !other.isTrigger)
-        {
-            playerSpotted = false;
-            playerController.subtractEnemyDraining();
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         //possibly add ability for player to run/jump up and punch an enemy dead
@@ -105,6 +90,7 @@ public class EnemyController : MonoBehaviour
     void orbitAround()
     {
         transform.RotateAround(player.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
+        transform.LookAt(player.transform);
     }
 
     void chase()
@@ -123,9 +109,7 @@ public class EnemyController : MonoBehaviour
         enemyRB.velocity = new Vector3(0,0,0);
         enemyRB.useGravity = true;
         isStunned = true;
-        playerController.subtractEnemyDraining();
         yield return new WaitForSeconds(3);
-        playerController.addEnemyDraining();
         enemyRB.useGravity = false;
         isStunned = false;
     }

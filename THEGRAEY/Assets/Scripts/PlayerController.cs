@@ -473,17 +473,19 @@ public class PlayerController : MonoBehaviour
 
 
         //Battery
+
+        //Constant slider update
+        batterySlider.value = batteryLife;
+
         if(isCharging)
         {
             if(batteryLife > 999f)
             {
                 batteryLife = 1000f;
-                batterySlider.value = batteryLife;
             }
             else
             {
                 batteryLife += Time.deltaTime * 50;
-                batterySlider.value = batteryLife;
             }
         }
         else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
@@ -491,13 +493,11 @@ public class PlayerController : MonoBehaviour
             if(isSprinting)
             {
                 batteryLife -= Time.deltaTime * 7;
-                batterySlider.value = batteryLife;
 
             }
             else
             {
                 batteryLife -= Time.deltaTime * 3;
-                batterySlider.value = batteryLife;
             }
         }
         else
@@ -550,7 +550,6 @@ public class PlayerController : MonoBehaviour
                     if(enemyCon.getStunned())
                     {
                         StopAllCoroutines();
-                        addEnemyDraining();
                         StartCoroutine(enemyCon.Stunned());
                     }
                     else
@@ -724,13 +723,8 @@ public class PlayerController : MonoBehaviour
         return batteryLife;
     }
 
-    public void addEnemyDraining()
+    public void drainBatteryPerSecond(float multiplier)
     {
-        enemiesDraining++;
-    }
-
-    public void subtractEnemyDraining()
-    {
-        enemiesDraining--;
+        batteryLife -= Time.deltaTime * multiplier;
     }
 }
