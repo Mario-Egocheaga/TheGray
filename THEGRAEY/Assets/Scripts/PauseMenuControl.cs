@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenuControl : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PauseMenuControl : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject MapUI;
     public GameObject SettingUI;
+    public GameObject LogTab;
+    public GameObject SkillTab;
+
     
     // Start is called before the first frame update
     void Start()
@@ -22,7 +26,7 @@ public class PauseMenuControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (Paused == true)
             {
@@ -41,20 +45,21 @@ public class PauseMenuControl : MonoBehaviour
         {
             PauseMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             Time.timeScale = 0f;
         }
         else
         {
             PauseMenu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             Time.timeScale = 1f;
         }
     }
 
     public void Play()
     {
-        PauseMenu.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
+        Paused = false;
     }
     
     public void Settings()
@@ -62,6 +67,18 @@ public class PauseMenuControl : MonoBehaviour
         SettingUI.SetActive(true);
         MapUI.SetActive(false);
         PauseMenu.SetActive(false);
+        LogTab.SetActive(false);
+        SkillTab.SetActive(false);
+    }
+
+    public void Skills()
+    {
+        Debug.Log("YOYOYOYO IT WORKED BIOIIIIII");
+        SettingUI.SetActive(false);
+        MapUI.SetActive(false);
+        PauseMenu.SetActive(false);
+        LogTab.SetActive(false);
+        SkillTab.SetActive(true);
     }
 
     public void Map()
@@ -69,10 +86,21 @@ public class PauseMenuControl : MonoBehaviour
         MapUI.SetActive(true);
         SettingUI.SetActive(false);
         PauseMenu.SetActive(false);
+        LogTab.SetActive(false);
+        SkillTab.SetActive(false);
+    }
+
+    public void Logs()
+    {
+        MapUI.SetActive(false);
+        SettingUI.SetActive(false);
+        PauseMenu.SetActive(false);
+        LogTab.SetActive(true);
+        SkillTab.SetActive(false);
     }
 
     public void Quit()
     {
-
+        Application.Quit();
     }
 }
