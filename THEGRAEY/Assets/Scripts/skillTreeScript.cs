@@ -120,7 +120,19 @@ public class skillTreeScript : MonoBehaviour
                 CanvasImageDRight.sprite = Empty;
                 CanvasImageDLeft.sprite = Empty;
 
-                jumpButton.SetActive(false);
+                DashButton.gameObject.SetActive(true);
+                Dash_2_Button.gameObject.SetActive(true);
+                Dash_3_Button.gameObject.SetActive(true);
+                Dash_4_Button.gameObject.SetActive(true);
+
+                jumpButton.gameObject.SetActive(false);
+                jump_2_Button.gameObject.SetActive(false);
+                jump_3_Button.gameObject.SetActive(false);
+
+                WallButton.gameObject.SetActive(false);
+                Wall_2_Button.gameObject.SetActive(false);
+
+                crouchButton.gameObject.SetActive(false);
 
                 skillType.text = "Dash";
 
@@ -162,23 +174,29 @@ public class skillTreeScript : MonoBehaviour
                 CanvasImageDLeft.sprite = Empty;
                 Debug.Log("Top Right");
 
+                DashButton.gameObject.SetActive(false);
+                Dash_2_Button.gameObject.SetActive(false);
+                Dash_3_Button.gameObject.SetActive(false);
+                Dash_4_Button.gameObject.SetActive(false);
+
+                jumpButton.gameObject.SetActive(false);
+                jump_2_Button.gameObject.SetActive(false);
+                jump_3_Button.gameObject.SetActive(false);
+
+                WallButton.gameObject.SetActive(true);
+                Wall_2_Button.gameObject.SetActive(true);
+
+                crouchButton.gameObject.SetActive(false);
+
                 skillType.text = "Porple";
-
-                if (PlayerController.doubleJumpUnlocked == true)
+                
+                if (PlayerController.wallRunUnlocked == true)
                 {
-                    jumpButton.image.sprite = jumpColor;
+                    Wall_2_Button.image.sprite = Wall_2_Color;
 
                 }
-                if (PlayerController.slamUnlocked == true)
-                {
-                    jump_2_Button.image.sprite = jump_2_Color;
 
-                }
-                if (PlayerController.slamUnlocked == true)
-                {
-                    jump_3_Button.image.sprite = jump_3_Color;
-
-                }
+                
                 //else
                 //{
                 //jumpButton.image.sprite = jumpGrey;
@@ -207,6 +225,20 @@ public class skillTreeScript : MonoBehaviour
                 CanvasImageDLeft.sprite = Empty;
                 Debug.Log("right");
 
+                DashButton.gameObject.SetActive(false);
+                Dash_2_Button.gameObject.SetActive(false);
+                Dash_3_Button.gameObject.SetActive(false);
+                Dash_4_Button.gameObject.SetActive(false);
+
+                jumpButton.gameObject.SetActive(false);
+                jump_2_Button.gameObject.SetActive(false);
+                jump_3_Button.gameObject.SetActive(false);
+
+                WallButton.gameObject.SetActive(false);
+                Wall_2_Button.gameObject.SetActive(false);
+
+                crouchButton.gameObject.SetActive(true);
+
                 skillType.text = "crouching";
 
                 //if (PlayerController.slideUnlocked == true)
@@ -226,35 +258,6 @@ public class skillTreeScript : MonoBehaviour
                     
                 //}
             }
-            //else if (angle > -2.5 && angle < -.64)
-            //{
-                //CanvasImageUpLeft.sprite = Empty;
-                //CanvasImagebottom.sprite = Green;
-                //CanvasImageUpRight.sprite = Empty;
-                //CanvasImageRight.sprite = Empty;
-                //CanvasImageLeft.sprite = Empty;
-                //Debug.Log("bottom");
-
-
-                //skillType.text = "Crouching";
-
-                //if (PlayerController.# == true)
-                //{
-                    //crouchButton.image.sprite = crouchColor;
-
-                //}
-                //if (PlayerController.plainSightUnlocked == true)
-                //{
-                    //crouch_2_Button.image.sprite = crouch_2_Color;
-
-                //}
-                //else
-                //{
-                    //crouchButton.image.sprite = crouchGrey;
-                    //crouch_2_Button.image.sprite = crouch_2_Grey;
-                    
-                //}
-            //}
             else if (angle > -.64 && angle < .63)
             {
                 CanvasImageUpLeft.sprite = Empty;
@@ -264,24 +267,40 @@ public class skillTreeScript : MonoBehaviour
                 CanvasImageDLeft.sprite = Green;
                 Debug.Log("Left");
 
+                DashButton.gameObject.SetActive(false);
+                Dash_2_Button.gameObject.SetActive(false);
+                Dash_3_Button.gameObject.SetActive(false);
+                Dash_4_Button.gameObject.SetActive(false);
+
+                jumpButton.gameObject.SetActive(true);
+                jump_2_Button.gameObject.SetActive(true);
+                jump_3_Button.gameObject.SetActive(true);
+
+                WallButton.gameObject.SetActive(false);
+                Wall_2_Button.gameObject.SetActive(false);
+
+                crouchButton.gameObject.SetActive(false);
+
                 skillType.text = "Jump";
 
-                //if (PlayerController.wallGrabUnlocked == true)
-                //{
-                    //WallButton.image.sprite = WallColor;
-
-                //}
-                if (PlayerController.wallRunUnlocked == true)
+             if (PlayerController.doubleJumpUnlocked == true)
                 {
-                    Wall_2_Button.image.sprite = Wall_2_Color;
+                    jumpButton.image.sprite = jumpColor;
 
                 }
-                //else
-                //{
-                    //WallButton.image.sprite = DashGrey;
-                    //Wall_2_Button.image.sprite = Dash_2_Grey;
-                    
-                //}
+                if (PlayerController.slamUnlocked == true)
+                {
+                    jump_2_Button.image.sprite = jump_2_Color;
+
+                }
+                if (PlayerController.slamUnlocked == true)
+                {
+                    jump_3_Button.image.sprite = jump_3_Color;
+
+                }
+
+               
+               
             }
             
         }
