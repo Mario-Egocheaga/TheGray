@@ -46,9 +46,7 @@ public class skillTreeScript : MonoBehaviour
     public Sprite jump_3_Color;
     public Sprite jump_3_Grey;
     public Button jump_3_Button;
-    public Sprite jump_4_Color;
-    public Sprite jump_4_Grey;
-    public Button jump_4_Button;
+
 
     //public Sprite slideColor;
     //public Sprite slideGrey;
@@ -60,9 +58,7 @@ public class skillTreeScript : MonoBehaviour
     public Sprite crouchColor;
     public Sprite crouchGrey;
     public Button crouchButton;
-    public Sprite crouch_2_Color;
-    public Sprite crouch_2_Grey;
-    public Button crouch_2_Button;
+
 
     public Sprite WallColor;
     public Sprite WallGrey;
@@ -81,15 +77,16 @@ public class skillTreeScript : MonoBehaviour
 
         jumpButton.image.sprite = jumpGrey;
         jump_2_Button.image.sprite = jump_2_Grey;
+        jump_3_Button.image.sprite = jump_3_Grey;
         
-        jump_4_Button.image.sprite = jump_4_Grey;
+        
 
         //slideButton.image.sprite = slideGrey;
         //slide_2_Button.image.sprite = slide_2_Grey;
         
 
-       // crouchButton.image.sprite = crouchGrey;
-        crouch_2_Button.image.sprite = crouch_2_Grey;
+       crouchButton.image.sprite = crouchGrey;
+        
 
         WallButton.image.sprite = WallGrey;
         Wall_2_Button.image.sprite = Wall_2_Grey;
@@ -123,7 +120,9 @@ public class skillTreeScript : MonoBehaviour
                 CanvasImageDRight.sprite = Empty;
                 CanvasImageDLeft.sprite = Empty;
 
-                skillType.text = "Dashing";
+                jumpButton.SetActive(false);
+
+                skillType.text = "Dash";
 
                 if(PlayerController.dashUnlocked == true)
                 {
@@ -163,7 +162,7 @@ public class skillTreeScript : MonoBehaviour
                 CanvasImageDLeft.sprite = Empty;
                 Debug.Log("Top Right");
 
-                skillType.text = "Jumping";
+                skillType.text = "Porple";
 
                 if (PlayerController.doubleJumpUnlocked == true)
                 {
@@ -172,15 +171,20 @@ public class skillTreeScript : MonoBehaviour
                 }
                 if (PlayerController.slamUnlocked == true)
                 {
-                    Dash_3_Button.image.sprite = jump_2_Color;
+                    jump_2_Button.image.sprite = jump_2_Color;
+
+                }
+                if (PlayerController.slamUnlocked == true)
+                {
+                    jump_3_Button.image.sprite = jump_3_Color;
 
                 }
                 //else
                 //{
-                    jumpButton.image.sprite = jumpGrey;
-                    //jump_2_Button.image.sprite = jump_2_Grey;
-                    //jump_3_Button.image.sprite = jump_3_Grey;
-                    //jump_4_Button.image.sprite = jump_4_Grey;
+                //jumpButton.image.sprite = jumpGrey;
+                //jump_2_Button.image.sprite = jump_2_Grey;
+                //jump_3_Button.image.sprite = jump_3_Grey;
+                //jump_4_Button.image.sprite = jump_4_Grey;
                 //}
                 //if (PlayerController.# == true)
                 //{
@@ -192,7 +196,7 @@ public class skillTreeScript : MonoBehaviour
                 //jump_4_Button.image.sprite = jump_4_Color;
 
                 //}
-                
+
             }
             else if (angle < -1.5 && angle > -3 )
             {
@@ -203,7 +207,7 @@ public class skillTreeScript : MonoBehaviour
                 CanvasImageDLeft.sprite = Empty;
                 Debug.Log("right");
 
-                skillType.text = "Wall-Running";
+                skillType.text = "crouching";
 
                 //if (PlayerController.slideUnlocked == true)
                 //{
@@ -260,7 +264,7 @@ public class skillTreeScript : MonoBehaviour
                 CanvasImageDLeft.sprite = Green;
                 Debug.Log("Left");
 
-                skillType.text = "Crouch";
+                skillType.text = "Jump";
 
                 //if (PlayerController.wallGrabUnlocked == true)
                 //{
@@ -285,6 +289,8 @@ public class skillTreeScript : MonoBehaviour
         
     }
 
+
+    //Skill descriptions
     public void Dash1()
     {
         skillName.text = "Dash";

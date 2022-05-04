@@ -11,6 +11,7 @@ public class PauseMenuControl : MonoBehaviour
     public GameObject SettingUI;
     public GameObject LogTab;
     public GameObject SkillTab;
+    public GameObject SkillTree;
 
     
     // Start is called before the first frame update
@@ -29,12 +30,14 @@ public class PauseMenuControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (Paused == true)
-            {
+            {   
+               
                 Paused = false;
             }
             else if (Paused == false)
             {
                 Paused = true;
+                Map();
             }
         }
 
@@ -47,6 +50,8 @@ public class PauseMenuControl : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0f;
+
+            
         }
         else
         {
@@ -55,6 +60,8 @@ public class PauseMenuControl : MonoBehaviour
             Cursor.visible = false;
             Time.timeScale = 1f;
         }
+
+        
     }
 
     public void Play()
@@ -69,16 +76,19 @@ public class PauseMenuControl : MonoBehaviour
         PauseMenu.SetActive(false);
         LogTab.SetActive(false);
         SkillTab.SetActive(false);
+        SkillTree.SetActive(false);
     }
 
     public void Skills()
     {
         Debug.Log("YOYOYOYO IT WORKED BIOIIIIII");
+        SkillTree.SetActive(true);
+        SkillTab.SetActive(true);
         SettingUI.SetActive(false);
         MapUI.SetActive(false);
         PauseMenu.SetActive(false);
         LogTab.SetActive(false);
-        SkillTab.SetActive(true);
+        
     }
 
     public void Map()
@@ -88,6 +98,7 @@ public class PauseMenuControl : MonoBehaviour
         PauseMenu.SetActive(false);
         LogTab.SetActive(false);
         SkillTab.SetActive(false);
+        SkillTree.SetActive(false);
     }
 
     public void Logs()
@@ -97,6 +108,7 @@ public class PauseMenuControl : MonoBehaviour
         PauseMenu.SetActive(false);
         LogTab.SetActive(true);
         SkillTab.SetActive(false);
+        SkillTree.SetActive(false);
     }
 
     public void Quit()
